@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn thi Truyền nhiễm — 160 câu tình huống</title>
+<style>
+  :root{
+    --bg:#f6f5f2; --surface:#ffffff; --surface-2:#f0eee9; --line:#ddd9d0;
+    --ink:#1c1b19; --ink-2:#5c584f; --ink-3:#8a857a;
+    --accent:#8a3324; --accent-soft:#f5e9e6;
+    --ok:#1f6b45; --ok-soft:#e6f2ec; --bad:#a32c28; --bad-soft:#fbeae9;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181a; --surface:#1f2124; --surface-2:#26282c; --line:#34373c;
+      --ink:#eceae6; --ink-2:#b0aca4; --ink-3:#85817a;
+      --accent:#e08b74; --accent-soft:#2e2320;
+      --ok:#6fc79a; --ok-soft:#1c2a23; --bad:#e58a84; --bad-soft:#2c1e1e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181a; --surface:#1f2124; --surface-2:#26282c; --line:#34373c;
+    --ink:#eceae6; --ink-2:#b0aca4; --ink-3:#85817a;
+    --accent:#e08b74; --accent-soft:#2e2320;
+    --ok:#6fc79a; --ok-soft:#1c2a23; --bad:#e58a84; --bad-soft:#2c1e1e;
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-size:16px; line-height:1.6;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:24px 16px 72px}
+  header h1{font-size:1.45rem; line-height:1.25; margin:0 0 6px; letter-spacing:-.01em}
+  header p{margin:0; color:var(--ink-2); font-size:.92rem}
+  .bar{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+    background:var(--bg); border-bottom:1px solid var(--line);
+    margin:18px -16px 0; padding:10px 16px;
+  }
+  .tabs{display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{height:0}
+  .tab{
+    flex:0 0 auto; border:1px solid var(--line); background:var(--surface);
+    color:var(--ink-2); padding:7px 12px; border-radius:999px; cursor:pointer;
+    font-size:.84rem; white-space:nowrap; font-family:inherit;
+  }
+  .tab[aria-selected="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+  .meta{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px; font-size:.82rem; color:var(--ink-3)}
+  .meta strong{color:var(--ink); font-weight:600}
+  .btn{
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+    padding:5px 11px; border-radius:8px; cursor:pointer; font-size:.8rem; font-family:inherit;
+  }
+  .btn:hover{color:var(--ink)}
+  .topichead{margin:26px 0 4px; font-size:1.05rem; font-weight:650; color:var(--accent)}
+  .topicsub{margin:0 0 4px; font-size:.85rem; color:var(--ink-3)}
+  .q{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:16px 16px 6px; margin:14px 0;
+  }
+  .qn{font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px}
+  .stem{margin:0 0 12px}
+  .opts{list-style:none; margin:0; padding:0}
+  .opt{
+    display:flex; gap:10px; align-items:flex-start;
+    border:1px solid var(--line); background:var(--surface-2);
+    border-radius:9px; padding:10px 12px; margin-bottom:7px; cursor:pointer;
+    transition:border-color .12s, background .12s;
+  }
+  .opt:hover{border-color:var(--ink-3)}
+  .opt .k{font-weight:650; color:var(--ink-2); flex:0 0 auto; min-width:1.1em}
+  .locked .opt{cursor:default}
+  .locked .opt:hover{border-color:var(--line)}
+  .opt.right{background:var(--ok-soft); border-color:var(--ok)}
+  .opt.right .k{color:var(--ok)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad)}
+  .opt.wrong .k{color:var(--bad)}
+  .exp{
+    display:none; border-top:1px dashed var(--line); margin-top:10px;
+    padding:11px 0 12px; font-size:.93rem; color:var(--ink-2);
+  }
+  .exp.show{display:block}
+  .verdict{font-weight:650; margin-bottom:4px}
+  .verdict.ok{color:var(--ok)} .verdict.no{color:var(--bad)}
+  .exp b{color:var(--ink)}
+  footer{margin-top:34px; padding-top:14px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-3)}
+  @media (max-width:520px){ .wrap{padding:18px 12px 60px} .bar{margin:14px -12px 0; padding:10px 12px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Ôn thi cuối kỳ Truyền nhiễm — 160 câu tình huống</h1>
+    <p>8 chủ đề × 20 câu · chọn đáp án để xem giải thích ngay</p>
+  </header>
+
+  <div class="bar">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="meta">
+      <span>Đã làm <strong id="done">0</strong>/<strong id="total">0</strong></span>
+      <span>· Đúng <strong id="score">0</strong></span>
+      <button class="btn" id="revealAll">Hiện tất cả đáp án</button>
+      <button class="btn" id="reset">Làm lại</button>
+    </div>
+  </div>
+
+  <main id="app"></main>
+
+  <footer>
+    Biên soạn theo giáo trình Bộ môn Nhiễm ĐHYD TP.HCM, QĐ 5968/QĐ-BYT (HIV, 2021),
+    QĐ 2760/QĐ-BYT (SXHD, 2023), QĐ 3377/QĐ-BYT (Sốt rét, 2023), QĐ 1840/QĐ-BYT (Cúm mùa, 2025), QĐ 1740/QĐ-BYT (Viêm gan B, 2026), QĐ 1622/QĐ-BYT (Dại, 2014), QĐ 5642/QĐ-BYT (một số bệnh truyền nhiễm).
+    Tài liệu tự học, không thay thế hướng dẫn chính thức.
+  </footer>
+</div>
+
+<script>
+const DATA = [
+{
+  name:"1 · Sốt – HC màng não – VMN mủ",
+  sub:"Tiếp cận sốt, đánh giá độ nặng, dịch não tủy, kháng sinh theo tác nhân",
+  qs:[
+  {q:"Nam 32 tuổi đang chạy marathon thì ngất. Nhập viện: mê, T 41,6°C, mạch 130, thở 28, nước tiểu đỏ xá xị, CK-MB 15.000 U/L, AST 90, ALT 100. Xử trí hạ thân nhiệt phù hợp nhất?",
+   o:["Lau mát tích cực + paracetamol truyền tĩnh mạch","Paracetamol truyền tĩnh mạch + truyền dịch","Truyền dịch + lau mát tích cực","Không cần xử trí hạ thân nhiệt"],
+   a:2,
+   e:"Đây là <b>sốc nhiệt (heat stroke)</b>, không phải sốt. Sốt là tăng thân nhiệt <b>kèm đặt lại set point</b> ở hạ đồi; sốc nhiệt thì set point bình thường, cơ thể chỉ mất khả năng thải nhiệt. Paracetamol hạ sốt bằng cách kéo set point xuống nên <b>hoàn toàn vô dụng</b> ở đây; hơn nữa bệnh nhân đã có tiêu cơ vân (CK rất cao, tiểu myoglobin) và tổn thương gan nên paracetamol còn <b>có hại</b>. Xử trí đúng là <b>thải nhiệt vật lý tích cực + bù dịch</b> (chống suy thận do tiêu cơ vân). Phương án D sai vì T >41°C đe dọa suy đa cơ quan, bắt buộc can thiệp."},
+
+  {q:"Nam 38 tuổi đến phòng khám vì sốt ngày 4, sốt 39°C liên tục, mạch 120, HA 130/80, thở 22, SpO₂ 98%, tỉnh táo, không triệu chứng khác. Thang điểm nào phù hợp nhất để đánh giá ban đầu mức độ nặng?",
+   o:["SIRS","SOFA","NEWS2","Thang điểm Glasgow"],
+   a:2,
+   e:"Chú ý cụm từ <b>“đánh giá ban đầu”</b>. <b>NEWS2 (National Early Warning Score)</b> là thang cảnh báo sớm, chỉ dùng sinh hiệu + tri giác, thiết kế để <b>sàng lọc tại phòng khám / khoa lâm sàng</b> trên bất kỳ bệnh nhân nào. <b>SOFA</b> cần nhiều dữ kiện cận lâm sàng (PaO₂/FiO₂, bilirubin, creatinine, tiểu cầu) và chỉ dùng để xác định rối loạn chức năng cơ quan khi <b>đã</b> chẩn đoán nhiễm trùng. SIRS là định nghĩa cũ (Sepsis-2), không phải công cụ đánh giá ban đầu. Glasgow chỉ đánh giá tri giác."},
+
+  {q:"Bệnh nhân sốt đơn thuần, khám toàn diện không phát hiện triệu chứng định hướng. CTM bình thường, CRP 15 mg/L. Bước cận lâm sàng tiếp theo hợp lý nhất?",
+   o:["TPTNT, siêu âm bụng, X-quang ngực thẳng","CT sọ não và chọc dò dịch não tủy","CT bụng có cản quang","Hội chẩn chuyên gia truyền nhiễm"],
+   a:0,
+   e:"Khi khám xong <b>không có triệu chứng định hướng</b>, bộ xét nghiệm bước 1 theo bài Tiếp cận bệnh nhân sốt là: <b>CTM, KSTSR (thường quy vì VN là vùng dịch tễ sốt rét), TPTNT, siêu âm bụng, X-quang phổi, cấy máu, CRP</b> — tức tầm soát các ổ nhiễm thường gặp nhất. CT sọ + chọc DNT chỉ đặt ra khi có đau đầu/dấu màng não/rối loạn tri giác. CT bụng là bước sau, không phải bước sàng lọc. Hội chẩn chuyên gia là bước cuối khi FUO thật sự."},
+
+  {q:"Nhóm bệnh nhân nào sau đây có thể nhiễm trùng NẶNG nhưng KHÔNG sốt, thậm chí hạ thân nhiệt?",
+   o:["Người trẻ khỏe mạnh nhiễm phế cầu","Trẻ sơ sinh, người cao tuổi, xơ gan, dùng corticoid kéo dài","Bệnh nhân SXHD giai đoạn sốt","Bệnh nhân sốt rét cơn"],
+   a:1,
+   e:"Bốn nhóm kinh điển “nhiễm trùng nặng mà không sốt”: <b>trẻ sơ sinh, người cao tuổi, bệnh gan–thận mạn (xơ gan + viêm phúc mạc nguyên phát), người dùng corticoid kéo dài</b>. Ngoài ra <b>hạ thân nhiệt</b> có thể là biểu hiện của <b>sốc nhiễm trùng</b>. Nguyên tắc cần nhớ: <b>không sốt KHÔNG loại trừ nhiễm trùng nặng</b> — đây chính là lý do phải đánh giá độ nặng dựa trên rối loạn chức năng cơ quan chứ không dựa vào con số nhiệt độ."},
+
+  {q:"Bệnh nhân sốt 39,5°C, mạch 150 lần/phút, HA 90/60 mmHg, chi mát. Nhận định nào đúng nhất về nhịp tim?",
+   o:["Nhịp tim tăng phù hợp với mức sốt","Nhịp nhanh quá mức so với sốt, phải tìm nguyên nhân khác như giảm thể tích hay sốc","Gợi ý mạch–nhiệt phân ly của thương hàn","Do bệnh nhân đang dùng thuốc chẹn beta"],
+   a:1,
+   e:"Quy tắc sinh lý: <b>mỗi 1°C tăng thì mạch chỉ tăng khoảng 10 lần/phút</b>. Với T 39,5°C (tăng ~2,5°C so với 37°C), mạch dự kiến chỉ khoảng 100–110. Mạch 150 kèm HA 90/60 và chi mát là <b>vượt quá mức giải thích được bằng sốt</b> → phải nghĩ tới mất dịch, sốc, cường giáp hoặc bệnh tim mạch. Ngược lại, mạch <b>không tăng tương xứng</b> (mạch–nhiệt phân ly) mới gợi ý thương hàn hoặc do chẹn beta."},
+
+  {q:"Nam 70 tuổi, sốt + đau đầu + cổ gượng ngày 2, DNT đục, bạch cầu 3.200/mm³ ưu thế đa nhân, đường DNT/máu 0,15, lactate 8 mmol/L, soi Gram chưa có kết quả. Kháng sinh kinh nghiệm phù hợp nhất?",
+   o:["Ceftriaxone đơn thuần","Ceftriaxone + Vancomycin","Ampicillin + Ceftriaxone ± Vancomycin","Meropenem đơn thuần"],
+   a:2,
+   e:"Bệnh nhân <b>>50 tuổi</b> → ngoài phế cầu và não mô cầu, phải phủ thêm <b>Listeria monocytogenes</b> và trực khuẩn gram âm. Cephalosporin thế hệ III <b>không có tác dụng trên Listeria</b>, nên bắt buộc phối hợp <b>Ampicillin</b>. Vancomycin thêm vào khi nghi phế cầu kháng penicillin (ở Việt Nam hiện được khuyến cáo phối hợp ngay từ đầu). Đáp án A và B bỏ sót Listeria — đây là bẫy được ra lặp lại ở nhiều đợt thi."},
+
+  {q:"Bệnh nhân viêm màng não mủ, soi dịch não tủy thấy song cầu gram âm. Kháng sinh phù hợp nhất?",
+   o:["Ceftriaxone 2g mỗi 24 giờ","Ceftriaxone 2g mỗi 12 giờ","Ceftriaxone 2g mỗi 12 giờ + Vancomycin 1g mỗi 8 giờ","Ceftriaxone 2g mỗi 24 giờ + Vancomycin 1g mỗi 8 giờ"],
+   a:1,
+   e:"Song cầu gram âm = <b>Neisseria meningitidis</b>. Não mô cầu vẫn nhạy tốt với cephalosporin III, <b>không cần phối hợp Vancomycin</b> (Vanco chỉ thêm khi nghi phế cầu kháng thuốc). Về liều: trong viêm màng não phải dùng <b>liều gấp đôi</b> so với nhiễm trùng huyết vì thuốc thấm qua hàng rào máu–não kém → <b>Ceftriaxone 4 g/ngày chia 2 lần (2g mỗi 12 giờ)</b>, không phải 2g/24h. Thời gian điều trị 7–10 ngày hoặc hết sốt 5 ngày."},
+
+  {q:"Bệnh nhân nghi viêm màng não mủ, chọc dò ra dịch đục. Thời điểm dùng Dexamethasone?",
+   o:["Trước liều kháng sinh đầu tiên 15–20 phút hoặc cùng lúc","Sau liều kháng sinh đầu tiên 15 phút","Chỉ dùng khi có kết quả cấy dịch não tủy","Chỉ dùng khi bệnh nhân có phù não trên CT"],
+   a:0,
+   e:"Cơ chế: kháng sinh diệt khuẩn làm <b>ly giải vi khuẩn</b>, phóng thích ồ ạt LPS và thành phần vách tế bào → bùng nổ cytokine (TNF-α, IL-1) → phù não và di chứng thần kinh, nhất là <b>điếc</b>. Dexamethasone ngăn đại thực bào tiết thêm cytokine, nên <b>chỉ có tác dụng nếu đã có mặt TRƯỚC khi cơn cytokine xảy ra</b>. Cho sau vài giờ/vài ngày thì hầu như vô ích. Liều: 0,15 mg/kg mỗi 6 giờ × 2–4 ngày, hoặc 0,4 mg/kg mỗi 12 giờ × 4 ngày."},
+
+  {q:"Bệnh nhân viêm màng não mủ đang dùng Ceftriaxone + Vancomycin + Dexamethasone. Ngày 3 cấy dịch não tủy ra Streptococcus suis. Xử trí phù hợp nhất?",
+   o:["Tiếp tục cả ba thuốc cho đủ liệu trình","Ngưng Vancomycin và ngưng Dexamethasone, tiếp tục Ceftriaxone","Ngưng Ceftriaxone, chuyển Vancomycin đơn thuần","Thêm Rifampicin để tăng hiệu quả"],
+   a:1,
+   e:"Hai lý do độc lập: ① <b>S. suis nhạy cảm tốt với Penicillin, Ampicillin và Cephalosporin III</b>, ở Việt Nam chưa ghi nhận chủng kháng → <b>Ceftriaxone đơn thuần là đủ</b>, Vancomycin trở nên thừa (và Vanco không bao giờ dùng đơn độc vì thấm màng não kém). ② <b>Dexamethasone chỉ chứng minh có lợi với 2 tác nhân: H. influenzae và S. pneumoniae</b> → khi phân lập ra tác nhân khác thì phải <b>ngưng ngay</b>. Lưu ý S. suis có tỉ lệ <b>điếc 30–40%</b> và dùng kháng sinh sớm cũng không ngăn được biến chứng này."},
+
+  {q:"Bệnh nhân viêm màng não mủ do Neisseria meningitidis, điều trị Ceftriaxone. Hiện đã hết sốt 5 ngày, tổng thời gian điều trị 7 ngày, cổ mềm, lâm sàng bình thường. Xử trí tiếp theo?",
+   o:["Ngưng kháng sinh, cho xuất viện","Tiếp tục cho đủ 14 ngày","Tiếp tục cho đủ 21 ngày","Đổi sang Meropenem để củng cố"],
+   a:0,
+   e:"Thời gian kháng sinh trong viêm màng não mủ <b>phụ thuộc tác nhân</b>, đây là bảng phải thuộc: <b>não mô cầu 7–10 ngày hoặc hết sốt 5 ngày</b> · <b>H. influenzae tối thiểu 10 ngày</b> · <b>phế cầu 10–14 ngày</b> · <b>S. suis 10–14 ngày</b> · <b>trực khuẩn gram âm ~21 ngày</b> · <b>Listeria 3–4 tuần</b> · tụ cầu 2–3 tuần. Não mô cầu cũng là tác nhân có <b>tiên lượng tốt nhất</b>, tử vong dưới 5%."},
+
+  {q:"Bé trai 6 tuổi, sốt + đau đầu + nói nhảm ngày 3, GCS 13, cổ gượng nhẹ. DNT: bạch cầu 450/mm³ (đa nhân 70%), đạm 0,8 g/dL, đường DNT 4 mmol/L (đường huyết 6 mmol/L), lactate 2,4 mmol/L, soi vi khuẩn (−). Thuốc phù hợp nhất?",
+   o:["Acyclovir","Ceftriaxone","Ceftriaxone + Acyclovir","Ceftriaxone + Vancomycin"],
+   a:0,
+   e:"Đọc DNT theo đúng thứ tự: <b>đường DNT/máu = 4/6 = 0,67 (bình thường, >1/2)</b> và <b>lactate 2,4 mmol/L (&lt;4)</b> → <b>loại trừ viêm màng não mủ và lao</b>. Bạch cầu chỉ 450 (mủ thường 1.000–5.000), đạm tăng nhẹ. Kèm bệnh cảnh <b>rối loạn tri giác, nói nhảm, la hét</b> tức có hội chứng não → hướng tới <b>viêm não–màng não siêu vi, nghĩ nhiều HSV</b>, là tác nhân <b>duy nhất có điều trị đặc hiệu</b> → Acyclovir, đồng thời làm PCR HSV/DNT. Ghi nhớ: <b>lactate &lt;4 là chỉ số phân định siêu vi tốt nhất</b>."},
+
+  {q:"Nam 65 tuổi, đau đầu âm ỉ 3 tuần, sốt nhẹ về chiều, sụt cân, nay yếu nửa người. DNT: nước trong, bạch cầu 300/mm³ ưu thế lympho, đạm 1,8 g/L, đường DNT/máu 0,25, lactate 6 mmol/L, chlor giảm. Chẩn đoán phù hợp nhất?",
+   o:["Viêm màng não mủ điều trị dở dang","Viêm màng não siêu vi","Lao màng não","Phản ứng màng não"],
+   a:2,
+   e:"Bộ ba định hướng lao màng não: ① <b>bệnh cảnh bán cấp/mạn (≥10 ngày)</b> với sốt nhẹ về chiều, sụt cân, nhức đầu dai dẳng; ② DNT <b>nước trong, lympho ưu thế, đường GIẢM (&lt;1/2 đường máu), lactate &gt;4, chlor giảm</b> — chlor giảm là nét riêng của lao; ③ <b>dấu thần kinh khu trú</b> (liệt dây VII, yếu nửa người, bí tiểu) xuất hiện cuối tuần 2. Siêu vi thì đường bình thường và lactate &lt;4. Phản ứng màng não thì <b>DNT không biến đổi</b>. Xét nghiệm: soi AFB (chỉ 15–25% dương), GeneXpert MTB/RIF."},
+
+  {q:"Bệnh nhân vào cấp cứu vì co giật và rối loạn tri giác, GCS 11, cổ gượng, đang lên một cơn co giật, SpO₂ 89% khí trời. Ưu tiên xử trí gì TRƯỚC TIÊN?",
+   o:["Chụp CT scan sọ não","Cấy máu rồi cho kháng sinh","Chọc dò dịch não tủy ngay","Bảo đảm đường thở, đặt nội khí quản và cắt cơn co giật"],
+   a:3,
+   e:"Nguyên tắc bất di bất dịch: <b>ABC trước mọi chẩn đoán</b>. Bệnh nhân đang co giật + SpO₂ 89% là suy hô hấp cấp đe dọa tính mạng ngay lập tức. Ngoài ra, <b>co giật, rối loạn tri giác nặng và sinh hiệu không ổn định đều là CHỐNG CHỈ ĐỊNH chọc dò tủy sống</b>. Sau khi ổn định hô hấp mới theo thứ tự: cấy máu → kháng sinh (± dexamethasone) → CT sọ → chọc dò nếu không còn chống chỉ định."},
+
+  {q:"Bệnh nhân nghi viêm màng não mủ nhưng có dấu thần kinh định vị (liệt dây VII). Thứ tự xử trí đúng?",
+   o:["Chụp CT trước, có kết quả rồi mới chọc dò và cho kháng sinh","Chọc dò ngay rồi cho kháng sinh, CT sau","Cấy máu → kháng sinh (± dexamethasone) → CT sọ → chọc dò nếu an toàn","Chờ kết quả CT rồi mới cấy máu"],
+   a:2,
+   e:"Có dấu thần kinh định vị → nguy cơ khối choán chỗ và tụt não → <b>cần CT trước khi chọc dò</b>. Nhưng chờ CT làm <b>trì hoãn kháng sinh, làm tăng tỉ lệ tử vong và di chứng</b> — viêm màng não mủ là cấp cứu nội khoa. Vì vậy quy trình chuẩn là: <b>cấy máu → cho kháng sinh (+ dexamethasone) NGAY → rồi mới CT → chọc dò sau nếu không có chống chỉ định</b>. Ta chấp nhận “mất dấu” vi sinh (chỉ 1 liều kháng sinh cũng làm cấy âm) để đổi lấy tính mạng bệnh nhân."},
+
+  {q:"Bệnh nhân sốt + đau đầu dữ dội, khám cổ gượng (−), Kernig (−), Brudzinski (−). Kết luận nào đúng?",
+   o:["Đã loại trừ viêm màng não","Không loại trừ được viêm màng não vì độ nhạy các dấu này rất thấp","Chỉ cần theo dõi thêm 24 giờ","Chuyển chuyên khoa thần kinh vì không phải bệnh nhiễm"],
+   a:1,
+   e:"Số liệu bộ môn nhấn rất mạnh (Thomas KE, 2002): <b>cổ gượng độ nhạy chỉ 30%</b>; <b>Kernig và Brudzinski độ nhạy chỉ 5%</b> (dù độ đặc hiệu 95%). Nghĩa là <b>giá trị tiên đoán âm rất thấp — khám âm tính KHÔNG loại trừ viêm màng não</b>. Âm giả hay gặp ở trẻ nhũ nhi, người cao tuổi, bệnh rất nặng và <b>bệnh nhân HIV bị viêm màng não nấm</b>. Chỉ cần <b>≥2 trong 4 triệu chứng</b> (đau đầu, sốt, cổ gượng, rối loạn ý thức) là đủ nghi ngờ để chọc dò."},
+
+  {q:"Nam 45 tuổi, tiền căn chấn thương sọ não 2 năm trước, hiện có chảy nước mũi trong khi cúi người, nay viêm màng não mủ lần thứ hai. Tác nhân nghĩ nhiều nhất?",
+   o:["Streptococcus pneumoniae","Staphylococcus aureus","Pseudomonas aeruginosa","Listeria monocytogenes"],
+   a:0,
+   e:"Chảy nước mũi trong khi cúi người/gắng sức = <b>rò dịch não tủy</b> do nứt sàn sọ. Bảng tác nhân theo cơ địa ghi rõ: <b>gãy/nứt sàn sọ → S. pneumoniae, H. influenzae, Streptococci nhóm A</b>, trong đó phế cầu là hàng đầu và là nguyên nhân kinh điển của <b>viêm màng não TÁI ĐI TÁI LẠI</b>. Ngược lại, <b>S. aureus, S. epidermidis và trực khuẩn gram âm</b> mới là tác nhân của <b>chấn thương đầu cấp và sau phẫu thuật thần kinh</b>. Điều trị đồng thời phải chuyển ngoại thần kinh vá lỗ rò sau khi ổn định."},
+
+  {q:"Bé trai 2 tuần tuổi, bỏ bú, quấy khóc, khóc thét bất thường, vàng da, thóp phồng, lơ mơ. Tác nhân nhiều khả năng nhất?",
+   o:["Streptococcus pneumoniae","Streptococcus suis","Streptococcus agalactiae","Streptococcus viridans"],
+   a:2,
+   e:"Trẻ <b>&lt;1 tháng tuổi</b>: ba tác nhân là <b>S. agalactiae (liên cầu nhóm B), E. coli, Listeria monocytogenes</b> — vi khuẩn chủ yếu từ vùng hội âm của mẹ, nhất là mẹ vỡ ối sớm hoặc nhiễm trùng ối. Ở trẻ sơ sinh triệu chứng rất không đặc hiệu: bỏ bú, quấy khóc, <b>khóc thét bất thường, vàng da, thóp phồng</b> (thay cho cổ gượng), co giật ~40%, có thể <b>hạ thân nhiệt</b> thay vì sốt. Dự phòng: Ampicillin cho sản phụ trong chuyển dạ nếu mang khuẩn hoặc có yếu tố nguy cơ."},
+
+  {q:"Bệnh nhân viêm màng não mủ đang điều trị Ceftriaxone + Dexamethasone, sau 48 giờ lâm sàng cải thiện rõ. Đột ngột co giật rồi lơ mơ. Khám: sinh hiệu ổn, không sốt, cổ gượng như cũ, không dấu định vị mới. Xét nghiệm nào nên làm trước tiên?",
+   o:["Ion đồ và đường huyết","Chọc dò dịch não tủy lại ngay","Cấy máu lại","Điện não đồ"],
+   a:0,
+   e:"Bệnh nhân đang <b>đáp ứng tốt</b> rồi đột ngột co giật + lơ mơ mà <b>không sốt, sinh hiệu ổn</b> → phải nghĩ tới <b>biến chứng chuyển hóa</b> trước biến chứng nhiễm trùng. Biến chứng nội tiết kinh điển của viêm màng não mủ là <b>SIADH (hội chứng tăng tiết ADH không thích hợp)</b> gây <b>hạ natri máu</b> → co giật, rối loạn tri giác. Hạ đường huyết cũng cần loại trừ. Chọc lại DNT là bước sau, chỉ có ý nghĩa khi nghi thất bại điều trị — mà ở đây lâm sàng đang cải thiện."},
+
+  {q:"Khi nào cần chọc dò dịch não tủy LẠI để đánh giá đáp ứng điều trị viêm màng não mủ?",
+   o:["Sau 24–48 giờ kể từ khi khởi động kháng sinh","Chỉ khi bệnh nhân còn sốt sau 7 ngày","Ngay khi hết sốt","Không bao giờ cần chọc lại nếu lâm sàng cải thiện"],
+   a:0,
+   e:"Nguyên tắc số 5 trong điều trị VMN mủ: <b>chọc dò khảo sát lại DNT sau 24–48 giờ</b> (một số tài liệu 48–72 giờ). Lý do phải dựa vào DNT chứ không chỉ lâm sàng: <b>dexamethasone có thể gây cải thiện giả</b> (hết sốt, đỡ đau đầu) trong khi vi khuẩn chưa được kiểm soát. Dấu hiệu đáp ứng theo thứ tự: DNT trong dần → <b>đường về bình thường → lactate giảm → bạch cầu giảm và chuyển từ đa nhân sang lympho</b>. Tiêu chuẩn xuất viện: <b>BC/DNT &lt;50 tế bào/mm³</b>."},
+
+  {q:"Một sinh viên ở ký túc xá được chẩn đoán viêm màng não do não mô cầu. Bạn cùng phòng (nữ, đang mang thai 20 tuần) cần dự phòng như thế nào?",
+   o:["Rifampicin 600 mg × 2 lần/ngày × 2 ngày","Ciprofloxacin 500 mg liều duy nhất","Ceftriaxone 250 mg tiêm bắp liều duy nhất","Không cần dự phòng vì đã tiêm vaccine từ nhỏ"],
+   a:2,
+   e:"Dự phòng sau tiếp xúc não mô cầu áp dụng cho người tiếp xúc trực tiếp chất tiết mũi họng, cùng gia đình, hoặc <b>tiếp xúc gần trong không gian kín (ký túc xá, doanh trại, quán bar, cắm trại)</b>. Phác đồ: người lớn <b>Rifampicin 600 mg × 2/ngày × 2 ngày</b> hoặc <b>Ciprofloxacin 500 mg liều duy nhất</b>. Nhưng ở <b>phụ nữ có thai</b>, cả rifampicin và ciprofloxacin đều nên tránh → dùng <b>Ceftriaxone 250 mg tiêm bắp liều duy nhất</b>. Ghi nhớ thêm: não mô cầu là <b>thể viêm màng não mủ duy nhất có thể gây DỊCH</b>."}
+  ]
+},
+{
+  name:"2 · HIV – PrEP/PEP – Nhiễm trùng cơ hội",
+  sub:"Phơi nhiễm, dự phòng trước/sau phơi nhiễm, thời điểm ARV, NTCH",
+  qs:[
+  {q:"Điều dưỡng 30 tuổi bị kim chứa máu bệnh nhân đâm vào tay khi lấy máu, có chảy máu. Cô đã rửa vết thương dưới vòi nước với xà phòng và báo cáo người phụ trách. Bước tiếp theo cần làm là gì?",
+   o:["Kê toa ngay TDF/3TC/DTG","Xét nghiệm HIV cho cả bệnh nhân nguồn và cô điều dưỡng cùng lúc","Xét nghiệm HIV cho bệnh nhân (nguồn phơi nhiễm)","Xét nghiệm HIV cho cô điều dưỡng"],
+   a:2,
+   e:"Quy trình 7 bước có thứ tự rất chặt: ① xử lý vết thương tại chỗ → ② báo cáo và làm biên bản → ③ đánh giá nguy cơ phơi nhiễm → <b>④ xác định tình trạng HIV của NGUỒN gây phơi nhiễm</b> → ⑤ xác định tình trạng HIV của người bị phơi nhiễm → ⑥ tư vấn → ⑦ kê đơn PEP 28 ngày. Cô đã làm xong bước 1–2, nên bước kế là <b>bước 4 — xét nghiệm cho nguồn</b>, vì kết quả này quyết định có chỉ định PEP hay không. Lưu ý: nếu <b>không xác định được tình trạng của nguồn thì COI NHƯ CÓ NGUY CƠ</b> và ghi rõ trong biên bản."},
+
+  {q:"Sinh viên y bị máu bệnh nhân HIV (+) văng vào mu bàn tay, da hoàn toàn lành, không trầy xước. Xử trí đúng?",
+   o:["Chỉ định PEP 28 ngày ngay","Không chỉ định PEP vì đây là phơi nhiễm không có nguy cơ","Chỉ định PEP nếu tải lượng virus của nguồn cao","Theo dõi và xét nghiệm HIV mỗi tháng trong 6 tháng"],
+   a:1,
+   e:"Máu hoặc dịch cơ thể tiếp xúc <b>vùng da LÀNH → nguy cơ lây nhiễm 0%</b> (khoảng tin cậy 95%: 0–0,77%) → <b>đây không phải là phơi nhiễm có nguy cơ, không chỉ định PEP</b>. Các mức nguy cơ để nhớ: kim dính máu đâm xuyên da <b>0,3%</b>; máu bắn vào niêm mạc <b>0,09%</b>; da lành <b>0%</b>. Tuy vậy “không chỉ định PEP” <b>không có nghĩa là không làm gì</b> — vẫn tư vấn, tầm soát HBV/HCV và hướng dẫn hạn chế nguy cơ tương lai."},
+
+  {q:"Nam 28 tuổi, bạn tình nhiễm HIV đang điều trị ARV đều, tải lượng HIV gần nhất <20 bản sao/mL, tuân thủ tốt. Đêm qua bao cao su bị rách khi quan hệ. Xử trí phù hợp nhất?",
+   o:["Chỉ định PEP 28 ngày ngay trong 72 giờ","Chỉ định PrEP hằng ngày","Không chỉ định PEP, tư vấn nguyên tắc K=K","Xét nghiệm HIV ngay rồi quyết định"],
+   a:2,
+   e:"Nguyên tắc <b>K=K (Không phát hiện = Không lây truyền, U=U)</b>: người nhiễm HIV tuân thủ ARV và duy trì <b>tải lượng &lt;200 bản sao/mL</b> thì <b>không lây HIV qua đường tình dục</b>. Do đó đây <b>không phải phơi nhiễm có nguy cơ</b> → không PEP. Hướng dẫn cũng nêu rõ: <b>không cần chỉ định PrEP</b> nếu chỉ có một bạn tình duy nhất, bạn tình đang ARV với tải lượng &lt;200 và tuân thủ tốt. Vẫn tư vấn tầm soát các bệnh lây qua đường tình dục khác vì K=K chỉ áp dụng cho HIV."},
+
+  {q:"Nam 21 tuổi, quan hệ tình dục đồng giới không an toàn cách đây 36 giờ, xét nghiệm HIV âm tính, đến khám xin dùng thuốc dự phòng. Xử trí đúng?",
+   o:["Bắt đầu PrEP hằng ngày TDF/FTC","Bắt đầu PrEP tình huống 2-1-1","Chỉ định PEP 28 ngày, sau đó xét chuyển PrEP nếu còn nguy cơ","Không dùng thuốc, chỉ xét nghiệm lại sau 3 tháng"],
+   a:2,
+   e:"Có <b>phơi nhiễm trong vòng 72 giờ qua là CHỐNG CHỈ ĐỊNH khởi đầu PrEP</b> (PrEP chỉ 1–2 thuốc, nếu đã nhiễm thì virus gặp 2 thuốc sẽ tạo kháng thuốc). Hướng dẫn ghi rõ: <b>đánh giá và dùng PEP 28 ngày trước</b>, sau đó nếu HIV vẫn âm tính và còn hành vi nguy cơ thì chuyển sang PrEP. Điểm cộng cần nhớ: <b>không cần khoảng thời gian chờ giữa PEP và PrEP</b>."},
+
+  {q:"Nam 22 tuổi, quan hệ đồng giới nam, tần suất khoảng 1 lần/tuần, HIV âm tính, được chỉ định PrEP tình huống. Phác đồ đúng?",
+   o:["Uống 1 viên trước quan hệ 2 giờ, sau đó 1 viên/ngày × 2 ngày","Uống 2 viên trước quan hệ 2–24 giờ, viên thứ 3 sau 24 giờ, viên thứ 4 sau 24 giờ nữa","Uống 2 viên trước quan hệ, 2 viên sau quan hệ 24 giờ","Uống 1 viên mỗi ngày trong 7 ngày trước quan hệ"],
+   a:1,
+   e:"Công thức <b>2-1-1</b>: ① <b>2 viên (liều đầu)</b> uống <b>24 giờ trước, chậm nhất là 2 giờ trước</b> khi quan hệ; ② <b>viên thứ 3 sau liều đầu 24 giờ</b>; ③ <b>viên thứ 4 sau liều thứ hai 24 giờ</b>. Nếu tiếp tục có quan hệ thì uống tiếp mỗi ngày 1 viên và <b>uống thêm 2 ngày sau lần quan hệ cuối</b>. Chỉ dùng <b>TDF/FTC hoặc TDF/3TC</b>, không dùng TDF đơn."},
+
+  {q:"Người chuyển giới nữ 25 tuổi đang dùng liệu pháp hormone nữ, muốn dùng PrEP. Chỉ định loại nào?",
+   o:["PrEP tình huống 2-1-1","PrEP hằng ngày","Cả hai đều được, tùy bệnh nhân chọn","Không có chỉ định PrEP"],
+   a:1,
+   e:"<b>PrEP tình huống CHỐNG CHỈ ĐỊNH cho 4 nhóm</b>: ① phụ nữ; ② <b>chuyển giới nữ đang dùng hormone nữ</b>; ③ người viêm gan B mạn; ④ người tiêm chích ma túy. Lý do dược học: hormone nữ làm giảm nồng độ TDF, và nồng độ TDF ở mô sinh dục đạt ngưỡng bảo vệ chậm hơn nhiều so với mô trực tràng. Do đó nhóm này <b>chỉ dùng PrEP hằng ngày</b> để bảo đảm hiệu quả. Lưu ý ngược lại: TDF <b>không</b> làm giảm nồng độ hormone nữ."},
+
+  {q:"Nam 25 tuổi đang dùng PrEP tình huống 1 tháng nay, tái khám. Khai trong tháng qua quan hệ 8 lần với 1 bạn tình. HIV (−), không có hội chứng nhiễm HIV cấp. Ngoài xét nghiệm HIV, cần làm gì?",
+   o:["Tiếp tục PrEP tình huống như cũ","Đổi sang PrEP hằng ngày","Ngưng PrEP và chuyển PEP","Chỉ xét nghiệm lậu, giang mai, chlamydia rồi giữ nguyên phác đồ"],
+   a:1,
+   e:"Điều kiện của PrEP tình huống là <b>tần suất quan hệ trung bình DƯỚI 2 lần/tuần</b>. Quan hệ 8 lần/tháng ≈ 2 lần/tuần → <b>đã vượt ngưỡng</b> → chuyển sang <b>PrEP hằng ngày</b>. Cách chuyển: tiếp tục uống 1 viên/ngày ngay sau khi kết thúc đợt tình huống. Xét nghiệm STI vẫn cần làm định kỳ (hằng quý), nhưng đó không phải là thay đổi quan trọng nhất trong tình huống này."},
+
+  {q:"Nam 23 tuổi đang dùng PrEP hằng ngày, 5 ngày nay sốt, đau mỏi cơ, phát ban da, nổi hạch cổ. Xử trí phù hợp nhất?",
+   o:["Xét nghiệm HIV hôm nay rồi mới quyết định","Ngưng PrEP ngay, xét nghiệm HIV, làm lại sau 1 tháng","Đổi sang PEP 28 ngày","Đổi sang PrEP tình huống"],
+   a:1,
+   e:"Sốt + phát ban + nổi hạch ở người đang PrEP = nghi <b>hội chứng nhiễm HIV cấp</b> (tần suất triệu chứng: sốt 75%, mệt 68%, đau cơ 49%, phát ban 48%, hạch cổ 39%). Hướng dẫn ghi rõ: <b>đang dùng PrEP mà nghi nhiễm HIV cấp → NGƯNG PrEP NGAY, xét nghiệm HIV, làm lại sau 1 tháng</b>, tư vấn biện pháp dự phòng khác. Không chọn A vì bệnh nhân đang ở <b>giai đoạn cửa sổ</b> — xét nghiệm hôm nay có thể âm tính giả trong khi virus vẫn tiếp tục phơi nhiễm với 2 thuốc và tạo kháng thuốc."},
+
+  {q:"Nam 30 tuổi dùng PrEP hằng ngày nhiều tháng, đến khám vì đã quên uống thuốc 2 ngày và trong thời gian đó có quan hệ không an toàn. Xử trí phù hợp?",
+   o:["Tiếp tục PrEP với liều như cũ","Uống liều gấp đôi trong 3 ngày để bù","Tạm ngưng PrEP 1 tuần chờ kết quả HIV","Ngưng PrEP, chuyển PEP 28 ngày"],
+   a:0,
+   e:"Xử trí quên thuốc PrEP theo QĐ 5968: <b>quên ≤3 ngày</b> → uống ngay khi nhớ ra, <b>không quá 2 viên trong ngày đầu</b>, các ngày sau 1 viên/ngày. <b>Quên 4–6 ngày</b> → đánh giá hành vi nguy cơ; có nguy cơ thì xét nghiệm lại HIV và dùng PEP 28 ngày. <b>Quên ≥7 ngày</b> → đánh giá lại và khởi liều như khách hàng PrEP mới. Ở đây quên 2 ngày (≤3) nên vẫn còn nồng độ bảo vệ → tiếp tục liều cũ."},
+
+  {q:"Nam 45 tuổi đang PrEP bằng TDF/3TC, tái khám theo hẹn, độ thanh thải creatinine 60 mL/phút, không triệu chứng. Xử trí phù hợp nhất?",
+   o:["Tạm ngưng thuốc, theo dõi creatinine trong 1 tuần","Tiếp tục sử dụng thuốc và xét nghiệm lại creatinine","Đổi sang thuốc khác ít ảnh hưởng thận","Chuyển khám chuyên khoa thận"],
+   a:1,
+   e:"Phải phân biệt hai tình huống: <b>ClCr &lt;60 là chống chỉ định KHỞI ĐẦU</b> phác đồ có TDF. Nhưng khi <b>ĐANG dùng PrEP</b> mà phát hiện ClCr &lt;60 thì hướng dẫn ghi rõ: <b>tiếp tục PrEP và xét nghiệm lại creatinine</b>. Nếu lần sau ≥60 → tiếp tục; nếu vẫn &lt;60 → ngưng PrEP, sau 1–3 tháng nếu hồi phục thì bắt đầu lại, nếu không về bình thường thì mới chuyển chuyên khoa. Ghi chú: creatinine tăng do TDF hiếm gặp và <b>hầu hết hồi phục sau khi ngưng</b>."},
+
+  {q:"Phụ nữ 32 tuổi dùng PrEP hằng ngày do bạn tình nguy cơ cao, nay không còn nguy cơ và muốn ngừng thuốc. Lần phơi nhiễm cuối là hôm qua. Tư vấn đúng theo QĐ 5968/2021?",
+   o:["Ngưng ngay hôm nay","Uống tiếp 2 ngày liên tiếp rồi ngưng","Uống tiếp 7 ngày liên tiếp rồi ngưng","Uống tiếp đủ 28 ngày rồi ngưng"],
+   a:2,
+   e:"Thời gian uống tiếp sau lần phơi nhiễm cuối khác nhau theo đường lây: <b>nam quan hệ hậu môn / PrEP tình huống → 2 ngày</b>; <b>phụ nữ hoặc người có nguy cơ qua đường máu → 7 ngày liên tiếp</b>. Đây là điểm <b>đã được cập nhật</b>: handout cũ (theo QĐ 5456/2019) ghi 28 ngày và “đạt bảo vệ tối đa sau 21 ngày”, nhưng <b>QĐ 5968/2021 đã sửa cả hai thành 7 ngày</b>. Khi thi nên theo văn bản hiện hành."},
+
+  {q:"Nam 35 tuổi mới chẩn đoán HIV, đồng thời được chẩn đoán lao màng não và bắt đầu điều trị lao hôm nay. Thời điểm khởi động ARV?",
+   o:["Cùng ngày với thuốc lao","Trong vòng 2 tuần sau khi bắt đầu điều trị lao","Trì hoãn ít nhất 4 tuần, bắt đầu trong khoảng 4–8 tuần","Sau khi kết thúc giai đoạn tấn công điều trị lao"],
+   a:2,
+   e:"Bảng thời điểm ARV cần thuộc: người nhiễm HIV <b>không triệu chứng lao → ARV cùng ngày</b>; <b>đang điều trị lao (kể cả lao đa kháng) → trong vòng 2 TUẦN</b> với bất kỳ CD4 nào; <b>LAO MÀNG NÃO → hoãn ít nhất 4 tuần, bắt đầu trong 4–8 tuần</b> và <b>có bổ sung corticosteroid</b>; <b>viêm màng não do Cryptococcus → 4–6 tuần</b>. Lý do hoãn ở hai bệnh màng não: nguy cơ <b>IRIS tại hệ thần kinh trung ương</b> trong khoang sọ kín, có thể gây phù não đe dọa tính mạng."},
+
+  {q:"Nam 32 tuổi HIV mới chẩn đoán, viêm màng não do Cryptococcus neoformans, đang điều trị Amphotericin B + Flucytosine. Khi nào bắt đầu ARV?",
+   o:["Cùng lúc bắt đầu điều trị kháng nấm","Sau khi kết thúc điều trị tấn công (2 tuần)","Sau 4–6 tuần điều trị kháng nấm","Sau khi kết thúc điều trị củng cố (10 tuần)"],
+   a:2,
+   e:"<b>Hoãn ARV 4–6 tuần</b> vì khoảng <b>30% các ca viêm màng não Cryptococcus xuất hiện IRIS nghịch thường</b> sau khởi động ARV, và IRIS tại hệ TKTW có nguy cơ tử vong cao. Mốc chi tiết: hoãn <b>≥4 tuần nếu điều trị bằng amphotericin B</b>, <b>≥6 tuần nếu điều trị bằng fluconazole</b>. Lưu ý thêm: khi chưa loại trừ viêm màng não do Cryptococcus và lao màng não thì <b>không được trì hoãn ARV chờ kết quả CD4</b>, nhưng hai bệnh này là ngoại lệ bắt buộc phải hoãn."},
+
+  {q:"Nam 32 tuổi, HIV (+), nhập vì khó thở ngày 5. Sốt nhẹ tăng về chiều, ho khan, khó thở tăng dần. SpO₂ 88% khí trời, phổi ran nổ, WBC 5K, X-quang tổn thương mô kẽ 2 phế trường. AFB đàm 2 mẫu âm tính. Điều trị tấn công phù hợp nhất?",
+   o:["Trimethoprim–Sulfamethoxazole đơn thuần","Trimethoprim–Sulfamethoxazole + Methylprednisolone","RHZE","RHZE + Methylprednisolone"],
+   a:1,
+   e:"Bệnh cảnh điển hình <b>PCP</b>: diễn biến bán cấp 1–2 tuần, ho khan, khó thở tăng dần, ra mồ hôi đêm, X-quang <b>tổn thương mô kẽ lan tỏa 2 bên</b>. Điều trị: <b>Co-trimoxazole liều theo TMP 15–20 mg/kg/ngày chia 3 lần × 21 ngày</b>. Thêm corticoid khi <b>PaO₂ &lt;70 mmHg hoặc SpO₂ &lt;90%</b> khí phòng, bắt đầu <b>trong 72 giờ</b> đầu. Ở đây SpO₂ 88% &lt; 90% → <b>bắt buộc thêm corticoid</b>. (Nếu đề cho SpO₂ 93% thì đáp án là A.)"},
+
+  {q:"Nam 34 tuổi HIV bỏ trị ARV 1 năm, yếu 2 chi dưới tăng dần 5 ngày, đau đầu nhẹ, GCS 15. CT sọ có cản quang: tổn thương hình tròn 3×4 cm thùy đỉnh (P), bắt quang viền rõ, phù quanh tổn thương. Thuốc nào có thể dùng điều trị?",
+   o:["Amphotericin B","Fluconazole","Itraconazole","Cotrimoxazole"],
+   a:3,
+   e:"Tổn thương <b>choán chỗ, tăng quang dạng VÒNG NHẪN</b> trên bệnh nhân HIV bỏ trị → <b>viêm não do Toxoplasma gondii</b>. Chẩn đoán dựa vào: IgG Toxoplasma thường dương + hình ảnh + <b>đáp ứng với điều trị đặc hiệu</b>. Phác đồ thực tế ở Việt Nam: <b>Co-trimoxazole liều theo TMP 10 mg/kg/ngày chia 2 lần × 6 TUẦN</b> (hoặc Pyrimethamine + Sulfadiazine + acid folinic). Ba đáp án còn lại đều là thuốc kháng nấm, không có tác dụng trên ký sinh trùng đơn bào. Chẩn đoán phân biệt: u củ lao, u nấm, lymphoma nguyên phát tại não, áp xe não."},
+
+  {q:"Nam 36 tuổi HIV, sốt N5, hạch cổ 2 bên, gan 2 cm dưới bờ sườn, lách độ 1, sang thương da dạng sẩn ở mặt và tay có LÕM TRUNG TÂM. Điều trị tấn công phù hợp nhất?",
+   o:["Fluconazole 800 mg/ngày","Amphotericin B","Cotrimoxazole liều cao","Ganciclovir"],
+   a:1,
+   e:"Bệnh cảnh <b>Talaromyces marneffei</b> (tên cũ Penicillium marneffei): sốt, <b>sẩn da lõm trung tâm, hoại tử tạo vảy đen, không đau không ngứa, mọc ở MẶT</b>, kèm thiếu máu, <b>gan lách hạch to, suy kiệt</b>. Chẩn đoán: cấy <b>tủy xương (100%) &gt; da (90%) &gt; máu (70%)</b>, môi trường Sabouraud. Điều trị: <b>Amphotericin B 2 tuần → Itraconazole hoặc Voriconazole 200 mg × 2/ngày × 10 tuần → duy trì Itraconazole đến CD4 &gt;100 liên tục ≥6 tháng</b>. <b>Bẫy quan trọng: FLUCONAZOLE KHÔNG có trong phác đồ của T. marneffei</b> (ngược với Cryptococcus)."},
+
+  {q:"Bệnh nhân HIV, viêm màng não do Cryptococcus, đau đầu dữ dội, áp lực mở DNT 35 cmH₂O. Xử trí tăng áp lực nội sọ phù hợp nhất?",
+   o:["Mannitol 20% 0,5 g/kg mỗi 8 giờ","Dexamethasone liều cao","Chọc dò dịch não tủy giải áp, dẫn lưu 20–30 mL, có thể lặp lại mỗi ngày","Đặt nội khí quản tăng thông khí"],
+   a:2,
+   e:"Đây là bẫy rất đắt vì phản xạ “phù não thì dùng mannitol/corticoid” là <b>SAI</b> trong bệnh này. Hướng dẫn ghi rõ: <b>corticosteroid và mannitol KHÔNG hiệu quả</b> trong kiểm soát áp lực nội sọ ở viêm màng não Cryptococcus. Xử trí đúng là <b>chọc dò giải áp: lấy 20–30 mL hoặc 1/2 áp lực mở, đưa áp lực xuống &lt;20 cmH₂O, có thể LẶP LẠI MỖI NGÀY</b> cho tới khi triệu chứng cải thiện; đặt shunt não thất–ổ bụng nếu phù não kéo dài. Lý do phải quyết liệt: <b>tăng ALNS liên quan tới 93% các ca tử vong trong 2 tuần đầu</b>."},
+
+  {q:"Bệnh nhân đến phòng khám tư, test nhanh HIV dương tính, tiền căn quan hệ nhiều bạn tình, khám có hạch toàn thân. Việc quan trọng nhất cần làm lúc này?",
+   o:["Khởi động ARV ngay trong ngày","Thực hiện xét nghiệm khẳng định tình trạng nhiễm HIV","Xét nghiệm CD4 để phân giai đoạn miễn dịch","Bắt đầu dự phòng Co-trimoxazole"],
+   a:1,
+   e:"Chẩn đoán xác định nhiễm HIV ở người ≥18 tháng tuổi đòi hỏi mẫu <b>có phản ứng với CẢ BA loại sinh phẩm có nguyên lý hoặc cách chuẩn bị kháng nguyên KHÁC NHAU, thực hiện trên CÙNG một mẫu máu</b>, tại cơ sở được công nhận. Một test nhanh dương tính chỉ là sàng lọc. Nguyên tắc thực hành: <b>muốn làm CD4 thì HIV phải đã dương tính khẳng định</b>. Đúng là hướng dẫn khuyến khích “điều trị ARV trong ngày”, nhưng điều đó chỉ áp dụng <b>sau khi đã có kết quả khẳng định</b>."},
+
+  {q:"Bệnh nhân HIV mới chẩn đoán, không triệu chứng, CD4 = 180 tế bào/mm³. Ngoài ARV, cần chỉ định thêm điều trị dự phòng nào?",
+   o:["Co-trimoxazole dự phòng","Fluconazole dự phòng","Isoniazid đơn thuần không cần xét nghiệm","Không cần dự phòng gì vì chưa có triệu chứng"],
+   a:0,
+   e:"<b>Co-trimoxazole dự phòng</b> được chỉ định cho người trưởng thành khi ở <b>giai đoạn lâm sàng 3 hoặc 4, HOẶC CD4 ≤350</b> — bệnh nhân này CD4 180 nên đủ tiêu chuẩn. CTX phòng được <b>PCP, Toxoplasma và một số nhiễm khuẩn khác</b>. Ngừng khi ARV ≥12 tháng, không có biểu hiện giai đoạn 2/3/4 và <b>CD4 &gt;350</b>. Fluconazole dự phòng chỉ dùng khi <b>CrAg huyết thanh (+) và đã loại trừ viêm màng não</b> (sàng lọc CrAg cho mọi người ≥10 tuổi chưa ARV có <b>CD4 &lt;200</b>). Điều trị lao tiềm ẩn cũng có chỉ định nhưng theo phác đồ riêng, không phải INH “đơn thuần không cần đánh giá”."},
+
+  {q:"Bệnh nhân HIV có nấm Candida THỰC QUẢN (nuốt đau, nuốt vướng). Điều này tương ứng với giai đoạn lâm sàng WHO nào?",
+   o:["Giai đoạn 1","Giai đoạn 2","Giai đoạn 3","Giai đoạn 4"],
+   a:3,
+   e:"Ba cặp phân biệt hay nhầm nhất trong bảng giai đoạn lâm sàng: <b>nấm candida MIỆNG = giai đoạn 3</b> ↔ <b>candida THỰC QUẢN (hoặc khí quản, phế quản, phổi) = giai đoạn 4</b>; <b>lao PHỔI = giai đoạn 3</b> ↔ <b>lao NGOÀI PHỔI = giai đoạn 4</b>; <b>zona = giai đoạn 2</b> ↔ <b>herpes simplex mạn &gt;1 tháng = giai đoạn 4</b>. Nấm thực quản điều trị <b>Fluconazole 200–300 mg/ngày × 14–21 ngày</b> (nấm miệng chỉ 100–200 mg × 7–14 ngày). Lưu ý: Candida niêm mạc <b>chưa ghi nhận IRIS</b> nên có thể khởi ARV ngay cả khi chưa hết liệu trình kháng nấm."}
+  ]
+},
+{
+  name:"3 · Sốt xuất huyết Dengue",
+  sub:"Phân độ, dấu hiệu cảnh báo, bù dịch, truyền máu, biến chứng",
+  qs:[
+  {q:"Nam 38 tuổi, SXHD ngày 5, nôn ói 5 lần trong 6 giờ qua, ăn uống kém, đau bụng vùng gan. Sinh hiệu: mạch 100, HA 110/70, chi ấm, CRT <2s. Hct 45%, TC 95.000. Chẩn đoán phù hợp nhất?",
+   o:["Sốt xuất huyết Dengue","Sốt xuất huyết Dengue có dấu hiệu cảnh báo","Sốt xuất huyết Dengue nặng thể sốc","Sốt xuất huyết Dengue nặng thể xuất huyết"],
+   a:1,
+   e:"QĐ 2760/2023 định lượng rõ dấu hiệu cảnh báo về nôn ói: <b>≥3 lần/1 giờ hoặc ≥4 lần/6 giờ</b> — bệnh nhân nôn 5 lần/6 giờ nên đã đạt tiêu chuẩn. Ngoài ra còn có <b>đau bụng nhiều vùng gan</b>. Chưa có sốc (chi ấm, CRT &lt;2s, hiệu áp 40 mmHg), chưa có suy tạng hay xuất huyết nặng nên không phải độ nặng. Các dấu hiệu cảnh báo khác cần thuộc: vật vã li bì · gan to &gt;2 cm · tiểu ít · xuất huyết niêm mạc · Hct tăng kèm TC giảm nhanh · <b>AST/ALT ≥400 U/L</b> · tràn dịch màng phổi/màng bụng."},
+
+  {q:"Nam 39 tuổi, SXHD ngày 6, giảm sốt, đau hạ sườn phải. Sinh hiệu ổn, mắt ánh vàng, gan 3 cm dưới sườn. Xét nghiệm: Hct 46%, TC 90.000, AST 1100 U/L, ALT 1200 U/L, creatinine bình thường. Phân độ đúng?",
+   o:["SXHD","SXHD có dấu hiệu cảnh báo","SXHD nặng","Chưa đủ dữ kiện để phân độ"],
+   a:2,
+   e:"Mốc men gan phải thuộc chính xác: <b>AST/ALT 120–&lt;400 = tổn thương gan NHẸ</b>; <b>400–&lt;1000 = TRUNG BÌNH, và là DẤU HIỆU CẢNH BÁO</b>; <b>≥1000 = tổn thương gan NẶNG/suy gan cấp, xếp vào SXHD NẶNG (suy tạng)</b>, có hoặc không có bệnh não gan. Bệnh nhân AST 1100 và ALT 1200 nên đã là <b>SXHD nặng</b>, phải nhập viện điều trị cấp cứu. Kèm theo: <b>tránh Ringer lactate và tránh paracetamol</b>, chọn NaCl 0,9% hoặc Ringer acetate."},
+
+  {q:"Nữ 45 tuổi, SXHD ngày 6, nặng 50 kg. Khám: mạch 115, HA 120/100 mmHg, chi mát, CRT 2s, Hct 48%, TC 72.000. Xử trí truyền dịch phù hợp nhất?",
+   o:["Glucose 5% 500 mL truyền trong 1 giờ","Natri clorua 0,9% 750 mL truyền trong 1 giờ","HES 6% 750 mL truyền trong 1 giờ","Uống Oresol 2 lít, chưa cần truyền dịch"],
+   a:1,
+   e:"Hai bước tư duy: ① <b>Nhận diện sốc</b> — HA 120/100 nghĩa là <b>hiệu áp = 20 mmHg</b>, đây là <b>HA KẸP = SỐC SXHD</b>, dù HA tâm thu trông “bình thường”; cộng thêm mạch nhanh và chi mát. ② <b>Chọn liều</b> — người lớn (≥16 tuổi) chống sốc giờ đầu dùng <b>dung dịch ĐIỆN GIẢI (RL hoặc NaCl 0,9%) 15 mL/kg/giờ</b> = 50 × 15 = <b>750 mL/giờ</b>. Cao phân tử chỉ dùng khi <b>không cải thiện sau liều điện giải đầu</b>, hoặc ngay từ đầu trong sốc nặng (M=0, HA=0). Glucose 5% không có vai trò chống sốc."},
+
+  {q:"Nam 38 tuổi, 60 kg, SXHD ngày 5, nôn ói 10 lần/ngày, không ăn uống được. Khám: mạch 130, HA 100/70, CRT <2s, chi ấm, Hct 45%, TC 95.000. Y lệnh truyền dịch phù hợp nhất?",
+   o:["Lactate Ringer 360 mL truyền tĩnh mạch trong 1 giờ","Uống Oresol 4.200 mL mỗi 4 giờ","Natri clorua 0,9% 900 mL truyền tĩnh mạch trong 1 giờ","HES 6% 600 mL truyền trong 1 giờ"],
+   a:0,
+   e:"Bệnh nhân có <b>dấu hiệu cảnh báo</b> (nôn nhiều, không uống được) nhưng <b>chưa sốc</b> (chi ấm, CRT &lt;2s, hiệu áp 30 mmHg). Phác đồ người lớn có dấu hiệu cảnh báo: <b>RL/Ringer acetate/NaCl 0,9% 6 mL/kg/giờ × 1–2 giờ</b>, rồi giảm 3 mL/kg/giờ × 2–4 giờ, rồi 1,5 mL/kg/giờ × 6–18 giờ. → 60 × 6 = <b>360 mL/giờ</b>. Đáp án C (900 mL = 15 mL/kg/h) là liều <b>chống sốc</b>, dùng ở đây sẽ quá tải. Đáp án B sai vì bệnh nhân <b>không uống được</b>."},
+
+  {q:"Nam 35 tuổi, 60 kg, SXHD ngày 5, vào cấp cứu trong tình trạng mạch quay không bắt được, huyết áp không đo được. Xử trí đầu tiên?",
+   o:["Cao phân tử 15 mL/kg/giờ ngay từ đầu","Ringer lactate hoặc NaCl 0,9% 15 mL/kg trong 15 phút, sau đó cao phân tử 15 mL/kg/giờ","Ringer lactate 20 mL/kg trong 1 giờ","Truyền máu ngay vì nghi xuất huyết nội"],
+   a:1,
+   e:"<b>Sốc SXHD NẶNG ở người lớn</b> (M=0, HA=0): khẩn trương truyền <b>RL hoặc NaCl 0,9% 15 mL/kg trong 15 PHÚT</b>, rồi chuyển sang <b>cao phân tử 15 mL/kg/giờ × 1 giờ</b>, sau đó đánh giá lại lâm sàng và Hct. (Ở trẻ em con số tương ứng là <b>20 mL/kg trong 15 phút</b>, bơm trực tiếp bằng bơm tiêm to.) Truyền máu chỉ đặt ra khi Hct thấp hoặc giảm nhanh kèm sốc thất bại — chưa có dữ kiện đó ở đây."},
+
+  {q:"Bé trai 8 tuổi, 25 kg, sốc SXHD ngày 5: mạch nhanh nhẹ, HA 80/65 mmHg, chi lạnh, Hct 50%. Tốc độ dịch giờ đầu?",
+   o:["Ringer lactate 6–7 mL/kg/giờ","Ringer lactate 10 mL/kg/giờ","Ringer lactate 20 mL/kg/giờ","Cao phân tử 20 mL/kg/giờ"],
+   a:2,
+   e:"Liều chống sốc <b>khác nhau giữa trẻ em và người lớn</b> — đây là bẫy hay gặp. <b>Trẻ em (&lt;16 tuổi): 20 mL/kg/giờ</b> trong giờ đầu bằng RL hoặc NaCl 0,9%; nếu tụt HA nặng thì 20 mL/kg trong <b>30 phút</b>. <b>Người lớn (≥16 tuổi): 15 mL/kg/giờ</b>. Trẻ thiếu niên 13–16 tuổi có sinh lý giống người lớn, thoát huyết tương ít hơn → dùng 20 mL/kg/giờ nhưng <b>thời gian duy trì mỗi mức bằng 1/2</b> trẻ nhỏ. Cao phân tử chỉ dùng khi thất bại với điện giải và Hct còn cao (≥40%)."},
+
+  {q:"Bệnh nhân sốc SXHD, đã truyền tổng 45 mL/kg dịch, huyết động vẫn không ổn định, Hct giảm từ 48% xuống 34%. Xử trí phù hợp nhất?",
+   o:["Tiếp tục truyền cao phân tử liều cao hơn","Thăm khám tìm xuất huyết nội và truyền máu/hồng cầu lắng, song song cao phân tử","Truyền tiểu cầu vì chắc chắn có rối loạn đông máu","Dùng vận mạch Dopamine ngay"],
+   a:1,
+   e:"Đây là bệnh cảnh <b>sốc kèm xuất huyết nặng</b>. Chỉ định truyền máu gồm: <b>Hct ≤35% kèm sốc thất bại hoặc đáp ứng kém với bù dịch ≥40 mL/kg</b> · <b>Hct giảm nhanh &gt;20% kèm sốc thất bại</b> · <b>Hct ≤40% kèm đang xuất huyết ồ ạt</b>. Liều: <b>hồng cầu lắng 5–10 mL/kg</b> (ưu tiên) hoặc máu toàn phần &lt;7 ngày 10–20 mL/kg, truyền trong 1–2 giờ, <b>song song cao phân tử 10 mL/kg/giờ</b>. Mẹo phân biệt: sốc thoát huyết tương thì <b>Hct TĂNG, HA kẹp</b>; sốc mất máu thì <b>Hct GIẢM, HA tụt</b>."},
+
+  {q:"Nam 30 tuổi, SXHD ngày 5, tiểu cầu 15.000/µL, KHÔNG có dấu xuất huyết, không chảy máu răng, tiêu phân vàng, sinh hiệu ổn. Xử trí về chế phẩm máu?",
+   o:["Truyền tiểu cầu ngay vì dưới 20.000","Truyền huyết tương tươi đông lạnh","Không truyền tiểu cầu, chỉ theo dõi","Truyền kết tủa lạnh"],
+   a:2,
+   e:"Đây là bẫy kinh điển. Chỉ định truyền tiểu cầu trong SXHD: <b>TC &lt;5.000/mm³</b> (và còn phải cân nhắc từng trường hợp), hoặc <b>TC &lt;50.000 KÈM đang xuất huyết nặng</b> hoặc có chỉ định chọc màng phổi/màng bụng. <b>Tiểu cầu giảm ĐƠN THUẦN, dù rất thấp, KHÔNG phải chỉ định truyền</b> — vì tiểu cầu sẽ tự hồi phục ở giai đoạn hồi phục và truyền không cần thiết còn gây phản ứng. Huyết tương tươi đông lạnh chỉ dùng khi <b>PT &gt;2 lần bình thường hoặc INR &gt;1,5</b> kèm xuất huyết nặng/cần thủ thuật."},
+
+  {q:"Bệnh nhân SXHD ngày 4, sốt 39,3°C, có tiền sử loét dạ dày. Y lệnh hạ sốt phù hợp nhất?",
+   o:["Ibuprofen 400 mg mỗi 6 giờ","Paracetamol 10–15 mg/kg/lần mỗi 4–6 giờ, tối đa 60 mg/kg/24 giờ","Aspirin 500 mg mỗi 6 giờ","Truyền paracetamol 650 mg mỗi 4 giờ liên tục"],
+   a:1,
+   e:"Trong SXHD <b>chỉ được dùng paracetamol ĐƠN CHẤT</b>, liều <b>10–15 mg/kg/lần, mỗi 4–6 giờ, tổng KHÔNG quá 60 mg/kg/24 giờ</b> (con số riêng của SXHD, chặt hơn liều thường quy 4 g/ngày). <b>Tuyệt đối không dùng aspirin, analgin, ibuprofen</b> vì gây xuất huyết và toan máu — càng nguy hiểm ở bệnh nhân có tiền căn loét dạ dày. Aspirin còn liên quan <b>hội chứng Reye</b> ở trẻ em. Ngoài ra dặn bệnh nhân <b>không ăn uống thực phẩm màu nâu/đỏ</b> (xá xị, sô cô la) để không nhầm với xuất huyết tiêu hóa."},
+
+  {q:"Bệnh nhân SXHD ngày 6, AST 1200 U/L, ALT 1350 U/L, cần truyền dịch chống sốc. Dung dịch nào nên TRÁNH?",
+   o:["NaCl 0,9%","Ringer acetate","Ringer lactate","Dextrosaline"],
+   a:2,
+   e:"Khi có <b>tổn thương gan mức độ trung bình đến nặng</b> (AST/ALT ≥400, đặc biệt ≥1000), hướng dẫn khuyến cáo <b>tránh Ringer LACTATE</b> — vì lactate được chuyển hóa tại gan, gan suy thì lactate ứ đọng làm nặng thêm toan máu và khó đánh giá lactate như chỉ số tưới máu. Thay bằng <b>NaCl 0,9%, Ringer ACETATE (acetate chuyển hóa ở cơ, không phụ thuộc gan) hoặc Dextrosaline</b>. Đồng thời <b>hạn chế HES</b> (gây rối loạn đông máu, tổn thương gan–thận, nhất là khi tổng liều &gt;60 mL/kg) và <b>tránh paracetamol</b>."},
+
+  {q:"Nam 40 tuổi, sốt ngày 5, nghi SXHD, test NS1 âm tính. Xét nghiệm nào phù hợp tiếp theo để chẩn đoán căn nguyên?",
+   o:["Làm lại NS1 sau 24 giờ","IgM Dengue","Phân lập virus","Không cần thêm, NS1 âm đã loại trừ SXHD"],
+   a:1,
+   e:"Thời điểm các xét nghiệm: <b>NS1 dương từ ngày 1 đến ngày 7, ưu tiên 5 ngày đầu</b>; <b>IgM/IgG (ELISA hoặc test nhanh) từ NGÀY THỨ 5 trở đi, khi NS1 âm tính</b>. Ngày 5 là “hố đen chẩn đoán” — NS1 có thể đã âm mà kháng thể chưa đủ để dương. <b>NS1 âm tính KHÔNG loại trừ SXHD</b>. Lưu ý thực hành: chẩn đoán SXHD chủ yếu dựa vào <b>lâm sàng + dịch tễ + CTM</b>; xét nghiệm căn nguyên chỉ chỉ định khi khó chẩn đoán, bệnh cảnh nặng/phức tạp hoặc nguy cơ tử vong cao."},
+
+  {q:"Bệnh nhân SXHD ngày 5, hôm nay đã giảm sốt nhưng than mệt nhiều hơn, khó chịu hơn, ăn uống kém. Nhận định đúng nhất?",
+   o:["Bệnh đang hồi phục, có thể cho về","Đây là dấu hiệu chuyển sang giai đoạn nguy hiểm, cần theo dõi sát","Là biểu hiện của bội nhiễm vi khuẩn","Là tác dụng phụ của thuốc hạ sốt"],
+   a:1,
+   e:"Nghịch lý quan trọng nhất của SXHD: <b>giảm sốt không phải là khỏi bệnh mà thường là lúc bắt đầu trở nặng</b>. Cơ chế: giai đoạn đầu virus còn trong máu → sốt cao; giai đoạn sau virus vào mô gây tổn thương cơ quan, ít trong máu → bớt sốt, <b>đồng thời bắt đầu thoát huyết tương</b>. Giai đoạn nguy hiểm rơi vào <b>ngày 3–7</b>, khi nhiệt độ giảm còn 37,5–38°C. Chính vì vậy hướng dẫn liệt kê dấu hiệu tái khám ngay đầu tiên là: <b>“người bệnh thấy khó chịu hơn mặc dù sốt giảm hoặc hết sốt”</b>."},
+
+  {q:"Nữ 32 tuổi, cao 155 cm, cân nặng thực 85 kg (BMI 35), sốc SXHD. Cách tính cân nặng để truyền dịch?",
+   o:["Dùng cân nặng thực 85 kg","Dùng cân nặng lý tưởng, bỏ qua phần dư","Dùng cân nặng hiệu chỉnh = CN lý tưởng + 0,4 × (CN thực − CN lý tưởng)","Dùng 50% cân nặng thực"],
+   a:2,
+   e:"QĐ 2760 quy định: <b>BMI &lt;25 → dùng cân nặng THỰC; BMI ≥25 → dùng cân nặng HIỆU CHỈNH</b>. Công thức: CN lý tưởng nữ = <b>45,5 + 0,91 × (chiều cao cm − 152,4)</b>; nam = <b>50,0 + 0,91 × (...)</b>. Sau đó <b>CN hiệu chỉnh = CNLT + 0,4 × (CN thực − CNLT)</b>. Lý do (theo lời giảng CBL): <b>phần cân nặng dư là MỠ chứ không phải máu</b> — truyền dịch theo khối mỡ sẽ gây quá tải dịch thật sự, dẫn tới phù phổi. Trẻ em dư cân/béo phì thì tra bảng cân nặng hiệu chỉnh theo tuổi."},
+
+  {q:"Thai phụ 28 tuần, sốt ngày 4, nghi SXHD, đến khám vì ra huyết âm đạo. Test lượng giá sức khỏe thai bình thường. Hướng xử trí phù hợp nhất?",
+   o:["Chuyển khoa Sản","Nhập khoa Nhiễm phòng thường","Nhập khoa Nhiễm phòng bệnh nặng","Nằm phòng cách ly"],
+   a:0,
+   e:"Có hai vấn đề song song: nghi SXHD (bệnh nội khoa) và <b>ra huyết âm đạo ở thai phụ 28 tuần</b> (vấn đề sản khoa cần theo dõi và can thiệp chuyên khoa). Bệnh nhân cần được đặt ở nơi có thể <b>xử trí cấp cứu sản khoa</b>, đồng thời hội chẩn nội. Kiến thức nền cần nhớ: SXHD ở thai phụ <b>diễn biến nặng hơn</b>, xuất huyết nặng hay xảy ra <b>khi sinh hoặc phẫu thuật ở giai đoạn nguy hiểm N3–N6</b> do giảm tiểu cầu; sinh lý 3 tháng cuối đã có mạch nhanh, HA thấp, Hct giảm nên dễ đánh giá sai mức độ sốc. Và: <b>SXHD KHÔNG phải là lý do chấm dứt thai kỳ</b>."},
+
+  {q:"Nam 45 tuổi, sốt N1–5, hết sốt từ N5, hôm nay N7 xuất hiện mảng hồng ban ở hai cẳng chân, trong đó có những đốm da lành, kèm ngứa nhiều. Chẩn đoán phù hợp nhất?",
+   o:["Dị ứng thuốc hạ sốt","Ban hồi phục của sốt xuất huyết Dengue","Sốt ve mò","Nhiễm trùng huyết"],
+   a:1,
+   e:"<b>Ban hồi phục</b> của SXHD xuất hiện ở <b>giai đoạn hồi phục N7–10</b>: không gồ lên da, khởi phát ở <b>phần XA của tứ chi</b> rồi lan lên, dát sẩn đỏ nhạt đến đỏ tím, <b>có những ĐỐM DA LÀNH trên nền ban</b> (hình ảnh “đảo trắng trong biển đỏ”) và <b>NGỨA</b>. Có thể gặp cùng lúc với tử ban điểm. Nhớ SXHD có <b>3 kiểu phát ban</b>: hồng ban dát sẩn ở giai đoạn sớm (50% ca), tử ban điểm ở giai đoạn nguy hiểm, và ban hồi phục ở giai đoạn hồi phục. Kèm theo lâm sàng bệnh nhân lúc này thèm ăn, tiểu nhiều, bạch cầu tăng lên sớm."},
+
+  {q:"Nam 68 tuổi, sống một mình, SXHD ngày 3, chưa có dấu hiệu cảnh báo, sinh hiệu ổn định. Xử trí phù hợp nhất?",
+   o:["Cho toa về, hẹn tái khám hằng ngày","Xem xét nhập viện dù chưa có dấu hiệu cảnh báo","Nhập khoa hồi sức tích cực","Truyền dịch tĩnh mạch dự phòng"],
+   a:1,
+   e:"QĐ 2760 liệt kê <b>8 hoàn cảnh xem xét nhập viện ngay cả khi CHƯA có dấu hiệu cảnh báo</b>: sống một mình · nhà xa cơ sở y tế · gia đình không theo dõi sát được · trẻ nhũ nhi · <b>dư cân, béo phì</b> · phụ nữ có thai · <b>người ≥60 tuổi</b> · bệnh mạn tính kèm theo (thận, tim, gan, hen, COPD kém kiểm soát, đái tháo đường, thiếu máu tan máu). Bệnh nhân này thỏa <b>hai</b> tiêu chí (68 tuổi và sống một mình). Truyền dịch tĩnh mạch “dự phòng” là sai — chỉ truyền khi có chỉ định, bù dịch đường uống là ưu tiên."},
+
+  {q:"Bệnh nhân sốc SXHD đã ổn định, sang ngày 7 xuất hiện khó thở, ran ẩm 2 đáy phổi, tĩnh mạch cổ nổi, phù mi mắt, Hct giảm còn 33%. Cơ chế nhiều khả năng nhất?",
+   o:["Tái sốc do tiếp tục thoát huyết tương","Xuất huyết nội","Quá tải dịch do giai đoạn tái hấp thu","Viêm cơ tim do Dengue"],
+   a:2,
+   e:"Ngày 7 là <b>giai đoạn hồi phục/tái hấp thu</b>: dịch từ khoang ngoài lòng mạch trở lại lòng mạch trong 48–72 giờ → <b>Hct giảm do pha loãng</b>, và nếu vẫn tiếp tục truyền dịch sẽ gây <b>quá tải, phù phổi cấp</b>. Dấu hiệu: phù mi mắt–mặt–chi, bụng báng, thở nhanh, tĩnh mạch cổ nổi, gan to, ran ẩm/nổ, trào bọt hồng. Xử trí: <b>ngưng dịch</b>, nằm đầu cao, thở NCPAP, <b>Furosemide 0,5–1 mg/kg TM</b>, ± Dobutamine 5–10 µg/kg/phút. Ghi nhớ: nói chung <b>không cần bù dịch sau khi hết sốc 24 giờ</b>."},
+
+  {q:"Bệnh nhân SXHD, Hct lúc nhập viện (ngày 3) là 40%, hôm nay ngày 5 Hct là 46%. Nhận định về tình trạng cô đặc máu?",
+   o:["Đã cô đặc máu vì Hct tăng 6 điểm","Chưa đạt tiêu chuẩn cô đặc máu vì chỉ tăng 15%","Không đánh giá được vì thiếu Hct nền","Cô đặc máu nặng, cần truyền cao phân tử ngay"],
+   a:1,
+   e:"Tiêu chuẩn cô đặc máu là <b>Hct tăng &gt;20% so với giá trị ban đầu</b> — và đây là <b>chênh lệch TỈ SỐ, không phải chênh lệch tuyệt đối</b>. Tính: (46 − 40)/40 × 100% = <b>15%</b> → chưa đạt ngưỡng 20%. Ví dụ mẫu trong hướng dẫn: Hct nền 35%, cô đặc máu khi Hct đo được là 42%. Nếu không có Hct nền thì dùng trị số trung bình theo tuổi–giới: <b>nam 15–40 tuổi 43%, nữ 15–40 tuổi 38%</b>. Dù vậy vẫn phải phối hợp với lâm sàng, không quyết định truyền dịch chỉ dựa vào một con số Hct."},
+
+  {q:"Bệnh nhân sốc SXHD, sau khi ra sốc 8 giờ lại vào sốc trở lại. Dung dịch lựa chọn để chống sốc lần này?",
+   o:["Ringer lactate 15 mL/kg/giờ","Cao phân tử 10–15 mL/kg/giờ","Glucose 5% 10 mL/kg/giờ","Albumin 20% đơn thuần"],
+   a:1,
+   e:"<b>Tái sốc</b> được định nghĩa là tình trạng sốc trở lại sau khi huyết động đã ổn định hơn 6 giờ. Xử trí: <b>dùng cao phân tử để chống sốc, liều 10–15 mL/kg/giờ</b>; nếu huyết động cải thiện thì chuyển sang RL/NaCl 0,9% 10 mL/kg/giờ rồi giảm dần 6 → 3 → 1,5 mL/kg/giờ. Xem xét <b>phối hợp Albumin</b> (1 g/kg trong 4–6 giờ) khi albumin máu ≤2,5 g/dL kèm: huyết động không ổn định ≥6 giờ, hoặc sau truyền 40–60 mL/kg, hoặc <b>tái sốc ≥2 lần</b>. Glucose 5% không có vai trò chống sốc."},
+
+  {q:"Bệnh nhân SXHD, sau khi hết sốc huyết áp còn kẹt nhưng chi ấm, mạch chậm rõ, tiểu nhiều. Xử trí phù hợp nhất?",
+   o:["Tiếp tục truyền dịch tốc độ cao","Không truyền dịch, lưu kim tĩnh mạch và theo dõi tại phòng cấp cứu","Truyền cao phân tử 10 mL/kg/giờ","Dùng vận mạch Noradrenaline"],
+   a:1,
+   e:"Hướng dẫn ghi rõ: <b>sau khi sốc hồi phục mà HA kẹt NHƯNG chi ấm, mạch chậm rõ, tiểu nhiều thì KHÔNG truyền dịch</b>, chỉ lưu kim tĩnh mạch và theo dõi tại phòng cấp cứu — vì các dấu hiệu tưới máu mô đều tốt, truyền thêm sẽ gây quá tải. Khi HA kẹt trở lại sau một thời gian bình thường, phải phân biệt <b>4 nguyên nhân</b>: hạ đường huyết · tái sốc do thoát mạch tiếp · <b>xuất huyết nội</b> · quá tải do truyền dịch hoặc do tái hấp thu. Tiêu chuẩn ngưng dịch: lâm sàng ổn + Hct ổn, thường <b>24 giờ sau hết sốc</b>, tổng dịch 120–150 mL/kg."}
+  ]
+},
+{
+  name:"4 · Sốt rét",
+  sub:"Chẩn đoán, phân thể ác tính, phác đồ theo loài, primaquin và G6PD",
+  qs:[
+  {q:"Nữ 27 tuổi, sốt ngày 3, có đi Bình Phước 3 tuần trước. Test nhanh sốt rét: hiện vạch C và vạch pLDH, vạch HRP-2 ÂM. Tác nhân nghĩ nhiều nhất?",
+   o:["Plasmodium falciparum","Plasmodium vivax","Nhiễm phối hợp P. falciparum và P. vivax","Không phải sốt rét"],
+   a:1,
+   e:"Nguyên tắc đọc test nhanh: <b>HRP-2 CHỈ hiện diện ở P. falciparum</b>; <b>pLDH có ở mọi loài Plasmodium</b>. Vạch C + pLDH mà <b>HRP-2 âm → chắc chắn KHÔNG phải falciparum</b> → nghĩ P. vivax (loài phổ biến thứ hai ở Việt Nam), hoặc P. ovale/malariae. Nếu hiện <b>cả 3 vạch</b> → P. falciparum (hoặc phối hợp có P.f). Lưu ý quan trọng khác: <b>HRP-2 còn dương tính tới 28 ngày sau điều trị</b> nên <b>không dùng để theo dõi đáp ứng điều trị</b>; và test nhanh <b>không đánh giá được mật độ KST</b>."},
+
+  {q:"Nam 26 tuổi, lính biên phòng Phú Quốc, sốt cơn ngày 4, tỉnh táo, sinh hiệu ổn, các xét nghiệm gan–thận–đường huyết trong giới hạn bình thường. Phết máu: Plasmodium vivax thể dưỡng bào. Phác đồ điều trị phù hợp nhất?",
+   o:["Artesunate tiêm tĩnh mạch","Artemether–Lumefantrine 3 ngày","Chloroquin 3 ngày + Primaquin","Quinin sulfat + Doxycyclin 7 ngày"],
+   a:2,
+   e:"P. vivax chưa biến chứng: <b>Chloroquin uống 3 ngày (P. vivax vẫn còn nhạy chloroquin) + Primaquin</b> — hoặc Pyramax 3 ngày + Primaquin. Vai trò của primaquin ở đây là <b>diệt THỂ NGỦ Ở GAN (hypnozoite), điều trị TIỆT CĂN chống tái phát</b>, nên phải dùng <b>7 hoặc 14 ngày</b> chứ không phải liều duy nhất. Chloroquin: tổng liều <b>25 mg base/kg</b> chia 10 – 10 – 5 mg base/kg (người lớn 4 – 4 – 2 viên loại 250 mg chứa 150 mg base). Artesunate tiêm chỉ dành cho sốt rét ác tính."},
+
+  {q:"Nam 30 tuổi, sốt rét do P. falciparum chưa biến chứng, không có chống chỉ định thuốc. Theo QĐ 3377/QĐ-BYT năm 2023, phác đồ ƯU TIÊN là?",
+   o:["Dihydroartemisinin–Piperaquin (Arterakine) 3 ngày + Primaquin liều duy nhất","Pyronaridin tetraphosphat–Artesunat (Pyramax) 3 ngày + Primaquin liều duy nhất","Chloroquin 3 ngày + Primaquin 14 ngày","Artesunate tiêm 3 ngày"],
+   a:1,
+   e:"Đây là <b>thay đổi lớn nhất của hướng dẫn 2023</b>, và là chỗ handout bộ môn đã lạc hậu. Trước đây DHA-PPQ (Arterakine) là first-line; <b>QĐ 3377/2023 đã đổi thuốc ưu tiên số 1 thành PYRAMAX</b>, còn DHA-PPQ tụt xuống vị trí thứ 4 trong nhóm thay thế. Thứ tự thay thế: ① Artesunat–Mefloquin → ② Artemether–Lumefantrin → ③ Artesunat–Amodiaquin → ④ DHA-PPQ → ⑤ Quinin + Clindamycin/Doxycyclin. Với P.f, <b>primaquin chỉ dùng LIỀU DUY NHẤT ngày đầu để diệt giao bào</b> (P.f không có thể ngủ ở gan)."},
+
+  {q:"Nam 25 tuổi, P. falciparum, Hb 6,5 g/dL, Hct 18%, creatinine 275 µmol/L, đường huyết 85 mg/dL, bilirubin toàn phần 40 µmol/L, tỉnh táo. Chẩn đoán sốt rét ác tính thể gì?",
+   o:["Vàng da và hạ đường huyết","Thiếu máu nặng và vàng da","Suy thận cấp và thiếu máu nặng","Hạ đường huyết và suy thận cấp"],
+   a:2,
+   e:"Rà từng ngưỡng: <b>Hb 6,5 &lt;7 g/dL và Hct 18% &lt;20% → thiếu máu nặng</b> (người lớn). <b>Creatinine 275 &gt;265 µmol/L (3 mg/dL) → suy thận cấp</b>. Bilirubin 40 &lt;50 µmol/L → <b>chưa</b> đạt tiêu chuẩn thể vàng da. Đường huyết 85 mg/dL &gt;40 → <b>không</b> hạ đường huyết. Bệnh nhân tỉnh nên không phải thể não. Các ngưỡng khác cần thuộc: GCS &lt;11 · co giật &gt;2 cơn/24h · thở &gt;30 và SpO₂ &lt;92% · lactate ≥5 · HCO₃⁻ &lt;15 · KST &gt;100.000/µL hoặc &gt;10% hồng cầu."},
+
+  {q:"Thai phụ 10 tuần, sốt rét do P. falciparum chưa biến chứng, DỊ ỨNG với Clindamycin. Thuốc phù hợp nhất?",
+   o:["Quinin sulfat + Doxycyclin 7 ngày","Artemether–Lumefantrine 3 ngày","Artesunat–Mefloquin 3 ngày","Primaquin 14 ngày"],
+   a:1,
+   e:"Ba tháng đầu thai kỳ, P.f: phác đồ chuẩn là <b>Quinin sulfat 7 ngày + Clindamycin 7 ngày</b>. Bệnh nhân dị ứng clindamycin, mà <b>doxycyclin chống chỉ định ở thai phụ</b> → không dùng được phối hợp quinin. Hướng dẫn ghi rõ: <b>“trường hợp không có quinin sulfat, có thể dùng artemether–lumefantrin”</b> → chọn B. Artesunat–mefloquin chỉ dùng cho thai &gt;3 tháng. <b>Primaquin TUYỆT ĐỐI không dùng cho phụ nữ có thai.</b> Nếu là <b>sốt rét ÁC TÍNH ở thai 3 tháng đầu</b> thì dùng <b>Quinin dihydrochloride TM + Clindamycin</b>."},
+
+  {q:"Nam 26 tuổi được điều trị Chloroquin + Primaquin cho sốt rét P. vivax. Hôm sau sốt cao, chóng mặt, vàng mắt, nước tiểu đen như nước vối. Xét nghiệm cần làm để tìm nguyên nhân?",
+   o:["Phết máu ngoại biên tìm KSTSR","Công thức máu và cấy máu","Tổng phân tích nước tiểu","Định lượng hoạt độ men G6PD"],
+   a:3,
+   e:"Bệnh cảnh <b>tan máu cấp do Primaquin trên cơ địa thiếu men G6PD</b>: sốt, <b>nước tiểu màu đỏ sẫm/đen</b>, vàng da vàng mắt, đau lưng, chóng mặt, khó thở. Phải <b>ngừng primaquin ngay</b> và đưa đến cơ sở có khả năng truyền máu. Xét nghiệm xác định nguyên nhân là <b>định lượng men G6PD</b>. Liều primaquin cho P. vivax/ovale theo G6PD: <b>không thiếu → 0,5 mg/kg/ngày × 7 ngày</b>; <b>bán thiếu (30–70%) hoặc KHÔNG có xét nghiệm → 0,25 mg/kg/ngày × 14 ngày</b>; <b>thiếu (&lt;30%) → 0,75 mg/kg/LẦN/TUẦN × 8 TUẦN</b>."},
+
+  {q:"Nam 25 tuổi, sốt rét P. vivax, tiền căn alpha-thalassemia truyền máu nhiều lần và thiếu men G6PD, vừa đi công tác châu Phi 3 ngày về. Phết máu mật độ KST cao. Yếu tố nào sau đây là yếu tố TIÊN LƯỢNG NẶNG?",
+   o:["Alpha-thalassemia","Thiếu men G6PD","Vừa đi châu Phi về / mật độ ký sinh trùng cao","Tiền căn từng bị sốt rét"],
+   a:2,
+   e:"Đây là câu bẫy được ra lặp lại nhiều đợt, với các phương án nhiễu cố định. <b>Thalassemia và thiếu G6PD KHÔNG phải yếu tố tiên lượng nặng</b> — đời sống hồng cầu ngắn lại có tác dụng <b>bảo vệ tương đối</b> khỏi ký sinh trùng (chúng chỉ là yếu tố phải cân nhắc khi chọn primaquin). Tiền căn từng bị sốt rét cũng không phải. Yếu tố tiên lượng nặng thực sự là <b>mật độ KST cao (&gt;100.000/µL hoặc &gt;10% hồng cầu)</b> và <b>đi về từ vùng châu Phi</b> — nơi P. falciparum lưu hành mạnh và có kháng thuốc, tỉ lệ tử vong cao."},
+
+  {q:"Nam 40 tuổi đã điều trị sốt rét đủ liệu trình, xuất viện, nay sốt lại. Phết máu ngoại biên: P. falciparum thể GIAO BÀO, không thấy thể vô tính. Lâm sàng ổn, sinh hiệu bình thường. Xử trí?",
+   o:["Điều trị lại như một ca sốt rét mới","Không cần điều trị sốt rét, tìm nguyên nhân sốt khác","Chuyển Artesunate tiêm tĩnh mạch","Lặp lại phết máu sau 1 tuần rồi mới quyết định"],
+   a:1,
+   e:"Ý nghĩa các thể ký sinh trùng: <b>thể dưỡng bào (trophozoite) và thể phân liệt (schizont) → bệnh nhân ĐANG BỆNH</b>; <b>thể giao bào (gametocyte) → KHÔNG kết luận đang bệnh</b>, giao bào chỉ là thể lây truyền cho muỗi và sẽ tự chết dần. Vì vậy thấy đơn thuần giao bào sau điều trị không phải là thất bại điều trị. Tuy nhiên bệnh nhân <b>đang sốt</b> nên phải <b>tìm nguyên nhân sốt khác</b> — đúng với nguyên tắc: “3 ngày điều trị vẫn sốt mà <b>không còn KST</b> thì tìm nguyên nhân khác”."},
+
+  {q:"Bệnh nhân nghi sốt rét (có sốt + yếu tố dịch tễ), lam máu lần đầu âm tính nhưng lâm sàng vẫn rất nghi ngờ. Xử trí đúng?",
+   o:["Loại trừ sốt rét, tìm bệnh khác","Xét nghiệm lại lam máu sau 8–24 giờ, tốt nhất lúc đang lên cơn sốt","Điều trị thử bằng Chloroquin","Làm PCR ngay lập tức"],
+   a:1,
+   e:"Hướng dẫn ghi rõ: <b>“nếu lần đầu xét nghiệm soi lam âm tính mà vẫn còn nghi ngờ, phải xét nghiệm lại lam máu sau 8–24 giờ, tốt nhất vào thời điểm người bệnh ĐANG LÊN CƠN SỐT”</b> — vì lúc đó hồng cầu vỡ hàng loạt, phóng thích ký sinh trùng vào máu nên mật độ trong máu ngoại biên cao nhất. Điều trị thử hiện rất ít dùng vì cản trở chẩn đoán xác định. PCR chỉ áp dụng ở nơi đủ điều kiện và không phải bước thường quy. Nhắc lại định nghĩa <b>trường hợp nghi ngờ = SỐT (hoặc tiền sử sốt trong 3 ngày) + YẾU TỐ DỊCH TỄ</b>."},
+
+  {q:"Bệnh nhân sốt rét, cơn sốt lặp lại đều đặn mỗi 72 giờ. Loài Plasmodium nghĩ nhiều nhất?",
+   o:["P. falciparum","P. vivax","P. ovale","P. malariae"],
+   a:3,
+   e:"Chu kỳ cơn sốt tương ứng với chu kỳ hồng cầu của ký sinh trùng: <b>48 giờ với P. falciparum, P. vivax, P. ovale</b>; <b>72 giờ với P. malariae</b>. Bổ sung thời kỳ ủ bệnh để nhớ: P. falciparum ~12 ngày · P. vivax ~14 ngày · P. ovale ~17 ngày · <b>P. malariae ~28 ngày (dài nhất)</b> · P. knowlesi 9–12 ngày. Lưu ý cơn sốt điển hình 3 giai đoạn <b>lạnh (15 phút–1 giờ) → sốt (30 phút–6 giờ) → vã mồ hôi (~1 giờ)</b>, và <b>giữa các cơn bệnh nhân cảm thấy dễ chịu, bình thường</b>."},
+
+  {q:"Bệnh nhân sốt rét ác tính thể não do P. falciparum, GCS 9 điểm. Thuốc đặc hiệu ưu tiên và liều đúng?",
+   o:["Artesunate 2,4 mg/kg giờ đầu, nhắc lại giờ thứ 12, sau đó mỗi ngày 1 liều","Artesunate 2,4 mg/kg mỗi 8 giờ trong 3 ngày","DHA–Piperaquin uống 3 ngày qua sonde dạ dày","Chloroquin tiêm tĩnh mạch"],
+   a:0,
+   e:"Thứ tự ưu tiên trong sốt rét ác tính: <b>① Artesunat tiêm → ② Artemether tiêm → ③ Quinin tiêm</b>. Artesunat ưu tiên <b>đường tĩnh mạch</b> (không được thì tiêm bắp): người lớn và trẻ &gt;20 kg <b>2,4 mg/kg giờ đầu, nhắc lại 2,4 mg/kg ở giờ thứ 12 (ngày đầu 2 liều), sau đó mỗi ngày 1 liều 2,4 mg/kg</b>; trẻ &lt;20 kg dùng 3 mg/kg/lần. <b>Phải tuân thủ đủ liều 24 giờ đầu kể cả khi bệnh nhân đã uống được trước đó.</b> Khi tỉnh và uống được → chuyển sang <b>Pyramax uống 3 ngày</b>, vì thuốc uống phối hợp có thành phần tác dụng kéo dài giúp diệt hết ký sinh trùng tồn dư."},
+
+  {q:"Bệnh nhân sốt rét đã điều trị đủ liệu trình, hết sốt, ra viện ngày thứ 7. Đến ngày thứ 20 sốt lại, phết máu có P. falciparum thể vô tính. Xử trí?",
+   o:["Đây là tái nhiễm, điều trị như ca mới bằng phác đồ ưu tiên","Đây là tái phát, dùng thuốc điều trị THAY THẾ","Điều trị như sốt rét ác tính","Không điều trị, chỉ theo dõi"],
+   a:1,
+   e:"Mốc phân định là <b>28 NGÀY</b> kể từ ngày đầu dùng thuốc: <b>KST xuất hiện lại TRONG vòng 28 ngày → TÁI PHÁT</b> (nghi kháng thuốc hoặc điều trị chưa triệt để) → dùng <b>thuốc thay thế</b>, đồng thời <b>báo tuyến trên để xác minh kháng thuốc</b>. <b>KST xuất hiện lại SAU 28 ngày → TÁI NHIỄM</b> → điều trị như một ca mắc mới bằng phác đồ ưu tiên. Ngoài ra: nếu xuất hiện <b>triệu chứng nguy hiểm trong 3 ngày đầu</b> mà còn KST → điều trị như <b>sốt rét ác tính</b>."},
+
+  {q:"Bệnh nhân sốt rét đang điều trị nội trú, đã hết sốt 2 ngày, lam máu hôm nay còn KST mật độ thấp. Tiêu chuẩn cho ra viện?",
+   o:["Hết sốt 48 giờ là đủ","Chỉ cho ra viện khi lam máu ÂM TÍNH","Ra viện khi mật độ KST giảm trên 75%","Ra viện sau đủ 3 ngày thuốc, không cần xét lam"],
+   a:1,
+   e:"Theo dõi ký sinh trùng: <b>lấy lam máu kiểm tra HÀNG NGÀY tại cơ sở điều trị đến khi âm tính</b> và <b>chỉ cho người bệnh ra viện khi kết quả soi lam ÂM TÍNH</b>. Sau ra viện, <b>hẹn xét nghiệm lại vào ngày thứ 29, ngày thứ 43</b>, hoặc bất kỳ ngày nào bệnh nhân sốt trở lại. Lưu ý thêm về theo dõi lâm sàng: nếu bệnh nhân <b>nôn trong vòng 30 phút</b> sau khi uống thuốc thì phải uống liều khác thay thế hoặc chuyển đường tiêm."},
+
+  {q:"Phết máu ngoại biên của bệnh nhân nhiễm P. falciparum thấy có thể dưỡng bào TRƯỞNG THÀNH, thể phân liệt và sắc tố sốt rét. Ý nghĩa?",
+   o:["Bình thường, không có giá trị tiên lượng","Gợi ý xếp loại sốt rét NẶNG","Chứng tỏ bệnh nhân đã khỏi bệnh","Chứng tỏ nhiễm phối hợp nhiều loài"],
+   a:1,
+   e:"Đặc điểm riêng của <b>P. falciparum</b>: các thể trưởng thành bám vào nội mô <b>vi mạch nội tạng</b> (cơ chế gây sốt rét ác tính), nên ở máu ngoại biên bình thường <b>chỉ thấy thể dưỡng bào NON</b>. Khi ở ngoại biên <b>thấy được dưỡng bào trưởng thành, thể phân liệt và sắc tố sốt rét</b> thì chứng tỏ gánh nặng ký sinh trùng rất lớn → <b>xếp loại NẶNG</b>. Ngược lại, ở <b>các loài khác (vivax, ovale, malariae) thì thấy đầy đủ các thể ở ngoại vi là bình thường</b>, không phải sốt rét nặng."},
+
+  {q:"Cách tính mật độ ký sinh trùng từ giọt MỎNG của phết máu ngoại biên?",
+   o:["Đếm trong 200 bạch cầu rồi nhân với 40","Mật độ/µL = (số KST/1000 hồng cầu) × Hct (%) × 125,6","Đếm trong 100 quang trường rồi chia cho Hct","Chỉ ước lượng theo dấu cộng, không tính được"],
+   a:1,
+   e:"Hai phần của phết máu: <b>giọt DÀY</b> (~40 lớp hồng cầu, không cố định) dùng để <b>PHÁT HIỆN</b> ký sinh trùng và đếm mật độ bằng cách đếm cùng lúc <b>200/400/500 bạch cầu</b> rồi quy đổi (trung bình <b>8.000 bạch cầu/µL</b>). <b>Giọt MỎNG</b> (cố định hồng cầu) dùng để <b>ĐỊNH DANH LOÀI</b> và thấy được các thể trong hồng cầu, đếm mật độ trong <b>1.000 hồng cầu</b> với công thức: <b>mật độ/µL = (số KST/1000 HC) × Hct(%) × 125,6</b>. Test nhanh RDT <b>không</b> đánh giá được mật độ."},
+
+  {q:"Bệnh nhân sốt rét P. falciparum, bilirubin toàn phần 51 µmol/L, Hb 12 g/dL, creatinine 90 µmol/L, đường huyết 95 mg/dL, mật độ KST 5.000/µL, tỉnh táo. Phân loại đúng?",
+   o:["Sốt rét ác tính thể vàng da","Sốt rét ác tính thể thiếu máu nặng","Sốt rét thể thông thường (sốt rét cơn)","Sốt rét ác tính thể gan–thận"],
+   a:2,
+   e:"Tiêu chuẩn <b>thể vàng da</b> là <b>bilirubin toàn phần &gt;50 µmol/L (3 mg/dL)</b> <i>kèm men gan cao</i> — và theo handout bộ môn còn cần <b>kèm mật độ KST cao (&gt;100.000/µL)</b>. Ở đây bilirubin 51 chỉ vừa chạm ngưỡng, <b>Hb 12 bình thường, creatinine bình thường, đường huyết bình thường, mật độ KST chỉ 5.000</b>, bệnh nhân tỉnh táo → <b>chưa đủ tiêu chuẩn nào của sốt rét ác tính</b> → xếp là <b>sốt rét cơn (thể thông thường)</b>. Đây là dạng câu “cho một dãy số sát ngưỡng” đã ra ít nhất 2 lần, buộc phải rà từng tiêu chuẩn."},
+
+  {q:"Bệnh nhân sốt rét ác tính, đang truyền Quinin dihydrochloride. Tác dụng phụ nào cần đề phòng và theo dõi sát nhất?",
+   o:["Tăng đường huyết","Hạ đường huyết và trụy mạch do truyền nhanh","Suy tủy","Tan máu do thiếu G6PD"],
+   a:1,
+   e:"Hướng dẫn ghi rõ: <b>“khi dùng quinin đề phòng HẠ ĐƯỜNG HUYẾT và trụy mạch do truyền nhanh”</b> — quinin kích thích tiết insulin gây hạ đường huyết, đặc biệt nguy hiểm ở <b>phụ nữ có thai</b> (nên khuyến cáo truyền glucose 10% và theo dõi glucose máu). Đó cũng là lý do ở thai kỳ &gt;3 tháng, phác đồ quinin + clindamycin <b>chỉ dùng nếu không có thuốc thay thế hiệu quả</b>. Liều quinin dihydrochloride: <b>20 mg/kg cho 8 giờ đầu, sau đó 10 mg/kg mỗi 8 giờ</b>, đến khi uống được thì chuyển quinin sulfat + clindamycin/doxycyclin đủ 7 ngày."},
+
+  {q:"Bệnh nhân sốt rét ác tính thể tiểu huyết sắc tố, đang dùng Primaquin. Xử trí phù hợp nhất?",
+   o:["Tiếp tục Primaquin, truyền dịch nhiều","Ngừng ngay Primaquin, đổi thuốc sốt rét khác, truyền NaCl 0,9% duy trì nước tiểu ≥2.500 mL/24 giờ","Tăng liều Primaquin để diệt hết ký sinh trùng","Dùng corticoid liều cao"],
+   a:1,
+   e:"Nguyên tắc: <b>đang dùng Primaquin hoặc Quinin mà xuất hiện tiểu huyết sắc tố thì NGỪNG NGAY và thay bằng thuốc sốt rét khác</b>. Xử trí kèm: <b>truyền NaCl 0,9% và các dịch khác duy trì nước tiểu ≥2.500 mL/24 giờ</b> (trẻ em 10–12 mL/kg/24 giờ) để bảo vệ thận khỏi hemoglobin niệu; <b>truyền khối hồng cầu khi Hct &lt;25% hoặc Hb &lt;7 g/dL</b>. Biểu hiện thể tiểu huyết sắc tố: sốt, lạnh run, vàng da, thiếu máu cấp, <b>tiểu sậm đen</b>, có thể suy thận và trụy tim mạch nếu không xử trí kịp."},
+
+  {q:"Yếu tố nào sau đây KHÔNG nằm trong nhóm “dấu hiệu cảnh báo sốt rét ác tính”?",
+   o:["Rối loạn ý thức nhẹ, thoáng qua (li bì, cuồng sảng)","Nôn, tiêu chảy nhiều lần trong ngày, đau bụng cấp","Mật độ ký sinh trùng ≥100.000/µL","Lách to độ 1"],
+   a:3,
+   e:"Sáu <b>dấu hiệu CẢNH BÁO</b> sốt rét ác tính (chưa phải tiêu chuẩn xác định): ① rối loạn ý thức nhẹ, thoáng qua · ② <b>sốt cao liên tục</b> · ③ rối loạn tiêu hóa (nôn, tiêu chảy nhiều lần, đau bụng cấp) · ④ <b>đau đầu dữ dội</b> · ⑤ <b>mật độ KST thể vô tính cao (P.f ++++ hoặc ≥100.000/µL)</b> · ⑥ thiếu máu nặng (da xanh, niêm nhợt). <b>Gan to, lách to là biểu hiện thường gặp của sốt rét THÔNG THƯỜNG</b>, không phải dấu hiệu cảnh báo. Việc nhận ra dấu hiệu cảnh báo có ý nghĩa: chuyển bệnh nhân lên tuyến có hồi sức trước khi vào ác tính thật sự."},
+
+  {q:"Trạm y tế xã tiếp nhận bệnh nhân sốt rét ác tính, dự kiến thời gian vận chuyển lên tuyến trên là 10 giờ. Xử trí đúng?",
+   o:["Chuyển ngay, không dùng thuốc để tránh che lấp triệu chứng","Tiêm ngay liều Artesunate đầu tiên rồi chuyển; nếu vận chuyển trên 8 giờ thì cho liều tiếp theo trên đường","Chỉ truyền dịch và hạ sốt rồi chuyển","Cho uống Pyramax 3 ngày rồi mới chuyển"],
+   a:1,
+   e:"Phân tuyến điều trị quy định rõ: tuyến xã khi gặp sốt rét ác tính phải <b>tiêm ngay liều đầu tiên Artesunate</b> (hoặc Quinin hydrochloride nếu là thai phụ &lt;3 tháng, hoặc cho uống 1 liều Pyramax/Quinin sulfat nếu không có thuốc tiêm) <b>rồi mới chuyển</b>; và <b>nếu thời gian vận chuyển trên 8 giờ thì cần cho liều tiếp theo trên đường vận chuyển</b>. Nguyên tắc chung: sốt rét ác tính phải được <b>điều trị đặc hiệu sớm</b> và chuyển về đơn vị hồi sức cấp cứu từ tuyến huyện trở lên."}
+  ]
+},
+{
+  name:"5 · Sốt và phát ban do nhiễm trùng",
+  sub:"Đọc sang thương, hồng ban vs tử ban, tác nhân theo kiểu ban",
+  qs:[
+  {q:"Nam 30 tuổi ở Bình Phước, sốt cao liên tục 5 ngày, niêm sung huyết, 2 ngày nay phát ban mặt ngoài 2 cẳng chân: màu đỏ tím, đường kính <0,5 mm, CĂNG DA KHÔNG NHẠT MÀU, không gồ lên mặt da. Dạng ban này là gì?",
+   o:["Hồng ban dát","Hồng ban sẩn","Tử ban điểm","Tử ban đốm"],
+   a:2,
+   e:"Hai bước đọc sang thương: ① <b>Căng da không nhạt màu (tẩm nhuận) → TỬ BAN</b> (thoát hồng cầu ra ngoài mạch), còn hồng ban do giãn mạch nên <b>căng da sẽ nhạt màu</b>. ② Phân loại theo kích thước: <b>&lt;3 mm = chấm xuất huyết / tử ban ĐIỂM (petechiae)</b> · <b>3–10 mm = đốm xuất huyết (purpura)</b> · <b>&gt;10 mm = mảng xuất huyết (ecchymoses)</b>. Ban 0,5 mm nên là <b>tử ban điểm</b>. “Không gồ lên mặt da” xác nhận là dát chứ không phải sẩn."},
+
+  {q:"Vẫn bệnh nhân trên (Bình Phước, sốt cao liên tục 5 ngày, niêm sung huyết, tử ban điểm mặt trước cẳng chân). Chẩn đoán nghĩ nhiều nhất?",
+   o:["Sởi","Thương hàn","Sốt xuất huyết Dengue","Nhiễm HIV cấp tính"],
+   a:2,
+   e:"Bộ ba định hướng: <b>sốt cao liên tục ~5 ngày + da niêm SUNG HUYẾT + tử ban điểm ở MẶT TRƯỚC 2 CẲNG CHÂN</b> — đúng vị trí điển hình của SXHD (mặt trước cẳng chân, mặt trong cánh tay, mạng sườn, bụng, đùi). Sởi và HIV cấp cho <b>hồng ban dát sẩn</b> chứ không phải tử ban. Thương hàn cho ban dát hồng nhạt ở bụng, kèm rối loạn tiêu hóa và mạch–nhiệt phân ly. Chẩn đoán phân biệt quan trọng nhất ở ca này là <b>nhiễm trùng huyết</b> (và với dịch tễ Bình Phước thì thêm <b>sốt rét</b>)."},
+
+  {q:"Nam 34 tuổi, nghề GIẾT MỔ HEO, sốt cao ngày 3 kèm nhức đầu nhiều, ù tai. Khám: tử ban đa dạng ở mình, tay, chân, có hoại tử trung tâm; cổ gượng (+). Tác nhân nghĩ nhiều nhất ở Việt Nam?",
+   o:["Streptococcus pneumoniae","Streptococcus suis","Neisseria meningitidis","Staphylococcus aureus"],
+   a:1,
+   e:"<b>Streptococcus suis (liên cầu lợn)</b> là <b>tác nhân gây viêm màng não mủ thường gặp NHẤT ở Việt Nam</b> (39% các ca cấy dương tại BV Bệnh Nhiệt đới, so với phế cầu 18%, não mô cầu 6%). Lây khi <b>giết mổ, chăn nuôi, chế biến thịt heo sống qua vết trầy xước</b> hoặc <b>ăn tiết canh</b>. Đặc điểm gợi ý: <b>ù tai, giảm thính lực/điếc</b> (tỉ lệ 30–40%) và <b>tử ban xuất huyết có hoại tử trung tâm GIỐNG HỆT não mô cầu</b>. Tác nhân thường gặp thứ hai gây bệnh cảnh này là <b>Neisseria meningitidis</b>."},
+
+  {q:"Nam 21 tuổi, sinh viên ở ký túc xá, sốt cao ngày 3, đau đầu dữ dội, cổ gượng. Khám: tử ban HÌNH BẢN ĐỒ, hoại tử trung tâm, lan nhanh thành mảng lớn. Ngoài kháng sinh, biện pháp quan trọng nào KHÔNG được bỏ sót?",
+   o:["Truyền tiểu cầu dự phòng","Nhập viện, cách ly và báo dịch","Dùng corticoid liều cao kéo dài","Cắt lọc sang thương da"],
+   a:1,
+   e:"Tử ban <b>hình bản đồ, hoại tử trung tâm, lan nhanh</b> + bối cảnh <b>không gian kín đông người</b> → nghĩ <b>Neisseria meningitidis</b>. Đây là <b>thể viêm màng não mủ DUY NHẤT có thể gây DỊCH</b>, lây qua đường hô hấp → bắt buộc <b>nhập viện, CÁCH LY và BÁO DỊCH theo quy định</b>, đồng thời <b>dự phòng cho người tiếp xúc</b> (rifampicin 2 ngày / ciprofloxacin liều duy nhất / ceftriaxone 250 mg TB cho thai phụ). Cơ chế sang thương: vi khuẩn và độc tố gây <b>tắc mạch, hoại tử ở da</b> nên trung tâm tím thẫm hơn. Sốc nội độc tố là bệnh cảnh đặc trưng, vài giờ có thể vào suy đa tạng."},
+
+  {q:"Nam 19 tuổi, sốt và nổi mụn nước ngày 3. Khám: trên CÙNG một vùng da (ví dụ vùng ngực) có sang thương ở nhiều giai đoạn khác nhau — sẩn hồng ban, mụn nước trong, mụn nước hóa đục và vảy đóng mày; rải rác toàn thân. Chẩn đoán?",
+   o:["Thủy đậu","Zona","Tay chân miệng","Herpes simplex lan tỏa"],
+   a:0,
+   e:"Dấu hiệu chẩn đoán quyết định của <b>thủy đậu</b>: <b>trên CÙNG một vùng da có sang thương thuộc NHIỀU GIAI ĐOẠN khác nhau (“nhiều lứa tuổi”)</b>, do mọc thành từng đợt, và <b>rải rác khắp cơ thể</b>, tập trung nhiều ở thân mình và mặt. Trình tự tiến triển: sẩn hồng ban → mụn nước TRONG → hóa ĐỤC → <b>lõm trung tâm</b> → đóng mày đen/nâu. Bệnh nhân thường sốt nhẹ hoặc không sốt. Chẩn đoán chủ yếu <b>dựa vào lâm sàng</b>. Phân biệt với zona: zona xếp <b>thành chùm theo MỘT vùng dây thần kinh</b>."},
+
+  {q:"Nam 55 tuổi, 3 ngày nay đau rát vùng liên sườn bên phải, sau đó xuất hiện chùm mụn nước trên nền hồng ban chỉ ở một dải da bên phải, không vượt qua đường giữa. Chẩn đoán?",
+   o:["Thủy đậu","Zona","Herpes simplex","Viêm da tiếp xúc"],
+   a:1,
+   e:"Ba dấu hiệu của <b>zona (VZV tái hoạt)</b>: ① <b>đau, rát vùng thần kinh 2–3 ngày TRƯỚC khi sang thương xuất hiện</b> (tiền triệu đặc trưng) · ② mụn nước trên nền hồng ban <b>xếp THÀNH CHÙM</b> · ③ <b>khu trú theo MỘT vùng dây thần kinh, không vượt đường giữa</b>. Cơ chế: sau khi khỏi thủy đậu, VZV nằm im trong hạch thần kinh; khi miễn dịch suy yếu thì tái hoạt và đi dọc sợi thần kinh. Ở <b>cơ địa suy giảm miễn dịch, sang thương có thể lan rộng nhiều vùng thần kinh</b>. Zona tương ứng <b>giai đoạn lâm sàng 2 của HIV</b>."},
+
+  {q:"Nam 50 tuổi, nghề BÁN HẢI SẢN, sốt cao lạnh run ngày 2, cẳng tay phải sưng nóng đỏ lan rộng, nổi bóng nước CÓ XUẤT HUYẾT BÊN TRONG, vùng da xung quanh đỏ tím. Tác nhân và xét nghiệm chẩn đoán phù hợp nhất?",
+   o:["Staphylococcus aureus — cấy mủ","Streptococcus pyogenes — ASO","Vibrio vulnificus — cấy máu và cấy dịch bóng nước","Clostridium perfringens — chụp X-quang tìm hơi"],
+   a:2,
+   e:"Dịch tễ <b>đánh bắt/buôn bán hải sản</b> + <b>bóng nước CÓ XUẤT HUYẾT BÊN TRONG</b> trên nền viêm mô tế bào lan nhanh = <b>Vibrio vulnificus</b>. Đường vào: <b>50–75% do nhiễm từ vỏ ngoài hải sản (hàu, cua, tôm, cá) qua VẾT THƯƠNG</b> khi đánh bắt, chế biến. Diễn tiến: sẩn hồng ban → ban xuất huyết → mụn nước → bóng nước xuất huyết → hoại tử tím đen. <b>Tử vong cao</b>, nặng ở cơ địa <b>bệnh gan, đái tháo đường</b>. Chẩn đoán: <b>cấy máu + cấy dịch bóng nước</b>. Nguyên tắc chung: <b>bóng nước CÓ xuất huyết → nghĩ gram (−); bóng nước dịch TRONG → nghĩ gram (+)</b>."},
+
+  {q:"Nữ 43 tuổi, sốt và nổi bóng nước ở cẳng tay phải ngày 2. Khám: bóng nước DỊCH TRONG trên vùng da đỏ lan rộng, gồ hơn vùng xung quanh, bờ không rõ, sờ nóng và đau. Nhóm tác nhân nghĩ nhiều nhất?",
+   o:["Vi khuẩn gram dương: Staphylococcus aureus, Streptococcus pyogenes","Vi khuẩn gram âm: Vibrio vulnificus, Enterobacteriaceae","Virus: HSV, VZV","Nấm: Candida, Talaromyces"],
+   a:0,
+   e:"Đây là <b>viêm mô tế bào có bóng nước, dịch TRONG, KHÔNG xuất huyết bên trong</b> → nhóm <b>gram dương: S. pyogenes, S. aureus</b>, đặc trưng bởi mô viêm sưng, nóng, đỏ lan rộng quanh bóng nước. Nguyên tắc định hướng nhắc lại: <b>gram (+) gây VIÊM nhiều hơn; gram (−) gây TẮC MẠCH, XUẤT HUYẾT</b>. Nếu bóng nước <b>có xuất huyết bên trong kèm ban hoại tử</b> thì chuyển hướng sang <b>V. vulnificus, Enterobacteriaceae</b> — và lúc đó phải khai thác dịch tễ hải sản, cơ địa bệnh gan/đái tháo đường."},
+
+  {q:"Bé gái 5 tuổi, sốt 4 ngày. N1–3: sốt cao, ho khan nhiều, MẮT ĐỎ, CHẢY NƯỚC MẮT. N4: ban hồng nhạt, hơi gồ nhẹ, kích thước 3–6 mm, CÓ KHOẢNG DA LÀNH XEN KẼ, mọc ở mặt và cổ. Chẩn đoán nghĩ nhiều nhất?",
+   o:["Sởi","Rubella","Tay chân miệng","Sốt xuất huyết Dengue"],
+   a:0,
+   e:"Ba yếu tố của <b>sởi</b>: ① giai đoạn khởi phát có <b>sốt + VIÊM LONG</b> (hô hấp, kết mạc mắt, tiêu hóa) — “mắt đỏ, chảy nước mắt” chính là viêm long kết mạc; ② ban <b>hồng ban dát sẩn nhỏ, sờ MỊN, giữa các nốt là KHOẢNG DA LÀNH</b>; ③ trình tự mọc <b>chân tóc/sau tai → má, cổ → ngực, bụng → toàn thân, CÓ Ở LÒNG BÀN TAY BÀN CHÂN</b>, và <b>sau khi ban lan toàn thân thì thường hết sốt</b>. Hai dấu hiệu xác nhận: <b>dấu KOPLIK</b> (chẩn đoán sớm) và <b>“VẾT RẰN DA HỔ” khi ban bay</b>. Sởi <b>không nổi hạch</b> và <b>phải cách ly</b> vì lây mạnh qua hô hấp."},
+
+  {q:"Nữ 20 tuổi, sốt nhẹ, ban hồng dát sẩn giống sởi mọc ở mặt rồi lan xuống, ban MẤT NHANH khi lan qua vùng khác, viêm long rất ít, không có dấu Koplik, có HẠCH SAU TAI to kéo dài. Chẩn đoán?",
+   o:["Sởi","Rubella","Sốt tinh hồng nhiệt","Dị ứng thuốc"],
+   a:1,
+   e:"Bảng phân biệt <b>Sởi ↔ Rubella</b> cần thuộc: <b>sốt</b> — sởi cao, rubella nhẹ/không · <b>viêm long</b> — sởi rõ, rubella ít · <b>Koplik</b> — sởi có, rubella không · <b>hạch</b> — sởi KHÔNG, <b>rubella có hạch SAU TAI/cổ kéo dài vài tuần</b> · <b>ban bay để lại</b> — sởi <b>vết rằn da hổ</b>, rubella <b>tróc vảy MỊN</b>. Ngoài ra ban rubella <b>mất nhanh khi lan sang vùng khác</b> trong khi ban sởi tồn tại lâu hơn. Rubella (sởi Đức, third disease) quan trọng chủ yếu vì nguy cơ dị tật bẩm sinh nếu mắc ở thai phụ."},
+
+  {q:"Bé trai 3 tuổi, sốt 2 ngày, nổi mụn nước ở lòng bàn tay, lòng bàn chân, gối và mông, kèm LOÉT MIỆNG. Xét nghiệm nào giúp chẩn đoán nguyên nhân?",
+   o:["Cấy máu","PCR tìm Enterovirus","Soi tươi tìm nấm","Huyết thanh chẩn đoán sởi"],
+   a:1,
+   e:"Bệnh <b>tay chân miệng</b>: mụn nước ở <b>lòng bàn tay, bàn chân, gối, mông</b> kèm <b>loét miệng</b>, tác nhân là <b>Coxsackie A16 và Enterovirus 71 (EV71)</b>. Chẩn đoán căn nguyên: <b>PCR Enterovirus</b> (dịch bóng nước, phết họng, phết trực tràng). Điều bắt buộc phải hỏi thêm khi gặp ca này là các <b>dấu hiệu nặng do EV71</b>: <b>giật mình chới với khi ngủ</b>, run chi, đi loạng choạng, sốt cao khó hạ, nôn ói nhiều — vì EV71 có thể gây viêm não thân não, phù phổi cấp và tử vong nhanh."},
+
+  {q:"Nữ 36 tuổi, làm vườn ở Tây Ninh, sốt cao liên tục ngày 10, không đau đầu, không phát ban. Khám kỹ thấy ở vùng vai cổ bên trái có một sang thương 1×2 cm: vết loét đóng mày ĐEN, không đau. Chẩn đoán phù hợp nhất?",
+   o:["Nhiễm trùng huyết","Sốt mò","Sốt rét","Sốt xuất huyết Dengue"],
+   a:1,
+   e:"<b>Sốt mò (Orientia tsutsugamushi)</b> với ba dữ kiện kinh điển: ① <b>dịch tễ làm vườn, làm rẫy, đi rừng</b>; ② <b>sốt kéo dài ≥7–10 ngày</b> không rõ ổ nhiễm; ③ <b>NỐT LOÉT ĐÓNG MÀY ĐEN (eschar)</b> — sang thương <b>không đau nên bệnh nhân thường không biết</b>, hay ở vùng kín, ẩm: <b>nách, bẹn, thắt lưng, vai cổ, sinh dục</b>, vì vậy <b>phải cởi áo khám toàn thân mới tìm ra</b>. Thường kèm nổi hạch tại vùng, gan lách to. Điều trị: <b>Doxycycline</b>, đáp ứng rất nhanh (hết sốt trong 24–48 giờ)."},
+
+  {q:"Nữ 45 tuổi, sau 1 tuần uống thuốc điều trị động kinh, sốt, nổi ban đỏ lan rộng toàn thân, bóng nước dịch vàng kết cụm, da quanh bóng nước mỏng nhăn dễ trợt, kèm VIÊM KẾT MẠC MẮT 2 BÊN và LOÉT MIỆNG. Chẩn đoán phù hợp nhất?",
+   o:["Thủy đậu bội nhiễm","Hội chứng bỏng da do tụ cầu","Hội chứng Stevens-Johnson","Nhiễm trùng huyết do não mô cầu"],
+   a:2,
+   e:"Dấu hiệu quyết định của <b>hội chứng Stevens-Johnson</b> là <b>viêm loét CÁC LỖ TỰ NHIÊN</b>: viêm kết mạc mắt hai bên + viêm loét miệng (có thể cả sinh dục), kèm ban đỏ lan rộng, bóng nước dịch vàng kết cụm, <b>da quanh bóng nước mỏng, nhăn nheo, dễ trợt</b>. Bối cảnh: <b>sau dùng thuốc</b> (chống động kinh, allopurinol, sulfamid, kháng sinh...). Phải khai thác kỹ <b>tiền căn dị ứng, thuốc, hóa chất, thức ăn gần đây</b>. Đây là bẫy “tưởng nhiễm trùng mà không phải nhiễm trùng” — nhắc nhở rằng trong tiếp cận sốt phát ban luôn phải để ngỏ nguyên nhân <b>dị ứng và bệnh huyết học</b>."},
+
+  {q:"Trẻ 6 tuổi, sang thương da: sẩn hồng ban ngứa → mụn nước → hóa mủ → vỡ ra và ĐÓNG MÀY VÀNG MẬT ONG dày, quanh miệng và mũi. Tác nhân thường gặp nhất?",
+   o:["Herpes simplex virus","Staphylococcus aureus (hoặc Streptococcus pyogenes)","Varicella zoster virus","Candida albicans"],
+   a:1,
+   e:"Đây là <b>bệnh chốc (impetigo)</b> ở trẻ em do <b>S. aureus hoặc S. pyogenes</b>, đặc trưng bởi <b>mày VÀNG MẬT ONG dày kèm vảy mỏng tróc ra</b>. Nhắc lại 5 bệnh cảnh da do <b>S. aureus</b>: ① mụn mủ trong nhiễm trùng huyết · ② viêm mô tế bào · ③ <b>chốc lở</b> · ④ <b>hội chứng bỏng da (SSSS)</b> do độc tố <b>Exfoliatine</b> ở trẻ sơ sinh/trẻ nhỏ: sốt, đỏ da, <b>bong lớp biểu bì diện rộng</b> · ⑤ <b>hội chứng sốc độc tố (TSS)</b>: sốt cao, <b>tụt HA, ban đỏ dạng dát TOÀN THÂN</b>, tổn thương gan thận."},
+
+  {q:"Nữ 24 tuổi, sốt cao, tụt huyết áp, ĐỎ DA DẠNG DÁT LAN RỘNG TOÀN THÂN, men gan tăng, creatinine tăng, đang trong kỳ kinh nguyệt có dùng tampon. Chẩn đoán phù hợp nhất?",
+   o:["Sốc nhiễm trùng do gram âm","Hội chứng sốc độc tố","Sốt xuất huyết Dengue nặng","Hội chứng Stevens-Johnson"],
+   a:1,
+   e:"<b>Hội chứng sốc độc tố (Toxic Shock Syndrome)</b> do <b>S. aureus</b> (hoặc S. pyogenes) sinh độc tố siêu kháng nguyên: <b>sốt cao + TỤT HUYẾT ÁP + ban ĐỎ DA DẠNG DÁT TOÀN THÂN + tổn thương đa cơ quan (gan, thận)</b>. Phân biệt với Stevens-Johnson: SJS có <b>bóng nước và loét các lỗ tự nhiên</b>, liên quan thuốc, không nhất thiết tụt HA. Phân biệt với SXHD nặng: SXHD có Hct tăng/tiểu cầu giảm, tử ban chứ không đỏ da lan tỏa. Đặc điểm gợi ý khác của TSS: bong da lòng bàn tay–bàn chân ở giai đoạn hồi phục (1–2 tuần sau)."},
+
+  {q:"Bệnh nhân HIV, CD4 = 15 tế bào/mm³, sốt kéo dài, gan lách hạch to, sang thương da dạng SẨN CÓ LÕM TRUNG TÂM tập trung ở mặt. Tác nhân nghĩ nhiều nhất?",
+   o:["Cryptococcus neoformans","Talaromyces marneffei","Histoplasma capsulatum","Varicella zoster virus"],
+   a:1,
+   e:"<b>Talaromyces marneffei</b> là chẩn đoán kinh điển ở bệnh nhân AIDS Đông Nam Á với bộ ba: <b>sốt + sẩn da LÕM TRUNG TÂM, hoại tử tạo vảy đen, KHÔNG đau KHÔNG ngứa, mọc ở MẶT</b> + <b>thiếu máu, gan lách hạch to, suy kiệt</b>. Chẩn đoán: cấy <b>tủy xương (100%) &gt; da (90%) &gt; máu (70%)</b>, môi trường Sabouraud; nấm lưỡng hình — <b>nhiệt độ cơ thể cho nấm hạt men, 25–27°C cho nấm sợi tiết sắc tố ĐỎ</b>. Lưu ý <b>Cryptococcus cũng có thể cho sang thương da lõm trung tâm</b> nên dễ nhầm — phân biệt bằng nuôi cấy và bệnh cảnh viêm màng não đi kèm."},
+
+  {q:"Bệnh nhân nam 50 tuổi, làm nông, nhà ở vùng ngập nước, sốt cao 8 ngày, đau bắp chân dữ dội, VÀNG DA MÀU LỰU CHÍN, suy thận, xuất huyết kết mạc. Tác nhân và xét nghiệm đặc hiệu?",
+   o:["Leptospira — xét nghiệm MAT","Salmonella Typhi — Widal","Plasmodium falciparum — phết máu","Rickettsia — Weil-Felix"],
+   a:0,
+   e:"Bộ dấu hiệu của <b>nhiễm Leptospira</b>: dịch tễ <b>làm nông, tiếp xúc nước/bùn nhiễm nước tiểu chuột</b> · <b>vàng da màu “lựu chín”</b> (vàng da đậm có ánh đỏ do vừa tổn thương gan vừa xuất huyết) · <b>đau cơ dữ dội nhất là bắp chân</b> · <b>xuất huyết kết mạc</b> · suy thận cấp. Xét nghiệm đặc hiệu: <b>MAT (Microscopic Agglutination Test)</b>. Đây là chẩn đoán phải nghĩ tới trong bài “sốt và vàng da”, bên cạnh nhiễm trùng đường mật, viêm gan siêu vi và <b>sốt rét thể gan mật</b>."},
+
+  {q:"Trong tiếp cận bệnh nhân sốt kèm phát ban, nghiệm pháp đơn giản nào giúp phân biệt hồng ban với tử ban ngay tại giường?",
+   o:["Nghiệm pháp dây thắt","Nghiệm pháp căng da / ấn kính đồng hồ","Nghiệm pháp Nikolsky","Nghiệm pháp lẩy da"],
+   a:1,
+   e:"<b>Nghiệm pháp căng da hoặc ấn bằng mặt kính đồng hồ</b>: <b>hồng ban NHẠT MÀU</b> khi căng/ấn (vì bản chất là giãn mao mạch, máu bị đẩy đi); <b>tử ban KHÔNG nhạt màu</b> (vì hồng cầu đã thoát ra ngoài lòng mạch — gọi là “tẩm nhuận”). Nghiệm pháp dây thắt dùng để phát hiện tăng tính dễ vỡ mao mạch (một tiêu chí chẩn đoán SXHD), không dùng để phân loại ban. Nghiệm pháp Nikolsky (trượt da) dùng trong các bệnh bóng nước như SSSS và hoại tử thượng bì nhiễm độc."},
+
+  {q:"Bệnh nhân nữ 30 tuổi, sốt N1–5, sang N6 nổi sang thương mụn nước thành chùm ở vùng ngực phải lan ra nách, khi vỡ ra có cảm giác đau rát, đang điều trị hóa trị ung thư. Tác nhân nghĩ nhiều nhất?",
+   o:["Herpes simplex virus","Varicella zoster virus","Enterovirus 71","Staphylococcus aureus"],
+   a:1,
+   e:"<b>Mụn nước thành CHÙM khu trú theo MỘT dải da (dermatome)</b> ở vùng ngực lan ra nách, trên bệnh nhân <b>suy giảm miễn dịch do hóa trị</b> → <b>zona do VZV tái hoạt</b>. HSV cũng cho chùm mụn nước trên nền hồng ban nhưng khu trú điển hình ở <b>quanh môi/cánh mũi (HSV-1)</b> hoặc <b>sinh dục, quanh hậu môn, đùi, mông (HSV-2)</b> và hay <b>tái phát cùng một vị trí</b>. Ghi nhớ nguyên tắc chung của bài: <b>mụn nước thường do SIÊU VI nhiều hơn vi khuẩn</b>; nếu là vi khuẩn thì thường kèm dạng sang thương khác (ban xuất huyết, loét hoại tử)."},
+
+  {q:"Bệnh nhân nam 28 tuổi, quan hệ tình dục không an toàn 3 tuần trước, nay sốt, đau họng, nổi hạch toàn thân, phát ban dát sẩn ở thân mình và tứ chi, loét miệng. Chẩn đoán cần nghĩ tới đầu tiên?",
+   o:["Nhiễm HIV cấp","Sởi ở người lớn","Sốt xuất huyết Dengue","Thủy đậu"],
+   a:0,
+   e:"Bộ triệu chứng <b>hội chứng nhiễm HIV cấp</b>: sốt (75%), mệt mỏi (68%), đau cơ (49%), <b>phát ban dát sẩn (48%)</b>, đau đầu (45%), <b>đau họng (40%)</b>, <b>nổi hạch cổ/toàn thân (39%)</b>, đau khớp, đổ mồ hôi đêm, tiêu lỏng — xuất hiện <b>2–4 tuần sau phơi nhiễm</b>, kèm loét miệng. HIV nằm trong danh sách tác nhân gây <b>hồng ban dát sẩn</b> của bài. Thực hành: xét nghiệm kháng thể có thể còn <b>âm tính giả trong giai đoạn cửa sổ</b> → cần <b>HIV RNA hoặc test thế hệ 4 (kháng nguyên p24 + kháng thể)</b> và làm lại sau 1 tháng và 3 tháng."}
+  ]
+}
+,
+{
+  name:"6 · Viêm gan siêu vi",
+  sub:"Đọc dấu ấn huyết thanh, chỉ định kháng virus, theo dõi, dự phòng mẹ–con (QĐ 1740/2026)",
+  qs:[
+  {q:"Nam 25 tuổi, vàng da ngày 5, trước đó sốt nhẹ, tiểu sậm, mỏi cơ. AST 1050 U/L, ALT 1250 U/L, GGT 145 U/L, bilirubin toàn phần 165 µmol/L, trực tiếp 85 µmol/L, INR 1,12. Siêu âm không tắc mật. Đặc điểm xét nghiệm nào gợi ý nguyên nhân SIÊU VI nhất?",
+   o:["AST tăng cao hơn ALT","ALT cao hơn AST, bilirubin tăng cả trực tiếp và gián tiếp không thành phần nào chiếm ưu thế","GGT tăng rất cao","Bilirubin gián tiếp chiếm trên 85%"],
+   a:1,
+   e:"Hai quy tắc định hướng: ① <b>ALT &gt; AST → siêu vi</b>; <b>AST &gt; ALT (tỉ số thường &gt;2) → rượu, thuốc, chuyển hóa</b> — vì ALT nằm chủ yếu ở bào tương tế bào gan, còn AST có cả ở ty thể và nhiều mô khác, rượu tổn thương ty thể nên AST vượt trội. ② <b>Bilirubin tăng cả TT và GT, không thành phần nào ưu thế → vàng da TẠI GAN</b>; tăng ưu thế trực tiếp (&gt;50%) gợi ý tắc mật sau gan; tăng ưu thế gián tiếp (&gt;85%) gợi ý tán huyết. GGT tăng rất cao hay đi kèm rượu hoặc bệnh đường mật. Nhắc thêm: vàng da thấy được trên lâm sàng khi bilirubin ≥51 µmol/L (3 mg/dL)."},
+
+  {q:"Bệnh nhân vàng da cấp, men gan tăng >20 lần. Dấu ấn: HBsAg (−), anti-HBs (−), IgM anti-HBc (+), anti-HBc toàn phần (+). Diễn giải đúng?",
+   o:["Đã khỏi nhiễm HBV và có miễn dịch","Nhiễm HBV cấp, giai đoạn cửa sổ","Nhiễm HBV mạn","Miễn dịch sau tiêm vắc xin"],
+   a:1,
+   e:"<b>Giai đoạn cửa sổ</b> là khoảng thời gian HBsAg đã biến mất nhưng anti-HBs chưa xuất hiện, và <b>IgM anti-HBc là dấu ấn DUY NHẤT còn dương</b> để chứng minh nhiễm cấp. Nếu chỉ tầm soát bằng HBsAg sẽ bỏ sót chẩn đoán. Bảng nhớ nhanh: <b>HBsAg(+) + IgM anti-HBc(+) = cấp</b> · <b>HBsAg(−) + IgM anti-HBc(+) = cấp giai đoạn cửa sổ</b> · <b>HBsAg(−) + anti-HBs(+) + anti-HBc(+) = đã khỏi, có miễn dịch</b> · <b>HBsAg(−) + anti-HBs(+) + anti-HBc(−) = miễn dịch do vắc xin</b> · <b>HBsAg(+) + IgM anti-HBc(−) + anti-HBc(+) = mạn</b>."},
+
+  {q:"Nữ 24 tuổi làm xét nghiệm tiền hôn nhân: HBsAg (−), anti-HBs định lượng 250 mUI/mL, anti-HBc toàn phần (−). Kết luận đúng?",
+   o:["Đã nhiễm HBV tự nhiên và đã khỏi","Có miễn dịch bảo vệ do tiêm vắc xin","Nhiễm HBV mạn thể người lành mang trùng","Cần tiêm thêm 3 mũi vắc xin"],
+   a:1,
+   e:"<b>Chìa khóa là anti-HBc</b>: anti-HBc chỉ xuất hiện khi cơ thể tiếp xúc với <b>virus thật</b> (kháng nguyên lõi), còn vắc xin chỉ chứa HBsAg tái tổ hợp nên chỉ tạo anti-HBs. Vì vậy <b>anti-HBs(+) + anti-HBc(−) = miễn dịch do VẮC XIN</b>; <b>anti-HBs(+) + anti-HBc(+) = miễn dịch do NHIỄM TỰ NHIÊN đã khỏi</b>. Anti-HBs <b>&gt;10 mUI/mL có giá trị bảo vệ</b> — theo Bộ Y tế Việt Nam thì không cần tiêm thêm (AASLD Hoa Kỳ dùng ngưỡng 100 mUI/mL)."},
+
+  {q:"Nam 35 tuổi, đầu bếp nhà hàng, vàng da cấp, AST 860, ALT 900 U/L. Chưa rõ tiền căn phơi nhiễm. Ngoài HBsAg và IgM anti-HBc, xét nghiệm nào đặc biệt cần thiết vì liên quan đến công việc của bệnh nhân?",
+   o:["Anti-HCV và HCV RNA","IgM anti-HAV và IgM anti-HEV","IgM anti-HDV","ANA và anti-SMA"],
+   a:1,
+   e:"HAV và HEV <b>lây qua đường PHÂN–MIỆNG</b>. Người làm nghề <b>chế biến thực phẩm</b> nếu nhiễm HAV/HEV có nguy cơ gây dịch cho cộng đồng, vì vậy việc xác định hai tác nhân này có ý nghĩa cả chẩn đoán lẫn <b>dự phòng</b>: tư vấn bệnh nhân <b>tạm ngưng công việc chế biến đồ ăn thức uống</b> và rửa tay kỹ. Nhắc thêm đặc điểm: HAV <b>không chuyển mạn</b>, hồi phục hoàn toàn; HEV có IgM xuất hiện trễ và <b>tiên lượng xấu ở thai phụ 3 tháng cuối</b>. HDV lây qua máu/quan hệ tình dục và chỉ gây bệnh khi có HBsAg."},
+
+  {q:"Nữ 51 tuổi, vàng da ngày 6, tỉnh táo, không xuất huyết, ăn uống được. HBsAg (+), IgM anti-HBc (+). Bilirubin toàn phần 45 µmol/L, INR 1,1. Thuốc điều trị phù hợp nhất?",
+   o:["Silymarin + phospholipid đậu nành, điều trị nâng đỡ","Tenofovir (TDF) 300 mg/ngày","Entecavir 0,5 mg/ngày","Prednisolone 40 mg/ngày"],
+   a:0,
+   e:"<b>Đại đa số viêm gan B cấp KHÔNG có biến chứng và KHÔNG có chỉ định thuốc kháng virus</b> — điều trị chủ yếu là nâng đỡ: nghỉ ngơi, ăn giàu calo ít béo (ăn nhiều buổi sáng vì bệnh nhân hay buồn nôn cuối ngày), tránh rượu bia, thuốc nam, thuốc độc gan. Thuốc hỗ trợ được phép: <b>silymarin, phospholipid đậu nành, ursodeoxycholic acid</b>; kháng histamin nếu ngứa. <b>Corticoid KHÔNG có giá trị</b> — slide bộ môn ghi “chỉ làm tăng sự yên tâm cho thầy thuốc”. Bệnh nhân này không có tiêu chí nào của thể nặng."},
+
+  {q:"Nam 45 tuổi, viêm gan B cấp (HBsAg +, IgM anti-HBc +), vàng da ngày 6, nhiệt độ 37,8°C, tỉnh táo. Bilirubin toàn phần 145 µmol/L, INR 1,22, AST 850, ALT 950 U/L. Xử trí phù hợp nhất?",
+   o:["Hạ sốt bằng paracetamol, cho thuốc kháng HBV","Hạ sốt bằng paracetamol, không cho thuốc kháng HBV","Không hạ sốt bằng paracetamol, cho thuốc kháng HBV","Không hạ sốt bằng paracetamol, không cho thuốc kháng HBV"],
+   a:3,
+   e:"Về kháng virus, QĐ 1740/2026 quy định VGB cấp nặng khi có <b>ít nhất 2 trong 3</b>: ① bệnh não gan · ② <b>INR &gt;1,5</b> · ③ <b>bilirubin TP &gt;51 µmol/L (hoặc TT &gt;25 µmol/L)</b>. Bệnh nhân chỉ có tiêu chí ③ (INR 1,22 &lt;1,5, không bệnh não gan) → <b>mới 1/3, chưa đủ chỉ định</b>. Về hạ sốt: nhiệt độ 37,8°C <b>chưa cần thuốc hạ sốt</b>, và paracetamol chuyển hóa qua gan cần tránh khi men gan tăng cao. Các chỉ định kháng virus khác: bệnh kéo dài &gt;4 tuần với bilirubin tăng dần, suy giảm miễn dịch/bệnh đồng mắc nghiêm trọng, thể tối cấp."},
+
+  {q:"Nam 40 tuổi, viêm gan B cấp ngày 10, lơ mơ, có dấu run vẫy, INR 1,9, bilirubin toàn phần 210 µmol/L. Xử trí đặc hiệu theo QĐ 1740/QĐ-BYT năm 2026?",
+   o:["Chỉ điều trị nâng đỡ, chờ tự hồi phục","Tenofovir (hoặc Entecavir, TAF), dùng đến khi mất HBsAg sau 3 tháng, hội chẩn xét ghép gan nếu tối cấp","Interferon alpha tiêm dưới da 48 tuần","Corticoid liều cao"],
+   a:1,
+   e:"Bệnh nhân có <b>đủ cả 3 tiêu chí</b>: bệnh não gan + INR &gt;1,5 + bilirubin TP &gt;51 µmol/L → <b>viêm gan B cấp diễn biến NẶNG</b>, có chỉ định kháng virus. Thuốc: <b>TDF hoặc ETV hoặc TAF</b>, dùng <b>cho đến khi mất HBsAg sau 3 tháng</b>. Với thể tối cấp, phải <b>hội chẩn chuyên khoa xét chỉ định ghép gan</b>. Interferon chống chỉ định trong viêm gan cấp nặng và suy gan. Định nghĩa suy gan cấp cần nhớ: <b>bệnh não gan + INR ≥1,5</b> ở người không có bệnh gan trước đó; tử vong &gt;80%."},
+
+  {q:"Nữ 30 tuổi, vàng da đã 5 tuần, viêm gan B cấp, không bệnh não gan, INR 1,3, nhưng bilirubin toàn phần tăng dần qua các lần xét nghiệm (hiện 190 µmol/L). Xử trí về thuốc kháng virus?",
+   o:["Không chỉ định vì chưa đủ 2 tiêu chí nặng","Có chỉ định vì bệnh kéo dài trên 4 tuần và bilirubin có xu hướng tăng","Chờ đủ 6 tháng rồi đánh giá chuyển mạn","Chỉ dùng khi INR >2"],
+   a:1,
+   e:"Ngoài tiêu chí “≥2 trong 3” (bệnh não gan, INR &gt;1,5, bilirubin &gt;51 µmol/L), QĐ 1740/2026 còn có <b>chỉ định riêng: bệnh KÉO DÀI &gt;4 TUẦN với bilirubin có xu hướng TĂNG</b>. Đây là tình huống bệnh không tự hồi phục như diễn tiến thông thường (bình thường hồi phục 1–4 tuần sau giai đoạn vàng da). Tiêu chí mới được bổ sung năm 2026: <b>người suy giảm miễn dịch hoặc có bệnh đồng mắc nghiêm trọng</b>. Đáp án C sai vì chờ 6 tháng là để phân định hồi phục/chuyển mạn, không phải để quyết định điều trị khi bệnh đang tiến triển xấu."},
+
+  {q:"Nam 28 tuổi, vàng da cấp, ăn hàu sống 1 tháng trước. IgM anti-HAV (+), HBsAg (−), IgM anti-HBc (−), anti-HCV (+). Nhận định đúng về kết quả anti-HCV?",
+   o:["Viêm gan C cấp là nguyên nhân chính của đợt vàng da này","Đồng nhiễm HAV và HCV cấp, cần điều trị DAA ngay","Anti-HCV không phân biệt được cấp hay mạn, không bảo vệ; cần HCV RNA để xác định có đang nhiễm HCV","Anti-HCV dương tính có giá trị bảo vệ, không cần làm gì thêm"],
+   a:2,
+   e:"Ba đặc điểm của anti-HCV phải nhớ: ① <b>xuất hiện muộn, 8–12 TUẦN sau phơi nhiễm</b> nên thường âm trong giai đoạn cấp; ② <b>tồn tại SUỐT ĐỜI</b> kể cả khi đã khỏi; ③ <b>KHÔNG có giá trị bảo vệ</b>. Vì vậy anti-HCV (+) chỉ nói lên <b>đã từng hoặc đang</b> nhiễm HCV — <b>bắt buộc khẳng định bằng HCV RNA hoặc HCV core Ag</b>. Ở ca này, nguyên nhân đợt vàng da là <b>viêm gan A cấp</b> (IgM anti-HAV +, dịch tễ ăn hải sản sống); anti-HCV (+) nhiều khả năng là HCV mạn tình cờ phát hiện. HCV chuyển mạn 50–90%, DAA chữa khỏi &gt;95%, chưa có vắc xin."},
+
+  {q:"Bệnh nhân HBsAg (+), IgM anti-HBc (+), IgM anti-HDV (+), men gan tăng cao, vàng da cấp. Chẩn đoán phù hợp nhất?",
+   o:["Đồng nhiễm HBV và HDV cấp","Bội nhiễm HDV trên nền HBV mạn","Viêm gan B mạn đơn thuần","Viêm gan D mạn"],
+   a:0,
+   e:"<b>HDV là virus KHÔNG hoàn chỉnh, bắt buộc cần HBsAg</b> của HBV để gây bệnh, nên chỉ có hai kịch bản: ① <b>ĐỒNG NHIỄM</b> (nhiễm HBV và HDV cùng lúc) → <b>IgM anti-HBc (+)</b> + IgM anti-HDV (+); ② <b>BỘI NHIỄM</b> HDV trên người đã mang HBV mạn → <b>IgM anti-HBc (−)</b> + anti-HBc toàn phần (+) + IgM anti-HDV (+). Ở đây IgM anti-HBc dương → đồng nhiễm cấp. Hệ quả dự phòng quan trọng: <b>tiêm vắc xin HBV cũng phòng được HDV</b>. QĐ 1740/2026 còn quy định: đồng nhiễm HBV/HDV có chỉ định điều trị kháng virus B <b>không phụ thuộc HBV DNA, ALT hay độ xơ hóa</b>."},
+
+  {q:"Bệnh nhân viêm gan B cấp đang ổn định, vàng da ngày 12, hết sốt từ khi vàng da. Hôm nay sốt lại 39°C. Nhận định cần nghĩ tới đầu tiên?",
+   o:["Diễn tiến bình thường của viêm gan siêu vi cấp","Biến chứng suy gan hoặc nhiễm trùng khác đi kèm","Tác dụng phụ của silymarin","Viêm gan B chuyển sang giai đoạn mạn"],
+   a:1,
+   e:"Đặc điểm lâm sàng kinh điển của viêm gan siêu vi cấp: <b>sốt nhẹ hoặc không sốt ở giai đoạn tiền triệu, và KHI XUẤT HIỆN VÀNG DA THÌ HẾT SỐT</b>, các triệu chứng cơ năng cũng giảm dần. Vì vậy dàn bài 2026 ghi rõ: <b>“khi đã vàng da mà xuất hiện sốt thì phải xem xét: ① biến chứng SUY GAN, hoặc ② nhiễm trùng khác đi kèm”</b>. Dấu hiệu suy gan cần tìm: rối loạn tri giác, <b>gan teo nhỏ (chiều cao gan &lt;8 cm)</b>, xuất huyết, INR kéo dài không đáp ứng vitamin K, men gan tăng rất cao rồi giảm nhanh."},
+
+  {q:"Nữ 22 tuổi, vàng da ngày 4, lơ mơ, chảy máu chân răng, INR 2,3, men gan >3000 U/L. Gõ chiều cao gan trên đường trung đòn phải 6 cm. Chẩn đoán phù hợp nhất?",
+   o:["Viêm gan siêu vi cấp thể thông thường","Viêm gan siêu vi thể tối cấp","Viêm gan siêu vi bán cấp","Đợt bùng phát viêm gan mạn"],
+   a:1,
+   e:"<b>Suy gan cấp = bệnh não gan + INR ≥1,5</b> ở người không có bệnh gan trước đó. Phân loại theo thời gian <b>tính từ khi VÀNG DA</b>: <b>&lt;7 ngày → TỐI CẤP (fulminant)</b> · 7–21 ngày → cấp · &gt;21 ngày đến &lt;26 tuần → bán cấp. Bệnh nhân vàng da ngày 4, lơ mơ, INR 2,3 → <b>tối cấp</b>. Dấu hiệu lâm sàng hỗ trợ: <b>gan teo nhỏ — chiều cao gan &lt;8 cm</b> (bình thường 8–12 cm; bộ môn nhấn phải GÕ gan chứ không chỉ sờ). Tỉ lệ tử vong &gt;80%; hay gặp ở HAV, HEV, HBV, HDV, hiếm ở người &lt;15 tuổi."},
+
+  {q:"Nam 30 tuổi, được chẩn đoán viêm gan B cấp 4 tháng trước, nay tái khám: không triệu chứng, AST 29, ALT 33 U/L, HBsAg (−), anti-HBs 100 mUI/mL. Xử trí tiếp theo?",
+   o:["Tiêm 1 mũi vắc xin viêm gan B hôm nay","Hẹn 2 tháng nữa làm lại HBsAg","Làm HBV DNA xem còn virus không","Kết luận đã khỏi, có miễn dịch; không cần tiêm vắc xin, không cần hẹn theo dõi viêm gan nữa"],
+   a:3,
+   e:"Đã <b>mất HBsAg và xuất hiện anti-HBs &gt;10 mUI/mL</b> → <b>HỒI PHỤC, có miễn dịch bảo vệ</b>. Theo Bộ Y tế Việt Nam, anti-HBs &gt;10 mUI/mL thì <b>không cần tiêm thêm vắc xin</b>. Các mốc theo dõi sau VGB cấp theo QĐ 1740/2026: AST/ALT mỗi 1–2 tuần đến khi bình thường; <b>HBsAg và anti-HBs ở tuần 12 và tuần 24</b>; <b>mốc 6 tháng</b> quyết định hồi phục (mất HBsAg) hay chuyển mạn (HBsAg còn dương). Ngược lại: nếu mất HBsAg nhưng <b>anti-HBs &lt;10 mUI/mL</b> thì tiêm vắc xin phác đồ <b>0-1-6</b>."},
+
+  {q:"Bệnh nhân viêm gan siêu vi cấp nằm viện ngày thứ 10. Tiêu chuẩn nào phù hợp để cho RA VIỆN?",
+   o:["Men gan trở về hoàn toàn bình thường","AST/ALT giảm còn dưới 5 lần giới hạn bình thường, bilirubin giảm, TQ >70%, hết triệu chứng và đã qua thời gian dễ biến chứng","Hết vàng da hoàn toàn","HBsAg chuyển âm tính"],
+   a:1,
+   e:"Tiêu chuẩn ra viện gồm 3 nhóm: ① <b>hết triệu chứng cơ năng và thực thể</b>; ② <b>đã qua thời gian có thể xảy ra biến chứng</b> (nguy cơ cao nhất 1–2 tuần đầu); ③ <b>xét nghiệm cải thiện</b>: <b>AST/ALT giảm còn tăng &lt;5 lần</b> giá trị bình thường · <b>bilirubin giảm</b> · <b>TQ tăng trên 70%</b>. Không cần chờ men gan về bình thường hoàn toàn hay hết vàng da, vì bilirubin cải thiện chậm hơn men gan (bilirubin có thể còn tăng dù men gan đã giảm). HBsAg chỉ đánh giá ở tuần 12 và 24. Sau ra viện tái khám mỗi 2–4 tuần, rồi mỗi 3 tháng."},
+
+  {q:"Thai phụ 12 tuần, HBsAg (+) phát hiện khi khám thai, chưa điều trị, men gan bình thường. HBV DNA 5 × 10⁶ IU/mL, HBeAg (+). Theo QĐ 1740/QĐ-BYT năm 2026, xử trí dự phòng lây truyền mẹ–con?",
+   o:["Không cần can thiệp vì men gan bình thường","Hẹn tuần thai 24–28 làm lại HBV DNA rồi quyết định","Bắt đầu Tenofovir từ tuần thai thứ 14, kéo dài đến 3 tháng sau sinh","Tiêm HBIG cho mẹ mỗi tháng đến khi sinh"],
+   a:2,
+   e:"<b>Đây là điểm THAY ĐỔI LỚN của QĐ 1740/2026 (Phụ lục 6)</b> so với hướng dẫn 2019 mà handout/sổ tay bộ môn đang dùng. Mới: thai phụ HBsAg (+) có <b>HBV DNA ≥200.000 IU/mL HOẶC HBeAg DƯƠNG TÍNH</b> → <b>bắt đầu Tenofovir từ TUẦN THAI THỨ 14, đến 3 THÁNG SAU SINH</b>. Cũ (2019): TDF từ tuần 24–28 khi HBV DNA ≥10⁶ copies/mL. Nếu HBV DNA &lt;200.000 IU/mL hoặc HBeAg âm → không cần dự phòng bằng Tenofovir. Nếu thai phụ đủ tiêu chuẩn điều trị VGB mạn → điều trị TDF/TAF lâu dài. Kiến thức nền: lây nhiều nhất lúc <b>chuyển dạ</b>; mổ lấy thai và sinh thường nguy cơ như nhau; <b>vẫn khuyến khích cho con bú</b>."},
+
+  {q:"Trẻ sơ sinh vừa chào đời, mẹ HBsAg (+). Xử trí dự phòng cho trẻ đúng nhất?",
+   o:["Chỉ tiêm vắc xin viêm gan B lúc 2 tháng tuổi theo tiêm chủng mở rộng","HBIG 0,5 mL tiêm bắp ngay sau sinh và vắc xin viêm gan B trong 12 giờ đầu, tiêm ở hai vị trí khác nhau","Cho trẻ uống Tenofovir 3 tháng","Không cho trẻ bú mẹ"],
+   a:1,
+   e:"Phác đồ chuẩn: <b>HBIG 0,5 mL tiêm bắp, liều duy nhất, NGAY SAU SINH</b> + <b>vắc xin viêm gan B trong vòng 12 GIỜ ĐẦU</b>. Hai loại <b>có thể tiêm cùng lúc nhưng BẮT BUỘC ở 2 VỊ TRÍ KHÁC NHAU, bằng 2 bơm tiêm khác nhau</b> (để kháng thể thụ động trong HBIG không trung hòa kháng nguyên vắc xin tại chỗ). Sau đó tiếp tục các mũi vắc xin theo lịch. <b>Vẫn cho bú mẹ</b> — nguy cơ trẻ tử vong vì không được bú mẹ lớn hơn nguy cơ nhiễm HBV. Nhắc lại: trẻ nhiễm HBV lúc sơ sinh <b>chuyển mạn &gt;90%</b>, khác hẳn người lớn (1–5%)."},
+
+  {q:"Tác nhân viêm gan siêu vi nào có tiên lượng XẤU nhất ở phụ nữ mang thai 3 tháng cuối, với tỉ lệ tử vong có thể tới 20–30%?",
+   o:["HAV","HBV","HCV","HEV"],
+   a:3,
+   e:"<b>HEV (virus viêm gan E)</b> lây qua đường phân–miệng, thường tự giới hạn ở người bình thường, nhưng <b>tiên lượng rất xấu cho THAI PHỤ và thai nhi, nhất là 3 tháng cuối</b> — nguy cơ suy gan tối cấp cao. HEV cũng có thể <b>diễn tiến mạn ở người suy giảm miễn dịch</b> (HIV, lupus, ghép tạng, hóa trị). Dấu ấn: <b>IgM anti-HEV</b> (xuất hiện trễ). Có vắc xin HEV tái tổ hợp tại Trung Quốc từ 2012 (hiệu quả &gt;90%). Bảng so sánh: HAV không chuyển mạn · HBV là virus DNA duy nhất · HCV không có vắc xin, chuyển mạn cao nhất · HDV cần HBsAg."},
+
+  {q:"Nam 40 tuổi, HBsAg (+) đã hơn 6 tháng, không triệu chứng. ALT 25 U/L (bình thường), HBV DNA 800 IU/mL, FibroScan 13,5 kPa. Theo QĐ 1740/2026, có chỉ định điều trị kháng virus không?",
+   o:["Không, vì ALT bình thường","Không, vì HBV DNA dưới 2.000 IU/mL","Có, vì đã có xơ gan (FibroScan >12,5 kPa), không phụ thuộc HBV DNA hay ALT","Chỉ theo dõi, làm lại FibroScan sau 1 năm"],
+   a:2,
+   e:"Tiêu chuẩn điều trị VGB mạn (người ≥12 tuổi) theo QĐ 1740/2026 — điều trị khi có <b>bất kỳ</b>: ① <b>xơ hóa đáng kể (≥F2) hoặc xơ gan (F4)</b> — <b>KHÔNG phụ thuộc HBV DNA và ALT</b> · ② <b>HBV DNA &gt;2.000 IU/mL VÀ ALT &gt;ULN</b> · ③ có yếu tố nguy cơ (đồng nhiễm HIV/HDV/HCV, đái tháo đường, gan nhiễm mỡ chuyển hóa, suy giảm miễn dịch, biểu hiện ngoài gan, <b>gia đình có người ung thư gan/xơ gan</b>) kèm HBV DNA trên ngưỡng phát hiện. Mốc xơ hóa: <b>≥F2 khi APRI &gt;0,5 hoặc FibroScan &gt;7 kPa</b>; <b>F4 khi APRI &gt;1 hoặc FibroScan &gt;12,5 kPa</b>. Thuốc: TDF, TAF hoặc ETV, lâu dài."},
+
+  {q:"Bệnh nhân viêm gan B cấp đã theo dõi đủ 6 tháng: lâm sàng ổn, men gan bình thường, nhưng HBsAg vẫn dương tính, anti-HBs âm tính. Kết luận và xử trí?",
+   o:["Đã hồi phục, không cần theo dõi","Đã chuyển sang viêm gan B mạn, quản lý như viêm gan B mạn","Tiêm vắc xin viêm gan B để tạo anti-HBs","Làm lại HBsAg sau 1 tháng rồi mới kết luận"],
+   a:1,
+   e:"<b>Mốc 6 tháng</b> là tiêu chuẩn phân định: <b>HBsAg còn dương sau 6 tháng = nhiễm HBV MẠN</b> → quản lý như VGB mạn (đánh giá HBeAg, HBV DNA, ALT, độ xơ hóa để xét chỉ định điều trị). <b>Người nhiễm HBV mạn KHÔNG có chỉ định tiêm vắc xin</b> (tiêm không hiệu quả). Tỉ lệ chuyển mạn ở người lớn chỉ khoảng <b>1–5%</b> (95–99% khỏi bệnh), trong khi ở trẻ sơ sinh là &gt;90%. Tư vấn kèm theo: xét nghiệm HBsAg cho bạn tình và người thân, tiêm vắc xin nếu họ chưa nhiễm; không dùng chung dao cạo, bàn chải."},
+
+  {q:"Nữ 32 tuổi, nhân viên quán nhậu, uống bia 3–4 lon/ngày, dùng thực phẩm chức năng làm đẹp da 6 tháng, vàng da ngày 6. AST 800, ALT 900 U/L, GGT 40 U/L. IgM anti-HAV (−), HBsAg (−), IgM anti-HBc (−), anti-HCV (−), IgM anti-HEV (+). Nguyên nhân viêm gan cấp nghĩ nhiều nhất?",
+   o:["Viêm gan cấp do siêu vi (HEV)","Viêm gan cấp do thực phẩm chức năng","Viêm gan cấp do rượu","Viêm gan do chuyển hóa"],
+   a:0,
+   e:"Đề cố tình cài nhiều yếu tố gây nhiễu (rượu, thực phẩm chức năng), nhưng dữ kiện quyết định là: <b>ALT &gt; AST</b> (kiểu siêu vi; rượu thì AST &gt; ALT với tỉ số &gt;2) · <b>GGT chỉ 40 U/L</b> (rượu thường làm GGT tăng rất cao) · và <b>IgM anti-HEV (+)</b> — dấu ấn nhiễm cấp. Kết luận: <b>viêm gan cấp do siêu vi E</b>. Bài học của câu này là nguyên tắc bộ môn nhắc lại nhiều lần: <b>“thực tế có thể gặp viêm gan do 2 nguyên nhân trở lên”</b> — vẫn phải khuyên bệnh nhân ngưng rượu và thực phẩm chức năng, nhưng nguyên nhân chính được xác định bằng dấu ấn huyết thanh."}
+  ]
+},
+{
+  name:"7 · Dại – Bạch hầu – Uốn ván",
+  sub:"Phân độ vết thương dại, SAD, Ablett, dự phòng sau phơi nhiễm",
+  qs:[
+  {q:"Bé trai 8 tuổi bị chó lạ cắn ở cẳng tay phải, vết cắn chảy máu. Con chó đang bị nhốt tại nhà, trông khỏe mạnh, không rõ tiền căn chích ngừa. Xử trí phù hợp nhất?",
+   o:["Đập chết con chó để xét nghiệm ngay","Rửa vết thương, tiêm vắc xin dại ngay, nhốt theo dõi con chó 10 ngày; nếu chó vẫn bình thường thì dừng tiêm sau ngày thứ 10","Chỉ rửa vết thương, theo dõi con chó 10 ngày rồi mới quyết định tiêm","Tiêm huyết thanh kháng dại và vắc xin đủ 5 mũi bất kể tình trạng con chó"],
+   a:1,
+   e:"Vết cắn <b>chảy máu ở vùng XA thần kinh trung ương</b> (cẳng tay, một vết) = <b>độ III</b>, con vật bình thường lúc cắn và theo dõi được → <b>tiêm vắc xin NGAY</b>, không chờ; <b>nhốt theo dõi con vật 10 ngày</b> (vì chó thải virus trong nước bọt 4–12 ngày trước khi có triệu chứng). Nếu trong 10 ngày con vật vẫn bình thường → <b>dừng tiêm sau ngày thứ 10</b>; nếu ốm, có triệu chứng dại hoặc mất tích → tiêm đủ liều. <b>Không giết con vật</b> vì mất khả năng theo dõi. Nguyên tắc: không chờ kết quả con vật mới điều trị dự phòng — súc vật nghi dại cắn là cấp cứu nội khoa."},
+
+  {q:"Nam 30 tuổi bị chó lạ cắn vào MẶT, vết thương nhỏ, con chó đã được chủ xác nhận khỏe mạnh và có tiêm phòng dại. Bệnh nhân chưa từng tiêm phòng dại. Xử trí?",
+   o:["Chỉ rửa vết thương, không cần tiêm vì chó đã tiêm phòng","Tiêm vắc xin dại, dừng sau ngày 10 nếu chó bình thường","Tiêm huyết thanh kháng dại (phong bế vết thương) và vắc xin dại ngay","Chỉ tiêm huyết thanh kháng dại"],
+   a:2,
+   e:"Vết cắn/cào <b>gần thần kinh trung ương (ĐẦU, MẶT, CỔ)</b>, hoặc ở vùng nhiều dây thần kinh (<b>đầu chi, bộ phận sinh dục</b>), hoặc <b>sâu, nhiều vết</b> → độ III nhóm nguy cơ cao nhất → <b>tiêm huyết thanh kháng dại + vắc xin NGAY, bất kể tình trạng con vật</b>. Lý do: ủ bệnh càng ngắn khi vết cắn càng gần não. Bảng BYT ghi rõ tình trạng con vật được tính <b>“kể cả động vật đã được tiêm phòng dại”</b> — vì ở Việt Nam miễn dịch cộng đồng ở chó chưa đạt, chó đã tiêm chỉ giảm nguy cơ. Huyết thanh: ngựa 40 UI/kg hoặc người 20 UI/kg, <b>phong bế quanh vết thương</b>, phần còn lại tiêm bắp xa chỗ tiêm vắc xin."},
+
+  {q:"Bé trai 6 tuổi bị con chó nhà (đã tiêm ngừa, không có biểu hiện lạ) liếm vào MẮT. Xử trí phù hợp nhất?",
+   o:["Không cần xử trí vì chó đã tiêm ngừa","Rửa mắt, tiêm vắc xin dại 5 mũi và huyết thanh kháng dại","Chỉ rửa mắt bằng nước muối","Tiêm 3 mũi vắc xin dại"],
+   a:1,
+   e:"Liếm trên <b>da lành = độ I = không điều trị</b>; nhưng liếm lên <b>NIÊM MẠC</b> thì khác. Handout bộ môn liệt kê 4 chỉ định huyết thanh kháng dại: ① vết cắn/cào ở đầu, mặt, cổ, sinh dục · ② <b>NIÊM MẠC bị súc vật nghi dại liếm</b> · ③ vết cắn sâu hoặc nhiều chỗ · ④ <b>TRẺ EM tiếp xúc với virus dại</b>. Bệnh nhân này có cả ② và ④, lại ở vùng mặt gần TKTW. Ghi chú CBL: <b>niêm mạc mắt, hậu môn → xếp độ III</b>; môi và vùng quanh hậu môn (bán niêm) → độ II. Tình trạng tiêm ngừa của chó không làm thay đổi chỉ định."},
+
+  {q:"Nữ 28 tuổi đã tiêm đủ 5 mũi vắc xin dại (loại tế bào) cách đây 1 năm. Nay bị chó hoang cắn nhiều vết ở bắp chân, chảy máu. Xử trí đúng?",
+   o:["Tiêm lại đủ 5 mũi và huyết thanh kháng dại","Rửa vết thương, tiêm nhắc 2 mũi vắc xin vào ngày 0 và ngày 3, KHÔNG cần huyết thanh kháng dại","Không cần tiêm gì vì đã có miễn dịch","Chỉ tiêm huyết thanh kháng dại"],
+   a:1,
+   e:"QĐ 1622/2014 — người <b>ĐÃ tiêm phòng dại</b> đủ phác đồ bằng vắc xin tế bào: xử lý vết thương thường quy, <b>KHÔNG cần huyết thanh kháng dại</b> (dù vết thương độ III), chỉ <b>tiêm nhắc 2 mũi vào ngày 0 và ngày 3</b>. Lý do: hệ miễn dịch đã có trí nhớ, đáp ứng thứ phát nhanh. <b>NHƯNG phải tiêm lại ĐẦY ĐỦ phác đồ</b> trong 3 trường hợp: ① đã tiêm <b>chưa đủ 3 mũi</b>; ② đã tiêm bằng <b>vắc xin sản xuất trên mô não</b>; ③ bệnh nhân <b>HIV/AIDS hoặc ức chế miễn dịch</b>. Đang tiêm dở dang mà bị cắn tiếp thì <b>tiếp tục cho đủ liệu trình</b>."},
+
+  {q:"Theo hướng dẫn giám sát, phòng chống bệnh dại trên người của Bộ Y tế (2014), vết thương do CHUỘT (động vật gặm nhấm) cắn được xử trí dự phòng dại như thế nào?",
+   o:["Tiêm huyết thanh kháng dại và vắc xin như chó cắn độ III","Xem xét chỉ định tiêm vắc xin dại, không cần tiêm huyết thanh kháng dại","Tuyệt đối không cần làm gì","Chỉ tiêm huyết thanh kháng dại"],
+   a:1,
+   e:"QĐ 1622/2014 ghi rõ: <b>“các vết thương do động vật GẶM NHẤM, GIA SÚC cắn thì xem xét chỉ định tiêm vắc xin dại mà KHÔNG cần tiêm huyết thanh kháng dại”</b>. Bộ môn nhấn thêm rằng trên thực tế chuột rất hiếm khi truyền dại. Tuy nhiên vết chuột cắn là vết thương bẩn nên <b>vẫn phải xử lý vết thương và cân nhắc dự phòng UỐN VÁN</b>. So sánh: <b>động vật HOANG DÃ cắn → xử lý như động vật BỊ DẠI</b>; nếu bắt được và xét nghiệm âm tính thì mới dừng điều trị dự phòng."},
+
+  {q:"Nam 30 tuổi, bị chó rong cắn ở mu bàn tay 1 tháng trước, không tiêm ngừa. Ngày 1–3: sốt nhẹ, ngứa và dị cảm tại vết cắn đã lành, lo lắng, dễ nổi nóng. Ngày 4: sợ nước, sợ gió, lên cơn co giật ngắn; giữa các cơn bệnh nhân tỉnh táo. Xét nghiệm thường được thực hiện nhất để chẩn đoán xác định?",
+   o:["Chọc dò dịch não tủy, nuôi cấy virus","RT-PCR tìm ARN virus dại trong nước bọt","CT scan sọ não","Tìm thể Negri trong mô não bệnh nhân"],
+   a:1,
+   e:"Lâm sàng điển hình <b>dại thể hung dữ</b>: tiền triệu với <b>dị cảm tại vết cắn đã lành</b> + thay đổi tính tình; toàn phát với <b>sợ nước, sợ gió</b>, co thắt; đặc biệt <b>GIỮA HAI CƠN BỆNH NHÂN VẪN TỈNH</b> (khác viêm não là rối loạn tri giác liên tục). Xét nghiệm xác định có 4 loại (DFA sinh thiết da gáy, RFFIT, phân lập virus, RT-PCR), trong đó <b>phết nước bọt làm RT-PCR là xét nghiệm thường làm nhất</b> trên lâm sàng. Thể Negri là tiêu chuẩn chẩn đoán trên <b>não SÚC VẬT</b>. DNT chỉ biến đổi không đặc hiệu như viêm não–màng não; CT/MRI thường bình thường. Điều trị: phòng riêng yên tĩnh, an thần, tránh thủ thuật xâm lấn không cần thiết."},
+
+  {q:"Bé gái 5 tuổi, chưa chích ngừa, học mẫu giáo có nhiều bạn đau họng tương tự. Sốt 2 ngày, khàn giọng, thở co kéo 40 lần/phút, mạch không đều. Họng có giả mạc trắng hai amidan, dai, khó bóc, bóc chảy máu. Troponin I tăng cao, ECG nhịp không đều. Xử trí phù hợp nhất?",
+   o:["Penicillin G tiêm đơn thuần","Azithromycin uống 5 ngày","Cách ly, kháng độc tố SAD (sau test) kết hợp Penicillin G hoặc Erythromycin, theo dõi tim tại hồi sức","Fluconazole uống"],
+   a:2,
+   e:"Bệnh cảnh <b>bạch hầu</b> (chưa chích ngừa, dịch tễ lớp học, giả mạc dai dính chặt dễ chảy máu, khàn giọng gợi ý lan thanh quản) <b>có biến chứng viêm cơ tim</b> (mạch không đều, Troponin tăng). Nguyên tắc: <b>trung hòa độc tố càng sớm càng tốt</b> bằng <b>SAD</b> — chỉ định ngay khi nghi ngờ, không chờ cấy; <b>SAD chỉ trung hòa độc tố còn lưu hành trong máu, không trung hòa được độc tố đã gắn vào tế bào</b>. SAD là huyết thanh ngựa → <b>phải test, dương tính thì giải mẫn cảm Besredka</b>. Kháng sinh (Penicillin G hoặc Erythromycin 10–14 ngày) <b>không thay thế được kháng độc tố</b>. Kèm <b>cách ly và báo dịch</b>."},
+
+  {q:"Bệnh nhi nhập viện ngày thứ 4 của bệnh bạch hầu: sốt cao, giả mạc lan nhanh bít kín vòm hầu và lưỡi gà, hơi thở hôi, cổ sưng to biến dạng (cổ bạnh). Liều kháng độc tố SAD phù hợp?",
+   o:["10.000 đơn vị","20.000–40.000 đơn vị","40.000–60.000 đơn vị","80.000–120.000 đơn vị"],
+   a:3,
+   e:"Liều SAD tùy <b>vị trí sang thương và thời gian bệnh</b>: bạch hầu <b>mũi 20.000–40.000 đv</b> · bạch hầu <b>họng hoặc thanh quản (bệnh trước 48 giờ) 40.000–60.000 đv</b> · <b>bạch hầu ÁC TÍNH, thể lan rộng, hoặc nhập viện MUỘN ≥3 NGÀY: 80.000–120.000 đv</b>. Bệnh nhân này thỏa cả hai tiêu chí liều cao nhất (ác tính với cổ bạnh + ngày 4). Lưu ý: bảng trong slide và đề thi khóa trước dùng các mốc trên; handout ghi thể họng/thanh quản 20.000–40.000 — nên học theo slide. Tiêm tại phòng hồi sức có sẵn adrenalin."},
+
+  {q:"Biến chứng nào của bệnh bạch hầu xuất hiện SỚM NHẤT và có tỉ lệ tử vong cao nhất?",
+   o:["Viêm cơ tim, rối loạn nhịp, block nhĩ thất","Liệt màn hầu, liệt dây thần kinh ngoại biên","Suy thận cấp","Viêm phổi, xẹp phổi"],
+   a:0,
+   e:"Độc tố bạch hầu (ức chế tổng hợp protein) tác động chủ yếu lên <b>CƠ TIM, THẦN KINH và THẬN</b>. <b>Biến chứng TIM</b> xuất hiện <b>sớm ngày 3–7 (tiên lượng nặng hơn)</b> hoặc muộn ngày 15–30; ECG bất thường ở 2/3 ca (ST-T, QT kéo dài, block nhĩ thất), nặng có block độ III, rung thất, suy tim; <b>Troponin tăng là dấu tiên lượng xấu</b>; block độ III phải đặt máy tạo nhịp. <b>Biến chứng THẦN KINH</b> xuất hiện <b>muộn tuần 3–4</b>: liệt màn hầu (mất phản xạ nôn, giọng mũi, sặc), viêm đa dây thần kinh — gặp 5% thể nhẹ đến 75% thể nặng và <b>hồi phục gần như hoàn toàn</b>. Biến chứng do giả mạc (viêm phổi, xẹp phổi) là cơ học, không phải do độc tố."},
+
+  {q:"Bệnh nhân bạch hầu họng. Yếu tố nào sau đây là yếu tố TIÊN LƯỢNG NẶNG?",
+   o:["Chưa được chích ngừa","Bệnh nhân nhỏ tuổi","PCR phết họng dương tính","Đến viện trễ, điều trị kháng độc tố sau 3 ngày"],
+   a:3,
+   e:"Slide bộ môn liệt kê 6 yếu tố tiên lượng nặng: ① <b>cổ bạnh</b> · ② chảy máu mũi, niêm mạc, xuất huyết dưới da · ③ tắc nghẽn đường thở · ④ giả mạc bám đầy 2 amidan, lan khẩu cái, thành họng, lên mũi hay xuống thanh quản · ⑤ biến chứng tim · ⑥ <b>ĐIỀU TRỊ KHÁNG ĐỘC TỐ TRỄ SAU 3 NGÀY</b>. Lý do ⑥ quan trọng: càng để lâu, càng nhiều độc tố đã gắn vào tế bào mà SAD không trung hòa được. <b>“Chưa chích ngừa” là yếu tố nguy cơ MẮC bệnh</b> chứ không phải tiên lượng nặng — đây là bẫy đã ra ở ít nhất 2 đợt thi. PCR dương chỉ xác định có vi khuẩn, không xác định có sinh độc tố (phải dùng phản ứng Elek)."},
+
+  {q:"Nữ sinh 18 tuổi, đau họng, sốt. Khám: nhiều giả mạc trắng–vàng trên amidan sưng to, hạch cổ hai bên sưng đau di động, GAN LÁCH TO. WBC 8.000/µL, neutrophil 40% (lympho ưu thế, có lympho không điển hình). Tác nhân nghĩ nhiều nhất?",
+   o:["Candida albicans","Epstein–Barr virus","Corynebacterium diphtheriae","Streptococcus nhóm A"],
+   a:1,
+   e:"Phân biệt viêm họng giả mạc: <b>Tăng đơn nhân nhiễm trùng (EBV)</b> → đau họng + giả mạc + sốt + <b>hạch cổ nhiều</b> + <b>GAN LÁCH TO, tổn thương gan</b> + CTM <b>lympho ưu thế, có lympho không điển hình</b>; chẩn đoán bằng huyết thanh/PCR. <b>Bạch hầu</b> → giả mạc trắng ngà–xám, dai, dính chặt, bóc chảy máu, sốt nhẹ, <b>BC tăng nhẹ ưu thế neutrophil</b>, thường ở trẻ 1–9 tuổi chưa chích ngừa. <b>Candida</b> → giả mạc trắng mủn, bóc dễ, cơ địa suy giảm miễn dịch. <b>Liên cầu nhóm A</b> → họng đỏ, amidan xuất tiết chấm trắng, neutrophil tăng, CRP cao; điều trị penicillin. (Lưu ý: tránh dùng ampicillin/amoxicillin ở EBV vì gây phát ban.)"},
+
+  {q:"Trẻ 3 tuổi bạch hầu thanh quản: khàn tiếng, ho ong ỏng, nay khó thở LIÊN TỤC, bứt rứt lăn lộn, thở rít, lõm ngực. Xử trí hô hấp phù hợp nhất?",
+   o:["Chỉ thở oxy qua mũi và theo dõi","Mở khí quản","Dùng corticoid liều cao, chờ đáp ứng","Khí dung adrenalin rồi cho về"],
+   a:1,
+   e:"Ba giai đoạn khó thở thanh quản: <b>độ 1</b> khó thở từng cơn, tăng khi kích thích · <b>độ 2</b> khó thở <b>LIÊN TỤC, bứt rứt lăn lộn, THỞ RÍT, LÕM NGỰC</b> · <b>độ 3</b> thở yếu dần, nhanh nông rồi chậm lại, tím tái, tri giác u ám → rồi ngạt thở, ngưng tim. Bệnh nhân đang ở <b>độ 2</b>. Handout ghi rõ: <b>“tốt nhất nên mở khí quản khi có khó thở thanh quản độ 2 trở lên”</b>, kèm lấy bỏ giả mạc và chăm sóc canuyn tránh bội nhiễm, tắc nghẽn. Hydrocortisone 1–2 mg/kg/ngày chỉ là hỗ trợ giảm phù nề, không thay thế được việc khai thông đường thở. Nhớ phân biệt với viêm thanh thiệt do H. influenzae."},
+
+  {q:"Nam 45 tuổi, uốn ván ngày 5: cứng hàm, cứng cổ, cứng lưng, nuốt sặc, không co giật, SpO₂ 95%. Theo dõi monitor liên tục: mạch dao động 72–122 lần/phút, huyết áp dao động 122/70 – 210/112 mmHg, không có tiền căn tăng huyết áp. Phân độ Ablett?",
+   o:["Độ I (nhẹ)","Độ II (trung bình)","Độ III (nặng)","Độ IV (rất nặng)"],
+   a:3,
+   e:"Bảng Ablett: <b>độ I</b> cứng hàm ít, không co thắt, không nuốt khó · <b>độ II</b> cứng vừa, thở &gt;30, nuốt khó ít, co thắt ngắn · <b>độ III</b> hàm khít, co thắt dài, <b>nuốt sặc</b>, ngưng thở, mạch &gt;120, thở &gt;40 · <b>độ IV = độ III + RỐI LOẠN THẦN KINH THỰC VẬT</b>. Dấu hiệu quyết định ở đây là <b>mạch và huyết áp DAO ĐỘNG</b> với biên độ lớn → rối loạn thần kinh thực vật → <b>độ IV</b>. Lưu ý của giảng viên: <b>chỉ mạch nhanh đơn thuần CHƯA đủ</b> — phải là dao động, phải theo dõi monitor liên tục và phải loại trừ bệnh nền (ví dụ tăng huyết áp sẵn có)."},
+
+  {q:"Nam 40 tuổi, cứng hàm 3 ngày, vết thương đạp đinh ở chân 10 ngày trước. Khám: tỉnh, không sốt, cứng hàm, khoảng cách hai cung răng 2 cm, không cứng cổ, không cứng lưng, không nuốt sặc, không co giật. Bệnh nhân đang ở giai đoạn nào?",
+   o:["Ủ bệnh","Khởi phát","Toàn phát","Hồi phục"],
+   a:1,
+   e:"Định nghĩa các thời kỳ: <b>Ủ bệnh</b> = từ vết thương đến triệu chứng đầu tiên là <b>CỨNG HÀM</b> (trung bình 7–14 ngày) · <b>KHỞI PHÁT</b> = từ khi <b>cứng hàm</b> đến khi có <b>cơn co giật và/hoặc co thắt hầu họng–thanh quản ĐẦU TIÊN</b> (trung bình 2–5 ngày) · <b>Toàn phát</b> = bệnh cảnh đầy đủ (co cứng lan tỏa, co giật, co thắt) · Hồi phục 3–4 tuần. Bệnh nhân mới có cứng hàm, chưa co giật, chưa co thắt → <b>khởi phát</b>. Cả ủ bệnh và khởi phát <b>càng ngắn thì bệnh càng nặng</b>; thời kỳ khởi phát có giá trị tiên lượng tốt hơn vì chính xác hơn (25% không tìm được ngõ vào). Xử trí: nhập khoa Nhiễm, phòng cách ly yên tĩnh, theo dõi co giật và thân nhiệt."},
+
+  {q:"Nam 86 tuổi, cứng hàm ngày 3. Khám: tỉnh, sinh hiệu ổn, chỉ cứng hàm, không cứng cổ, không cứng lưng, không nuốt sặc, không co giật; ấn đau góc hàm bên trái nhiều hơn bên phải. Ngoài uốn ván, chẩn đoán phân biệt cần nghĩ tới nhất?",
+   o:["Động kinh","Hysteria","Viêm khớp thái dương hàm","Viêm màng não"],
+   a:2,
+   e:"Trong uốn ván, <b>không tìm thấy điểm đau rõ rệt vùng quai hàm</b> (handout) và cứng hàm là do co cứng cơ nhai lan tỏa, hai bên như nhau. Khi có <b>ĐIỂM ĐAU KHU TRÚ ở góc hàm, một bên nhiều hơn</b> ở người cao tuổi → nghĩ <b>viêm khớp thái dương hàm</b> (hoặc tai biến răng khôn nếu khám thấy răng số 8 viêm). Mẹo phân biệt từ CBL: <b>nghiệm pháp đè lưỡi</b> — uốn ván thì hàm càng khít lại, viêm khớp thái dương hàm thì hàm rộng ra (nghiệm pháp này ít dùng vì có thể kích thích co giật). Câu này đã xuất hiện ít nhất ba lần trong các đợt thi trước."},
+
+  {q:"Nam 40 tuổi, uốn ván toàn thể, vết thương bàn chân còn dị vật và mưng mủ. Bệnh nhân đang lên cơn co gồng toàn thân, SpO₂ 90%. Thứ tự xử trí đúng nhất?",
+   o:["Cắt lọc vết thương ngay để loại bỏ nguồn độc tố → SAT → an thần","SAT → cắt lọc vết thương ngay → an thần","Cắt cơn bằng an thần (diazepam TM), bảo đảm hô hấp → SAT (sau test) + Metronidazole → xử trí vết thương sau tiêm SAT ít nhất 1 giờ","Dãn cơ ngay mà không cần đặt nội khí quản"],
+   a:2,
+   e:"Nguyên tắc: <b>CẤP CỨU TRƯỚC — ĐẶC HIỆU SAU</b>. ① Cấp cứu: <b>cắt cơn co giật bằng an thần</b> (diazepam 0,1–0,3 mg/kg, tối đa 10 mg TM mỗi 2–4 giờ), thở oxy, hút đàm, mở khí quản nếu co thắt/ngưng thở. ② Đặc hiệu: <b>SAT</b> (test 75 đv trong da trước) + kháng sinh + <b>xử trí vết thương SAU TIÊM SAT ÍT NHẤT 1 GIỜ</b> — vì thao tác trên vết thương phóng thích thêm độc tố vào máu. Khi dị vật nhiều, nằm sâu thì <b>không cố lấy hết trong một lần</b> (kích thích mạnh có thể gây tử vong đột ngột). <b>Thuốc dãn cơ chỉ dùng khi đã có đường thở nhân tạo và máy thở</b> vì gây liệt cơ hô hấp."},
+
+  {q:"Bệnh nhân uốn ván toàn thể, cần chọn kháng sinh diệt Clostridium tetani tại vết thương. Lựa chọn đầu tay hiện nay?",
+   o:["Penicillin G 200.000 đv/kg/ngày TM","Metronidazole 500 mg × 3 lần/ngày uống × 7–10 ngày","Ceftriaxone 2 g/ngày","Vancomycin 1 g mỗi 12 giờ"],
+   a:1,
+   e:"<b>Metronidazole là lựa chọn ĐẦU TAY</b>: an toàn, và nghiên cứu tại BV Bệnh Nhiệt đới cho thấy nhóm dùng Metronidazole <b>cần ít thuốc chống co giật và dãn cơ hơn</b>, nằm viện ngắn hơn so với Penicillin. Liều: uống 500 mg × 3 lần/ngày (trẻ em 30 mg/kg/ngày), tọa dược 400 mg mỗi 6 giờ, hoặc truyền TM 500 mg mỗi 6 giờ, trong 7–10 ngày; <b>đường uống/tọa dược hấp thu tốt và ít gây co giật hơn đường TM</b>. Lý do Penicillin G <b>không còn là đầu tay</b>: vòng β-lactam có cấu trúc tương tự GABA → <b>đối kháng cạnh tranh với GABA</b>, tức hiệp đồng với tetanospasmin, có thể gây co giật."},
+
+  {q:"Nữ 57 tuổi đạp đinh ở bàn chân phải, vết thương dính nhiều đất cát. Bệnh nhân được tiêm chủng mở rộng từ nhỏ nhưng chưa tiêm nhắc lại từ rất lâu (>10 năm). Xử trí dự phòng uốn ván theo cách bộ môn hướng dẫn?",
+   o:["Không cần tiêm vì đã tiêm từ nhỏ","1 mũi VAT đơn thuần","3 mũi VAT (0-1-6) và 1 mũi SAT 1.500–3.000 đơn vị, tiêm ở hai vị trí xa nhau","1 mũi SAT đơn thuần"],
+   a:2,
+   e:"Vết thương <b>nặng</b> (đạp đinh, dính đất cát, yếm khí) ở người <b>mũi cuối đã &gt;10 năm</b>. Bảng trong handout ghi “tiêm nhắc 1 liều VAT + SAT 1.500–3.000 đv” cho nhóm này, <b>nhưng giảng viên CBL nhấn mạnh</b>: kháng thể uốn ván chỉ tồn tại 5–10 năm và <b>không có xét nghiệm đo kháng thể</b>, nên <b>“quá 10 năm thì chích lại CẢ 3 MŨI”</b> — người 40–57 tuổi dù hồi nhỏ đã tiêm 3 mũi cũng phải tiêm lại 3 mũi. Đáp án đề thi các khóa trước cũng chọn <b>3 VAT + 1 SAT</b>. <b>VAT và SAT tiêm ở hai vị trí xa nhau</b>. Lưu ý <b>khoảng trống miễn dịch ngày 10–30</b> (SAT hết tác dụng, VAT chưa tạo đủ kháng thể) → chăm sóc vết thương thật tốt."},
+
+  {q:"Bệnh nhân uốn ván được tuyến huyện tiêm SAT 8 ống (12.000 đv) cách đây 4 ngày, nay chuyển lên tuyến trên. Xử trí về SAT?",
+   o:["Tiêm bổ sung 6 ống cho đủ 21.000 đơn vị","Tiêm lại liều đầy đủ 14 ống","Không tiêm thêm SAT","Chuyển sang HTIG 10.000 đơn vị"],
+   a:2,
+   e:"SAT chỉ <b>trung hòa độc tố CÒN LƯU HÀNH TRONG MÁU</b>, không trung hòa được độc tố đã gắn vào tế bào thần kinh, nên có hiệu quả nhất trong <b>48 giờ đầu</b>. Thời gian bán hủy SAT là 2 ngày, tác dụng 7–10 ngày. Bệnh nhân đã được tiêm một liều đáng kể cách đây 4 ngày → <b>không tiêm thêm</b>; hơn nữa <b>liều cao hơn không cải thiện tử vong mà còn tăng nguy cơ tai biến miễn dịch</b> (SAT là huyết thanh ngựa). CBL nhấn: phải <b>hỏi rõ tuyến trước đã tiêm SAT chưa, đã test chưa</b> vì tiêm lặp lại rất nguy hiểm. Liều chuẩn khi điều trị: người lớn ≥40 kg <b>21.000 đv (14 ống 1.500 đv) tiêm bắp liều duy nhất</b>."},
+
+  {q:"Bệnh nhân uốn ván ra viện sau 4 tuần điều trị. Tư vấn phòng ngừa đúng?",
+   o:["Không cần tiêm vì mắc bệnh đã tạo miễn dịch suốt đời","Tiêm 1 mũi VAT nhắc lại","Gây miễn dịch cơ bản bằng 3 mũi VAT theo phác đồ 0-1-6 như người chưa có miễn dịch, sau đó nhắc lại mỗi 5–10 năm","Chỉ tiêm khi bị vết thương mới"],
+   a:2,
+   e:"<b>Mắc uốn ván KHÔNG tạo được miễn dịch bảo vệ</b>: lượng độc tố gây bệnh quá nhỏ để kích thích đáp ứng miễn dịch, và bệnh nhân lại được dùng SAT trong điều trị. Vì vậy phải <b>gây miễn dịch cơ bản 3 mũi VAT 0-1-6</b> như người chưa có miễn dịch, nhắc lại mỗi 5–10 năm. Thực hành (CBL): <b>mũi 1 tiêm ngay trước khi xuất viện</b>, phát giấy hẹn mũi 2 và 3. Động học kháng thể: mũi 1 chưa tạo miễn dịch · mũi 2 đạt &gt;0,01 UI/mL ở 90% · mũi 3 bảo vệ &gt;5 năm · mũi 4 bảo vệ 10 năm · mũi 5 bảo vệ 20 năm. <b>VAT an toàn với phụ nữ có thai, không cần test trước khi tiêm</b>."}
+  ]
+},
+{
+  name:"8 · Tiêu chảy nhiễm trùng",
+  sub:"Xâm lấn vs không xâm lấn, phân độ mất nước, phác đồ A/B/C, kháng sinh",
+  qs:[
+  {q:"Nữ 32 tuổi, tiêu chảy ngày 1, phân lỏng toàn nước, đục, mùi tanh, khoảng 20 lần/ngày, không sốt, không đau bụng, không mót rặn. Khám: tỉnh, mạch 100, HA 100/70, uống nước háo hức, véo da mất nhanh, mắt trũng. Chẩn đoán phù hợp nhất?",
+   o:["Tiêu chảy cấp do tả, mất nước nặng","Tiêu chảy cấp do tả, có mất nước","Tiêu chảy cấp do vi khuẩn xâm lấn, mất nước nặng","Tiêu chảy cấp do vi khuẩn xâm lấn, có mất nước"],
+   a:1,
+   e:"<b>Tác nhân</b>: phân <b>đục như nước vo gạo, MÙI TANH</b> (do nhiều bicarbonate), số lượng rất nhiều, <b>không sốt, không đau bụng, không mót rặn</b> → <b>tả</b> (không xâm lấn, tổn thương ruột non). <b>Mức độ mất nước</b> theo bảng WHO — cần ≥2 dấu, trong đó ≥1 dấu có sao: <b>uống háo hức</b> + <b>mắt trũng*</b> → <b>CÓ mất nước</b>. Chưa phải mất nước nặng vì bệnh nhân <b>còn uống được, tỉnh táo, véo da mất nhanh</b> (mất nước nặng: li bì, không uống được, véo da mất rất chậm, mắt trũng rất sâu, mạch yếu/không bắt được, HA thấp)."},
+
+  {q:"Vẫn bệnh nhân trên (nghi tả). Xét nghiệm nào giúp chẩn đoán NHANH tác nhân tả, đặc biệt có ý nghĩa trên cộng đồng?",
+   o:["PCR phân tìm vi khuẩn tả và độc tố","Cấy phân trên môi trường TCBS","Soi phân dưới kính hiển vi nền đen tìm phẩy khuẩn di động nhanh, bị bất hoạt bởi kháng huyết thanh chống tả","Nhuộm Gram phân"],
+   a:2,
+   e:"Chú ý chữ <b>“NHANH”</b>. <b>Soi phân kính hiển vi NỀN ĐEN</b> thấy <b>vi khuẩn hình cong mảnh, di động rất nhanh, bị BẤT HOẠT bởi kháng huyết thanh chống tả INABA hay OGAWA</b> → chẩn đoán nhanh, <b>có ý nghĩa trên cộng đồng</b>. Soi phân tả <b>không có hồng cầu, không có bạch cầu</b> (không xâm lấn). <b>Cấy phân trên TCBS hoặc TTG</b> (có muối mật ức chế vi khuẩn đường ruột khác) là để <b>xác định chẩn đoán và báo dịch</b>, nhưng mất thời gian. PCR là kỹ thuật bổ sung. <i>V. cholerae</i> là vi khuẩn gram âm nên nhuộm Gram không đặc hiệu."},
+
+  {q:"Người lớn 60 kg, tiêu chảy do tả, đã bù dịch ổn định, uống được. Kháng sinh phù hợp nhất?",
+   o:["Ciprofloxacin 500 mg × 3 lần/ngày × 3 ngày","Azithromycin 1 g liều duy nhất","Doxycycline 200 mg liều duy nhất","Tetracycline 500 mg × 3 lần/ngày × 3 ngày"],
+   a:1,
+   e:"Bảng kháng sinh tả (người lớn) của bộ môn: <b>Azithromycin 1 g LIỀU DUY NHẤT</b> · <b>Ciprofloxacin 500 mg × 2 lần/ngày × 3 ngày</b> · <b>Doxycycline 300 mg LIỀU DUY NHẤT</b> · Tetracycline 500 mg × <b>4</b> lần/ngày × 3 ngày · Erythromycin 250 mg × 4 lần/ngày × 3 ngày. Các phương án A, C, D đều <b>sai liều hoặc sai số lần</b> — đây là kiểu bẫy hay gặp. Mục đích kháng sinh trong tả: <b>giảm nhanh lượng nước mất, rút ngắn thời gian tiêu chảy, thải trừ vi khuẩn (ngăn lây lan)</b>, và phải cho <b>ngay khi bệnh nhân uống được</b>. Trẻ em: Azithromycin 20 mg/kg liều duy nhất; tetracycline/doxycycline không dùng &lt;8 tuổi."},
+
+  {q:"Nam 55 kg, tiêu chảy cấp do tả, mất nước nặng (li bì, không uống được, mạch khó bắt). Phác đồ bù dịch đúng?",
+   o:["ORS 4.125 mL uống trong 4 giờ","Ringer lactate 1.650 mL trong 30 phút đầu, sau đó 3.850 mL trong 2 giờ 30 phút","NaCl 0,9% 1.100 mL trong 1 giờ","Ringer lactate 825 mL trong 1 giờ, sau đó 1.925 mL trong 5 giờ"],
+   a:1,
+   e:"Mất nước nặng (≥10% trọng lượng) → <b>phác đồ C: truyền Ringer lactate 100 mL/kg</b>. Với <b>người lớn và trẻ ≥12 tháng</b>: <b>30 mL/kg trong 30 PHÚT đầu</b> + <b>70 mL/kg trong 2 giờ 30 phút</b> → 55 × 30 = <b>1.650 mL/30 phút</b>; 55 × 70 = <b>3.850 mL/2,5 giờ</b>. Phương án D là cách chia cho <b>trẻ &lt;12 tháng</b> (1 giờ + 5 giờ) nhưng tính sai liều. Dùng <b>kim 18G</b>, tĩnh mạch lớn; một đường không đủ thì mở thêm đường thứ hai. <b>Không dùng NaCl 0,9% đơn thuần</b> — tả là mất nước đẳng trương, Ringer lactate có đủ Na, K, Cl, HCO₃ phù hợp hơn."},
+
+  {q:"Bé trai 8 tháng tuổi, nặng 8 kg, tiêu chảy cấp mất nước nặng: li bì, mắt trũng sâu, không uống được, véo da mất rất chậm. Phác đồ truyền Ringer lactate đúng?",
+   o:["240 mL trong 30 phút, sau đó 560 mL trong 2 giờ 30 phút","240 mL trong 1 giờ đầu, sau đó 560 mL trong 5 giờ","800 mL trong 1 giờ","ORS 600 mL trong 4 giờ"],
+   a:1,
+   e:"<b>Bẫy tuổi</b> đã ra thi: với <b>trẻ DƯỚI 12 THÁNG</b>, phác đồ C vẫn là 100 mL/kg nhưng <b>truyền CHẬM HƠN, trong 6 giờ</b>: <b>30 mL/kg trong 1 GIỜ đầu</b> + <b>70 mL/kg trong 5 GIỜ</b> → 8 × 30 = <b>240 mL/1 giờ</b>; 8 × 70 = <b>560 mL/5 giờ</b>. Phương án A là cách chia của người lớn/trẻ ≥12 tháng (30 phút + 2,5 giờ) — sai ở trẻ nhũ nhi vì nguy cơ quá tải. Ghi chú đánh giá mất nước ở trẻ: <b>nước mắt</b> dùng để đánh giá trẻ em; <b>dấu véo da không dùng ở trẻ suy dinh dưỡng thể teo hay thể phù</b>. Khi trẻ uống được thì cho thêm ORS (ORS giảm áp lực thẩm thấu phù hợp trẻ em)."},
+
+  {q:"Nam 60 kg, tiêu chảy cấp phân nước, có mất nước (khát, uống háo hức, mắt trũng), tỉnh táo, không nôn, uống được. Y lệnh bù dịch phù hợp?",
+   o:["Uống ORS theo nhu cầu sau mỗi lần đi tiêu","Uống ORS 4.500 mL trong 4 giờ đầu","Truyền Ringer lactate 1.800 mL trong 30 phút","Truyền Glucose 5% 1.000 mL"],
+   a:1,
+   e:"<b>Có mất nước (6–9% trọng lượng)</b> + còn uống được → <b>phác đồ B: ORS 75 mL/kg trong 4 giờ</b> → 60 × 75 = <b>4.500 mL/4 giờ</b>. Phác đồ A (ORS theo nhu cầu, sau mỗi lần đi tiêu, ~50 mL/kg/4 giờ) dành cho <b>không mất nước</b>. Truyền tĩnh mạch chỉ khi <b>mất nước nặng, suy tuần hoàn, mất nước nhanh không uống kịp (tả), hoặc không uống được (nôn liên tục, hôn mê)</b>. Cơ sở của ORS: <b>cơ chế đồng vận chuyển glucose–natri</b> ở niêm mạc ruột vẫn hoạt động ngay cả khi độc tố tả đang gây tiết. (Slide ghi phác đồ B là 60–90 mL/kg/4–6 giờ; mốc 75 mL/kg/4 giờ là mốc đã dùng trong đề thi.)"},
+
+  {q:"Bệnh nhân tả nhập viện huyện ngày 3: tiêu chảy phân toàn nước đục mùi tanh >20 lần/3 ngày, mệt lả, mạch = 0, huyết áp = 0. Xử trí ĐẦU TIÊN cần thiết?",
+   o:["Thở oxy mũi, nằm đầu cao","Kháng sinh tĩnh mạch ngay liều đầu tiên","Cho uống Oresol ngay","Lập đường truyền tĩnh mạch với kim lớn, truyền Ringer lactate nhanh"],
+   a:3,
+   e:"Mạch = 0, HA = 0 là <b>sốc giảm thể tích nặng</b> — tử vong trong vài giờ nếu không bù. Ưu tiên tuyệt đối: <b>lập đường truyền kim lớn (18G), truyền Ringer lactate NHANH</b> theo phác đồ C; kim 18G ở tĩnh mạch cổ tay/cổ chân đạt ~1.000 mL/15 phút, tĩnh mạch trung tâm (bẹn, cảnh trong, dưới đòn) ~1.000 mL/7–10 phút, <b>không mất thời gian bộc lộ tĩnh mạch</b>. Kháng sinh chỉ cho <b>khi bệnh nhân uống được</b>. Bệnh nhân sốc không uống được ORS. Theo dõi đáp ứng: mạch, HA cải thiện sau 30–60 phút, <b>hết khàn tiếng</b>, da ấm, tiểu được; khi truyền nhanh phải theo dõi dấu phù phổi."},
+
+  {q:"Bệnh nhân tả mất nước nặng được bù Ringer lactate. Sau 6 giờ, huyết động ổn, toan chuyển hóa đã được điều chỉnh, nhưng bệnh nhân yếu cơ, bụng chướng, nhu động ruột giảm. Rối loạn nghĩ nhiều nhất?",
+   o:["Hạ natri máu","Hạ kali máu","Tăng kali máu","Hạ calci máu"],
+   a:1,
+   e:"Cảnh báo trong handout dịch tả: <b>“trong những giờ đầu có toan chuyển hóa có thể ĐÁNH GIÁ SAI tình trạng thiếu Kali. Sau khi bù nước và điều chỉnh toan, có thể xảy ra HẠ KALI MÁU NẶNG, LIỆT RUỘT, LIỆT CƠ”</b>. Cơ chế: toan máu đẩy K⁺ từ trong tế bào ra ngoài → kali máu “giả bình thường”; khi sửa toan, K⁺ đi vào lại tế bào → lộ ra thiếu kali thật. Kali mất nhiều qua phân tả (15–25 mEq/L), cộng với cường aldosteron do giảm thể tích. <b>Ringer lactate chỉ có 4 mEq/L kali</b> → phải cho <b>uống ORS ngay khi uống được</b> để bù K⁺ và HCO₃⁻."},
+
+  {q:"Rối loạn nước – điện giải – kiềm toan đặc trưng của tiêu chảy do tả là gì?",
+   o:["Mất nước ưu trương, tăng natri, tăng kali","Mất nước nhược trương, hạ natri","Mất nước đẳng trương, hạ kali, toan chuyển hóa","Mất nước đẳng trương, tăng kali, kiềm chuyển hóa"],
+   a:2,
+   e:"Độc tố tả (cấu trúc 1A + 5B) hoạt hóa liên tục <b>adenyl cyclase → tăng cAMP → tăng tiết Cl⁻ ở crypt, ức chế hấp thu Na⁺ ở đỉnh nhung mao</b> → phân tả chứa nhiều <b>Na⁺, Cl⁻, K⁺ và HCO₃⁻</b>. Hệ quả: ① <b>mất nước ĐẲNG TRƯƠNG</b> (Na⁺ phân tả ≈ huyết tương, nên Na⁺ máu bình thường) · ② <b>HẠ KALI</b> (mất qua phân + cường aldosteron) · ③ <b>TOAN CHUYỂN HÓA tăng anion gap</b> (mất HCO₃⁻ qua phân + tụt HA gây chuyển hóa yếm khí sinh lactate). Lâm sàng toan: <b>thở nhanh sâu</b>, <b>nôn muộn</b> ra nước trong. Vọp bẻ do mất nước nhanh và toan chuyển hóa."},
+
+  {q:"Nhóm 8 người cùng dự tiệc buổi trưa. Khoảng 3 giờ sau, nhiều người nôn ói dữ dội, đau quặn thượng vị, tiêu lỏng vài lần, không sốt. Tác nhân nghĩ nhiều nhất?",
+   o:["Vibrio cholerae","Shigella","Độc tố có sẵn trong thức ăn của Staphylococcus aureus (hoặc Bacillus cereus)","Entamoeba histolytica"],
+   a:2,
+   e:"Ba dấu hiệu khóa: <b>ủ bệnh RẤT NGẮN (1–6 giờ)</b> + <b>NÔN nổi bật, đau thượng vị</b> + <b>nhiều người cùng ăn một bữa</b> → <b>ngộ độc do ĐỘC TỐ CÓ SẴN (preformed toxin)</b> trong thức ăn của <i>S. aureus</i> hoặc <i>B. cereus</i>. Vì độc tố đã có sẵn nên không cần thời gian vi khuẩn nhân lên; bệnh <b>tự giới hạn sau 12–24 giờ</b>, không cần kháng sinh, chỉ bù dịch. Phân biệt: tả ủ bệnh 6–48 giờ, không đau bụng, nôn muộn; Shigella ủ bệnh 12–72 giờ, sốt cao, phân nhầy máu. Bài giảng: “nhiễm trùng nhiễm độc thức ăn: khởi phát trong vòng 6 giờ sau ăn, nôn sớm ra thức ăn, đau bụng nhiều thượng vị”."},
+
+  {q:"Trẻ 2 tuổi, khởi phát nôn ói nhiều ngay từ đầu, sau đó tiêu chảy phân nước, không máu, không đau bụng nhiều, sốt nhẹ. Nhóm tác nhân nghĩ nhiều nhất?",
+   o:["Virus (Rotavirus, Norovirus)","Shigella","Vibrio cholerae","Salmonella"],
+   a:0,
+   e:"Hội chứng <b>viêm dạ dày–ruột (gastroenteritis)</b>, tổn thương <b>dạ dày + ruột non</b>, cơ chế rối loạn hấp thu của niêm mạc viêm → đặc trưng <b>NÔN NHIỀU và NÔN SỚM</b>, tiêu phân nước, <b>tự giới hạn sau khoảng 7 ngày</b>. Tác nhân: <b>Rotavirus (hàng đầu ở trẻ nhỏ), Norovirus, Adenovirus đường ruột</b>. Phân biệt với tả: tả <b>nôn MUỘN</b> (do toan chuyển hóa), không đau bụng. Dự phòng Rotavirus: vắc xin uống đơn giá 2 liều lúc 2 và 4 tháng tuổi. Virus thường tự giới hạn nhưng ở trẻ nhỏ mất nước nặng vẫn có thể tử vong — nên trọng tâm là đánh giá và bù nước."},
+
+  {q:"Nam 28 tuổi, sốt cao 39,5°C, lạnh run ngày 2, đau quặn bụng hạ vị trái, đi tiêu lắt nhắt 15 lần/ngày, phân ít, nhầy máu, mót rặn. Soi phân: bạch cầu đa nhân +++, hồng cầu +. Tác nhân nghĩ nhiều nhất?",
+   o:["Vibrio cholerae","ETEC","Shigella","Norovirus"],
+   a:2,
+   e:"Đây là <b>hội chứng lỵ</b> = viêm đại tràng cấp do vi khuẩn <b>XÂM LẤN</b>: sốt cao, triệu chứng toàn thân; <b>đau quặn hạ vị/hố chậu trái</b> (viêm đại tràng sigma); <b>tiêu lắt nhắt, MÓT RẶN</b> (tổn thương trực tràng); phân ít, nhầy máu mũi (“như nước rửa thịt”); soi phân <b>BC đa nhân +++ và HC +</b>. Tác nhân hàng đầu: <b>Shigella</b> (ngoài ra EIEC, EHEC, Salmonella, Campylobacter). <i>S. dysenteriae</i> type 1 (trực khuẩn Shiga) gây dịch, tử vong 10–30%. Biến chứng: <b>sa trực tràng</b> do rặn nhiều, <b>HUS</b>. Lưu ý giai đoạn khởi phát Shigella có thể chỉ là phân lỏng toàn nước — dễ nhầm với tiêu chảy không xâm lấn."},
+
+  {q:"Nữ 40 tuổi, tiêu chảy 9 ngày, phân nhầy máu lượng ít, đi lắt nhắt nhiều lần, đau quặn hạ vị, mót rặn, KHÔNG sốt, toàn trạng ít ảnh hưởng. Kết quả soi phân nào phù hợp nhất với tác nhân nghĩ tới?",
+   o:["Có hồng cầu, bạch cầu, bào nang E. histolytica","Có hồng cầu, có bạch cầu, dưỡng bào E. histolytica ăn hồng cầu","Không hồng cầu, không bạch cầu, có bào nang E. histolytica","Không hồng cầu, không bạch cầu, phẩy khuẩn di động nhanh"],
+   a:1,
+   e:"Bệnh cảnh <b>lỵ amip</b>: hội chứng lỵ nhưng <b>KHÔNG sốt</b>, khởi phát từ từ, <b>kéo dài/bán cấp</b>, ít ảnh hưởng toàn thân (khác Shigella sốt cao, đột ngột). Soi phân phù hợp: <b>HC (+), BC (+), DƯỠNG BÀO HOẠT ĐỘNG ĂN HỒNG CẦU</b> — đây là thể xâm lấn gây bệnh. <b>Bào nang</b> chỉ là thể lây truyền/người lành mang trùng, <b>không chứng minh đang bệnh</b> — đây là bẫy kinh điển (đã ra trong pretest Y20). Dưỡng bào không ăn hồng cầu gặp ở KST không xâm lấn. Biến chứng xa quan trọng: <b>áp xe gan amip</b>."},
+
+  {q:"Bệnh nhân được chẩn đoán lỵ amip (soi phân thấy dưỡng bào E. histolytica ăn hồng cầu). Điều trị đặc hiệu phù hợp?",
+   o:["Ciprofloxacin 500 mg × 2 lần/ngày × 3 ngày","Metronidazole 500–750 mg mỗi 8 giờ × 7–10 ngày","Azithromycin 1 g liều duy nhất","Loperamide kết hợp men vi sinh"],
+   a:1,
+   e:"<b>Giardia và E. histolytica: Metronidazole 500–750 mg mỗi 8 giờ trong 7–10 ngày</b>. Các thuốc kháng sinh diệt vi khuẩn (quinolone, azithromycin) không có tác dụng trên đơn bào. <b>Loperamide chống chỉ định trong hội chứng lỵ</b>. Các KST khác trong bảng bộ môn: <i>Isospora</i> → Cotrimoxazole 160/800 mg × 2 × 7–10 ngày; <i>Strongyloides</i> → Ivermectin 200 mcg/kg/ngày (1–2 ngày ở người không SGMD; 2 ngày và lặp lại sau 2 tuần ở người SGMD). Metronidazole cũng là thuốc điều trị <i>C. difficile</i> (250 mg uống mỗi 6 giờ × 7–10 ngày, hoặc Vancomycin uống)."},
+
+  {q:"Người lớn bị lỵ trực khuẩn Shigella, ở vùng vi khuẩn đã kháng Ampicillin và TMP-SMX. Kháng sinh phù hợp theo bảng của bộ môn?",
+   o:["Ampicillin 500 mg × 4 lần/ngày × 5 ngày","Ciprofloxacin 500 mg × 2 lần/ngày × 3 ngày","Metronidazole 500 mg × 3 lần/ngày × 7 ngày","Loperamide + TMP-SMX"],
+   a:1,
+   e:"Bảng Shigella của bộ môn: <b>vùng KHÔNG kháng thuốc</b> → Ampicillin 500 mg × 4 hoặc TMP-SMX 160/800 mg × 2, trong <b>5 ngày</b>. <b>Vùng KHÁNG thuốc</b> → <b>Ciprofloxacin 500 mg × 2 × 3 ngày</b> · Ceftriaxone 2 g/ngày × 5 ngày · Cefixime 200 mg × 2 × 5 ngày · Azithromycin 1 g liều duy nhất hoặc 500 mg ngày 1 rồi 250 mg ngày 2–5 · Levofloxacin 500 mg/ngày. (QĐ 5642 cho Ciprofloxacin 5 ngày; khi thi nên theo bảng bộ môn.) Mục tiêu kháng sinh trong Shigella: <b>giảm mất nước, giảm sốt, giảm biến chứng</b>, rút ngắn thời gian thải vi khuẩn. Kèm <b>phòng chống lây nhiễm và thông báo dịch</b>."},
+
+  {q:"Bệnh nhân tiêu chảy cấp có sốt 39°C, phân nhầy máu, mót rặn. Thuốc nào CHỐNG CHỈ ĐỊNH?",
+   o:["Paracetamol hạ sốt","Oresol","Loperamide (thuốc chống nhu động)","Smecta (thuốc hấp thu nước)"],
+   a:2,
+   e:"<b>Thuốc chống nhu động (loperamide) CHỐNG CHỈ ĐỊNH</b> trong 4 tình huống: ① <b>HỘI CHỨNG LỴ</b> (sốt + phân có đàm, máu) — vì làm vi khuẩn xâm lấn lưu lại lâu trong lòng ruột, tăng nguy cơ biến chứng; ② <b>trẻ nhỏ &lt;12 tuổi</b> (gây lừ đừ, tăng tổn thương đại tràng); ③ hăm loét hậu môn; ④ sa trực tràng. Riêng trong <b>tả</b> cũng không dùng thuốc cầm tiêu chảy vì <b>không hạn chế được mất nước, gây thải vi khuẩn kéo dài và không theo dõi được lượng nước tiếp tục mất</b>. Được dùng: hạ sốt, chống co giật, thuốc hấp thu nước, giảm co thắt (spasmaverin)."},
+
+  {q:"Nữ 30 tuổi, tiêu lỏng 3 lần/ngày, phân vàng không máu, không sốt, không đau bụng nhiều, tỉnh táo, không dấu mất nước, không bệnh nền. Xử trí phù hợp?",
+   o:["Ciprofloxacin 500 mg × 2 lần/ngày × 3 ngày","Truyền Ringer lactate 1.000 mL","Không dùng kháng sinh; uống ORS theo nhu cầu sau mỗi lần đi tiêu, ăn uống bình thường, hẹn tái khám nếu có dấu hiệu nặng","Soi phân và cấy phân ngay"],
+   a:2,
+   e:"Nguyên tắc: <b>không có chỉ định kháng sinh khi tiêu chảy &lt;4 lần/ngày</b> và không có dấu hiệu nặng. Chỉ định kháng sinh: <b>nghi Shigella hoặc tác nhân xâm lấn</b> · triệu chứng toàn thân nặng · cơ địa đặc biệt (SGMD, trẻ nhỏ, người già, thai phụ) · người đi du lịch. Chỉ làm xét nghiệm phân khi có dấu nặng: <b>sốt &gt;38,5°C, đau bụng, phân có máu, &gt;6 lần/ngày, mất nước, SGMD, &gt;70 tuổi</b>, hoặc bệnh kéo dài &gt;7 ngày. Bệnh nhân không mất nước → <b>phác đồ A</b>: ORS theo nhu cầu và sau mỗi lần đi tiêu, <b>cho ăn sớm</b> (khả năng hấp thu không bị rối loạn nặng)."},
+
+  {q:"Bệnh nhân tả 50 kg đã qua giai đoạn bù nước ban đầu, hiện vẫn tiêu phân toàn nước trong. Ước lượng tốc độ dịch cần bù duy trì để theo kịp lượng mất tiếp tục?",
+   o:["50–100 mL/giờ","250 mL/giờ","500–1.000 mL/giờ","2.000 mL/giờ"],
+   a:2,
+   e:"Bù nước duy trì dựa vào <b>bảng xuất–nhập mỗi giờ của điều dưỡng</b> và <b>tính chất phân</b>: <b>phân toàn NƯỚC TRONG → mất 10–20 mL/kg/giờ</b> → 50 × (10–20) = <b>500–1.000 mL/giờ</b>; <b>phân nước XANH RÊU → tối thiểu 5 mL/kg/giờ</b>. Diễn tiến màu phân khi điều trị đúng: <b>nước trong → xanh rêu (sau 12–24 giờ) → sệt vàng và đặc dần (sau 2–4 ngày)</b>. Con số này nhất quán với đặc điểm lâm sàng của tả: lượng phân <b>500–1.000 mL mỗi giờ</b>, có thể tới 250 mL/kg trong 24 giờ đầu, người lớn mất tới 20 lít/ngày. Sau khi có huyết áp, theo dõi nước tiểu <b>0,5–1 mL/kg/giờ</b>."},
+
+  {q:"Trong gia đình có một bệnh nhân được xác định mắc tả. Xử trí cho người tiếp xúc cùng hộ gia đình?",
+   o:["Không cần xử trí vì tả không lây trực tiếp","Tiêm vắc xin tả dạng tiêm ngay","Cách ly và theo dõi, điều trị người tiếp xúc trong 5 ngày; dùng Doxycycline 300 mg liều duy nhất hoặc Tetracycline 500 mg × 4 lần/ngày × 3 ngày","Chỉ theo dõi, cho kháng sinh khi xuất hiện tiêu chảy"],
+   a:2,
+   e:"Khi có ca bệnh tả, 7 biện pháp: cung cấp nước sạch · kiểm soát vệ sinh thực phẩm · vệ sinh phân rác · <b>cách ly người bệnh</b> · <b>cách ly và điều trị người tiếp xúc trong 5 NGÀY</b> bằng <b>Tetracycline 500 mg × 4 lần/ngày × 3 ngày hoặc Doxycycline 300 mg liều duy nhất</b> · <b>báo dịch</b> theo quy trình · xác định nguồn lây. Tả là bệnh truyền nhiễm <b>nhóm A</b>. <b>Vắc xin tiêm (vi khuẩn chết) đã không còn được sử dụng</b> vì hiệu quả thấp (50%), bảo vệ ngắn 3–6 tháng; hiện dùng vắc xin UỐNG: Dukoral, Shanchol/mORCVAX (có O139, 2 liều cách 14 ngày), CVD103-HgR (sống giảm độc lực, 1 liều, cho du khách)."},
+
+  {q:"Nam 35 tuổi, đi làm rẫy ở Bình Phước về 2 tuần, nay sốt cao liên tục 39,5°C, lạnh run, tiêu lỏng 6 lần/ngày phân vàng không máu, niêm nhạt, lơ mơ nhẹ. Xét nghiệm cần làm KHÔNG được bỏ sót?",
+   o:["Cấy phân trên môi trường TCBS","Soi phân tìm dưỡng bào amip","Phết máu ngoại biên tìm ký sinh trùng sốt rét","Tìm độc tố Clostridium difficile"],
+   a:2,
+   e:"Bài giảng mở đầu bằng cảnh báo: <b>“tiêu chảy có thể KHÔNG phải nhiễm trùng tiêu hóa mà là rối loạn do BỆNH TOÀN THÂN NẶNG cần xử trí tích cực: sốt rét, nhiễm trùng huyết, bệnh lý nội–ngoại khoa”</b>. Dịch tễ <b>Bình Phước</b> (vùng sốt rét lưu hành), <b>sốt cao lạnh run</b>, niêm nhạt, lơ mơ → phải nghĩ <b>sốt rét ác tính thể tiêu chảy</b> — nằm trong danh sách chẩn đoán phân biệt của bệnh tả — và làm ngay <b>phết máu ngoại biên tìm KSTSR</b>. Tả điển hình <b>không sốt</b> và không rối loạn tri giác. Các chẩn đoán phân biệt khác của tả: vi khuẩn sinh độc tố khác, virus, nhiễm độc thức ăn, lỵ giai đoạn khởi phát, ngộ độc hóa chất."}
+  ]
+}
+];
+
+const app = document.getElementById('app');
+const tabsEl = document.getElementById('tabs');
+const doneEl = document.getElementById('done');
+const scoreEl = document.getElementById('score');
+const totalEl = document.getElementById('total');
+const L = ['A','B','C','D'];
+let filter = -1;
+const state = {}; // key "t-q" -> chosen index
+
+function totalCount(){
+  return DATA.reduce((s,t)=>s+t.qs.length,0);
+}
+
+function render(){
+  app.innerHTML = '';
+  DATA.forEach((topic, ti)=>{
+    if(filter !== -1 && filter !== ti) return;
+    const h = document.createElement('h2');
+    h.className = 'topichead'; h.textContent = topic.name;
+    const s = document.createElement('p');
+    s.className = 'topicsub'; s.textContent = topic.sub;
+    app.appendChild(h); app.appendChild(s);
+
+    topic.qs.forEach((item, qi)=>{
+      const key = ti+'-'+qi;
+      const card = document.createElement('section');
+      card.className = 'q';
+      const chosen = state[key];
+      if(chosen !== undefined) card.classList.add('locked');
+
+      const num = document.createElement('div');
+      num.className = 'qn'; num.textContent = 'Câu ' + (qi+1);
+      const stem = document.createElement('p');
+      stem.className = 'stem'; stem.textContent = item.q;
+      const ul = document.createElement('ul');
+      ul.className = 'opts';
+
+      item.o.forEach((opt, oi)=>{
+        const li = document.createElement('li');
+        li.className = 'opt';
+        li.innerHTML = '<span class="k">'+L[oi]+'.</span><span></span>';
+        li.lastChild.textContent = opt;
+        if(chosen !== undefined){
+          if(oi === item.a) li.classList.add('right');
+          else if(oi === chosen) li.classList.add('wrong');
+        } else {
+          li.addEventListener('click', ()=>{ state[key] = oi; render(); });
+        }
+        ul.appendChild(li);
+      });
+
+      const exp = document.createElement('div');
+      exp.className = 'exp' + (chosen !== undefined ? ' show' : '');
+      if(chosen !== undefined){
+        const v = document.createElement('div');
+        const ok = chosen === item.a;
+        v.className = 'verdict ' + (ok ? 'ok' : 'no');
+        v.textContent = ok ? 'Chính xác — đáp án ' + L[item.a]
+                           : 'Chưa đúng — đáp án đúng là ' + L[item.a];
+        const body = document.createElement('div');
+        body.innerHTML = item.e;
+        exp.appendChild(v); exp.appendChild(body);
+      }
+
+      card.appendChild(num); card.appendChild(stem); card.appendChild(ul); card.appendChild(exp);
+      app.appendChild(card);
+    });
+  });
+  updateMeta();
+}
+
+function updateMeta(){
+  const keys = Object.keys(state);
+  let right = 0;
+  keys.forEach(k=>{
+    const [ti,qi] = k.split('-').map(Number);
+    if(state[k] === DATA[ti].qs[qi].a) right++;
+  });
+  doneEl.textContent = keys.length;
+  scoreEl.textContent = right;
+  totalEl.textContent = totalCount();
+}
+
+DATA.forEach((t,i)=>{
+  const b = document.createElement('button');
+  b.className = 'tab'; b.type = 'button'; b.setAttribute('role','tab');
+  b.textContent = t.name.split(' · ')[1] || t.name;
+  b.setAttribute('aria-selected', 'false');
+  b.addEventListener('click', ()=>{
+    filter = (filter === i) ? -1 : i;
+    [...tabsEl.children].forEach((c,ci)=>c.setAttribute('aria-selected', String(ci-1 === filter)));
+    render(); window.scrollTo({top:0, behavior:'smooth'});
+  });
+  tabsEl.appendChild(b);
+});
+const all = document.createElement('button');
+all.className = 'tab'; all.type='button'; all.textContent = 'Tất cả';
+all.setAttribute('aria-selected','true');
+all.addEventListener('click', ()=>{
+  filter = -1;
+  [...tabsEl.children].forEach((c,ci)=>c.setAttribute('aria-selected', String(ci===0)));
+  render(); window.scrollTo({top:0, behavior:'smooth'});
+});
+tabsEl.insertBefore(all, tabsEl.firstChild);
+
+document.getElementById('revealAll').addEventListener('click', ()=>{
+  DATA.forEach((t,ti)=>t.qs.forEach((q,qi)=>{ if(state[ti+'-'+qi]===undefined) state[ti+'-'+qi] = q.a; }));
+  render();
+});
+document.getElementById('reset').addEventListener('click', ()=>{
+  Object.keys(state).forEach(k=>delete state[k]);
+  render(); window.scrollTo({top:0, behavior:'smooth'});
+});
+
+render();
+</script>
+</body>
+</html>
